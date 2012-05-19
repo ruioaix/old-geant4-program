@@ -3,7 +3,7 @@
 # GNUmakefile for examples module.  Gabriele Cosmo, 06/04/98.
 # --------------------------------------------------------------
 
-name := exampleN02
+name := nipXray
 G4TARGET := $(name)
 G4EXLIB := true
 
