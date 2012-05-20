@@ -22,6 +22,13 @@
 
 int main(int argc,char** argv)
 {
+	G4Timer myTimer;
+	myTimer.Start(); 	
+	time_t lt;
+	lt = time(NULL);
+	printf("开始时间：");
+	printf(ctime(&lt));	
+    
     // User Verbose output class
     //
     G4VSteppingVerbose* verbosity = new ExN02SteppingVerbose;
@@ -81,7 +88,7 @@ int main(int argc,char** argv)
         session = new G4UIterminal();
 #endif
 #ifdef G4VIS_USE
-        UI->ApplyCommand("/control/execute vis.mac");     
+        UI->ApplyCommand("/control/execute macs/vis.mac");     
 #endif
         session->SessionStart();
         delete session;
@@ -97,6 +104,12 @@ int main(int argc,char** argv)
 
     delete runManager;
     delete verbosity;
+
+	printf("结束时间：");
+	lt = time(NULL);
+	printf(ctime(&lt));
+	myTimer.Stop();
+	G4cout<<"总耗时:"<<myTimer<<G4endl;
 
     return 0;
 }
