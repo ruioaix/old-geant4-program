@@ -1,17 +1,17 @@
 //....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......
 //....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......
 
-#include "ExN02SteppingAction.hh"
+#include "NXSteppingAction.hh"
 #include "G4SteppingManager.hh"
 
 //....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......
 
-ExN02SteppingAction::ExN02SteppingAction()
+NXSteppingAction::NXSteppingAction()
 { }
 
 //....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......
 
-void ExN02SteppingAction::UserSteppingAction(const G4Step*)
+void NXSteppingAction::UserSteppingAction(const G4Step*)
 { 
 }
 

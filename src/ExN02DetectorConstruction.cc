@@ -35,6 +35,7 @@ ExN02DetectorConstruction::ExN02DetectorConstruction() :
     fWorldLength(0.),  fTargetLength(0.), fTrackerLength(0.),
     NbOfChambers(0) ,  ChamberWidth(0.),  ChamberSpacing(0.)
 {
+    //In NXMagneticField, the constructor does everything. now there is no MagneticField, because there is no G4threevector variable in () and it mean the MagneticField is zero.
     fpMagField = new NXMagneticField();
     detectorMessenger = new NXUIMessenger(this);
 }

@@ -4,9 +4,9 @@
 #include "ExN02DetectorConstruction.hh"
 #include "ExN02PhysicsList.hh"
 #include "ExN02PrimaryGeneratorAction.hh"
-#include "ExN02RunAction.hh"
-#include "ExN02EventAction.hh"
-#include "ExN02SteppingAction.hh"
+#include "NXRunAction.hh"
+#include "NXEventAction.hh"
+#include "NXSteppingAction.hh"
 #include "ExN02SteppingVerbose.hh"
 
 #include "G4RunManager.hh"
@@ -53,13 +53,13 @@ int main(int argc,char** argv)
     G4VUserPrimaryGeneratorAction* gen_action = new ExN02PrimaryGeneratorAction(detector);
     runManager->SetUserAction(gen_action);
     //
-    G4UserRunAction* run_action = new ExN02RunAction;
+    G4UserRunAction* run_action = new NXRunAction;
     runManager->SetUserAction(run_action);
     //
-    G4UserEventAction* event_action = new ExN02EventAction;
+    G4UserEventAction* event_action = new NXEventAction;
     runManager->SetUserAction(event_action);
     //
-    G4UserSteppingAction* stepping_action = new ExN02SteppingAction;
+    G4UserSteppingAction* stepping_action = new NXSteppingAction;
     runManager->SetUserAction(stepping_action);
 
     // Initialize G4 kernel

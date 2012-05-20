@@ -1,32 +1,22 @@
 //....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......
 //....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......
 
-#ifndef ExN02RunAction_h
-#define ExN02RunAction_h 1
+#ifndef NXSteppingAction_h
+#define NXSteppingAction_h 1
 
-#include "G4UserRunAction.hh"
-#include "globals.hh"
+#include "G4UserSteppingAction.hh"
 
 //....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......
 
-class G4Run;
-
-class ExN02RunAction : public G4UserRunAction
+class NXSteppingAction : public G4UserSteppingAction
 {
     public:
-        ExN02RunAction();
-        ~ExN02RunAction();
+        NXSteppingAction();
+        ~NXSteppingAction(){};
 
-    public:
-        void BeginOfRunAction(const G4Run*);
-        void EndOfRunAction(const G4Run*);
+        void UserSteppingAction(const G4Step*);
 };
 
 //....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......
 
 #endif
-
-
-
-
-

@@ -1,7 +1,7 @@
 //....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......
 //....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......
 
-#include "ExN02EventAction.hh"
+#include "NXEventAction.hh"
 
 #include "G4Event.hh"
 #include "G4EventManager.hh"
@@ -11,22 +11,22 @@
 
 //....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......
 
-ExN02EventAction::ExN02EventAction()
+NXEventAction::NXEventAction()
 {}
 
 //....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......
 
-ExN02EventAction::~ExN02EventAction()
+NXEventAction::~NXEventAction()
 {}
 
 //....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......
 
-void ExN02EventAction::BeginOfEventAction(const G4Event*)
+void NXEventAction::BeginOfEventAction(const G4Event*)
 {}
 
 //....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......
 
-void ExN02EventAction::EndOfEventAction(const G4Event* evt)
+void NXEventAction::EndOfEventAction(const G4Event* evt)
 {
     G4int event_id = evt->GetEventID();
 
