@@ -1,8 +1,8 @@
 //....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......
 //....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......
 
-#ifndef ExN02DetectorMessenger_h
-#define ExN02DetectorMessenger_h 1
+#ifndef NXUIMessenger_h
+#define NXUIMessenger_h 1
 
 #include "globals.hh"
 #include "G4UImessenger.hh"
@@ -14,11 +14,11 @@ class G4UIcmdWithADoubleAndUnit;
 
 //....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......
 
-class ExN02DetectorMessenger: public G4UImessenger
+class NXUIMessenger: public G4UImessenger
 {
     public:
-        ExN02DetectorMessenger(ExN02DetectorConstruction*);
-        ~ExN02DetectorMessenger();
+        NXUIMessenger(ExN02DetectorConstruction*);
+        ~NXUIMessenger();
 
         void SetNewValue(G4UIcommand*, G4String);
 

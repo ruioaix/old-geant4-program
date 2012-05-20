@@ -14,7 +14,7 @@ class G4VPhysicalVolume;
 class G4Material;
 class G4VPVParameterisation;
 class G4UserLimits;
-class ExN02DetectorMessenger;
+class NXUIMessenger;
 
 //....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......
 
@@ -66,7 +66,7 @@ class ExN02DetectorConstruction : public G4VUserDetectorConstruction
 
         ExN02MagneticField* fpMagField;   // pointer to the magnetic field 
 
-        ExN02DetectorMessenger* detectorMessenger;  // pointer to the Messenger
+        NXUIMessenger* detectorMessenger;  // pointer to the Messenger
 
         G4double fWorldLength;            // Full length of the world volume
         G4double fTargetLength;           // Full length of Target

@@ -2,7 +2,7 @@
 //....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......
 
 #include "ExN02DetectorConstruction.hh"
-#include "ExN02DetectorMessenger.hh"
+#include "NXUIMessenger.hh"
 #include "ExN02ChamberParameterisation.hh"
 #include "ExN02MagneticField.hh"
 #include "ExN02TrackerSD.hh"
@@ -36,7 +36,7 @@ ExN02DetectorConstruction::ExN02DetectorConstruction() :
     NbOfChambers(0) ,  ChamberWidth(0.),  ChamberSpacing(0.)
 {
     fpMagField = new ExN02MagneticField();
-    detectorMessenger = new ExN02DetectorMessenger(this);
+    detectorMessenger = new NXUIMessenger(this);
 }
 
 //....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......

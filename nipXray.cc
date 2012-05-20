@@ -14,6 +14,10 @@
 #include "G4UIterminal.hh"
 #include "G4UItcsh.hh"
 
+#include "G4Timer.hh"
+#include "ctime"
+#include "cstdio"
+
 #ifdef G4VIS_USE
 #include "G4VisExecutive.hh"
 #endif
@@ -24,10 +28,8 @@ int main(int argc,char** argv)
 {
 	G4Timer myTimer;
 	myTimer.Start(); 	
-	time_t lt;
-	lt = time(NULL);
-	printf("开始时间：");
-	printf(ctime(&lt));	
+	time_t lt = time(NULL);
+	printf("the beginning time is %s", ctime(&lt));
     
     // User Verbose output class
     //
@@ -105,11 +107,10 @@ int main(int argc,char** argv)
     delete runManager;
     delete verbosity;
 
-	printf("结束时间：");
 	lt = time(NULL);
-	printf(ctime(&lt));
+	printf( "the end time is %s", ctime(&lt));
 	myTimer.Stop();
-	G4cout<<"总耗时:"<<myTimer<<G4endl;
+	G4cout<<"Spend time:"<<myTimer<<G4endl;
 
     return 0;
 }

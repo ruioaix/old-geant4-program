@@ -1,7 +1,7 @@
 //....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......
 //....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......
 
-#include "ExN02DetectorMessenger.hh"
+#include "NXUIMessenger.hh"
 
 #include "ExN02DetectorConstruction.hh"
 #include "G4UIdirectory.hh"
@@ -11,7 +11,7 @@
 
 //....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......
 
-ExN02DetectorMessenger::ExN02DetectorMessenger(ExN02DetectorConstruction* myDet) :
+NXUIMessenger::NXUIMessenger(ExN02DetectorConstruction* myDet) :
     myDetector(myDet)
 { 
     N02Dir = new G4UIdirectory("/N02/");
@@ -46,7 +46,7 @@ ExN02DetectorMessenger::ExN02DetectorMessenger(ExN02DetectorConstruction* myDet)
 
 //....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......
 
-ExN02DetectorMessenger::~ExN02DetectorMessenger()
+NXUIMessenger::~NXUIMessenger()
 {
     delete TargMatCmd;
     delete ChamMatCmd;
@@ -58,7 +58,7 @@ ExN02DetectorMessenger::~ExN02DetectorMessenger()
 
 //....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......
 
-void ExN02DetectorMessenger::SetNewValue(G4UIcommand* command,G4String newValue)
+void NXUIMessenger::SetNewValue(G4UIcommand* command,G4String newValue)
 { 
     if( command == TargMatCmd )
     { myDetector->setTargetMaterial(newValue);}
