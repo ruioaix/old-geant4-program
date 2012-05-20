@@ -1,13 +1,13 @@
 //....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......
 //....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......
 
-#include "ExN02MagneticField.hh"
+#include "NXMagneticField.hh"
 #include "G4FieldManager.hh"
 #include "G4TransportationManager.hh"
 
 //....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......
 
-ExN02MagneticField::ExN02MagneticField() :
+NXMagneticField::NXMagneticField() :
     G4UniformMagField(G4ThreeVector())
 {
     GetGlobalFieldManager()->SetDetectorField(this);
@@ -16,7 +16,7 @@ ExN02MagneticField::ExN02MagneticField() :
 
 //....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......
 
-ExN02MagneticField::ExN02MagneticField(G4ThreeVector fieldVector) : 
+NXMagneticField::NXMagneticField(G4ThreeVector fieldVector) : 
     G4UniformMagField(fieldVector)
 {
     GetGlobalFieldManager()->SetDetectorField(this);    
@@ -25,7 +25,7 @@ ExN02MagneticField::ExN02MagneticField(G4ThreeVector fieldVector) :
 
 //....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......
 
-ExN02MagneticField::~ExN02MagneticField()
+NXMagneticField::~NXMagneticField()
 {
 }
 
@@ -33,7 +33,7 @@ ExN02MagneticField::~ExN02MagneticField()
 
 // Set the value of the Global Field to fieldValue along X
 //
-void ExN02MagneticField::SetMagFieldValue(G4double fieldValue)
+void NXMagneticField::SetMagFieldValue(G4double fieldValue)
 {
     SetMagFieldValue(G4ThreeVector(fieldValue,0,0));
 }
@@ -42,7 +42,7 @@ void ExN02MagneticField::SetMagFieldValue(G4double fieldValue)
 
 // Set the value of the Global Field
 //
-void ExN02MagneticField::SetMagFieldValue(G4ThreeVector fieldVector)
+void NXMagneticField::SetMagFieldValue(G4ThreeVector fieldVector)
 {
     // Find the Field Manager for the global field
     G4FieldManager* fieldMgr= GetGlobalFieldManager();
@@ -61,7 +61,7 @@ void ExN02MagneticField::SetMagFieldValue(G4ThreeVector fieldVector)
 
 //....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......
 
-G4FieldManager*  ExN02MagneticField::GetGlobalFieldManager()
+G4FieldManager*  NXMagneticField::GetGlobalFieldManager()
 {
     return G4TransportationManager::GetTransportationManager()->GetFieldManager();
 }

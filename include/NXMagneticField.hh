@@ -1,8 +1,8 @@
 //....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......
 //....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......
 
-#ifndef ExN02MagneticField_H
-#define ExN02MagneticField_H
+#ifndef NXMagneticField_H
+#define NXMagneticField_H
 
 #include "G4UniformMagField.hh"
 
@@ -11,13 +11,13 @@ class G4FieldManager;
 //....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......
 
 
-class ExN02MagneticField: public G4UniformMagField
+class NXMagneticField: public G4UniformMagField
 {
     public:
 
-        ExN02MagneticField(G4ThreeVector);  //  The value of the field
-        ExN02MagneticField();               //  A zero field
-        ~ExN02MagneticField();  
+        NXMagneticField(G4ThreeVector);  //  The value of the field
+        NXMagneticField();               //  A zero field
+        ~NXMagneticField();  
 
         //Set the field (fieldValue,0,0)
         void SetMagFieldValue(G4double fieldValue);

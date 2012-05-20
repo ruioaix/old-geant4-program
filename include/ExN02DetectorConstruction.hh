@@ -6,7 +6,7 @@
 
 #include "globals.hh"
 #include "G4VUserDetectorConstruction.hh"
-#include "ExN02MagneticField.hh"
+#include "NXMagneticField.hh"
 
 class G4Box;
 class G4LogicalVolume;
@@ -64,7 +64,7 @@ class ExN02DetectorConstruction : public G4VUserDetectorConstruction
         G4VPVParameterisation* chamberParam; // pointer to chamber parameterisation
         G4UserLimits* stepLimit;             // pointer to user step limits
 
-        ExN02MagneticField* fpMagField;   // pointer to the magnetic field 
+        NXMagneticField* fpMagField;   // pointer to the magnetic field 
 
         NXUIMessenger* detectorMessenger;  // pointer to the Messenger
 

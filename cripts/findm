@@ -1,6 +1,7 @@
 #!/bin/bash
 ls include/* > aaa
 ls src/* >> aaa
+ls *.cc >> aaa
 cat aaa | while read line
 do
     if [ "$1" != "" ]; then
