@@ -1,19 +1,19 @@
 //....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......
 //....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......
 
-#ifndef ExN02PhysicsList_h
-#define ExN02PhysicsList_h 1
+#ifndef NXPhysicsList_h
+#define NXPhysicsList_h 1
 
 #include "G4VUserPhysicsList.hh"
 #include "globals.hh"
 
 //....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......
 
-class ExN02PhysicsList: public G4VUserPhysicsList
+class NXPhysicsList: public G4VUserPhysicsList
 {
     public:
-        ExN02PhysicsList();
-        ~ExN02PhysicsList();
+        NXPhysicsList();
+        ~NXPhysicsList();
 
     protected:
         // Construct particle and physics

@@ -2,14 +2,14 @@
 //....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......
 
 #include "globals.hh"
-#include "ExN02PhysicsList.hh"
+#include "NXPhysicsList.hh"
 
 #include "G4ProcessManager.hh"
 #include "G4ParticleTypes.hh"
 
 //....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......
 
-ExN02PhysicsList::ExN02PhysicsList():  G4VUserPhysicsList()
+NXPhysicsList::NXPhysicsList():  G4VUserPhysicsList()
 {
     defaultCutValue = 1.0*cm;
     SetVerboseLevel(1);
@@ -17,12 +17,12 @@ ExN02PhysicsList::ExN02PhysicsList():  G4VUserPhysicsList()
 
 //....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......
 
-ExN02PhysicsList::~ExN02PhysicsList()
+NXPhysicsList::~NXPhysicsList()
 {}
 
 //....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......
 
-void ExN02PhysicsList::ConstructParticle()
+void NXPhysicsList::ConstructParticle()
 {
     // In this method, static member functions should be called
     // for all particles which you want to use.
@@ -37,7 +37,7 @@ void ExN02PhysicsList::ConstructParticle()
 
 //....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......
 
-void ExN02PhysicsList::ConstructBosons()
+void NXPhysicsList::ConstructBosons()
 {
     // pseudo-particles
     G4Geantino::GeantinoDefinition();
@@ -49,7 +49,7 @@ void ExN02PhysicsList::ConstructBosons()
 
 //....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......
 
-void ExN02PhysicsList::ConstructLeptons()
+void NXPhysicsList::ConstructLeptons()
 {
     // leptons
     //  e+/-
@@ -68,7 +68,7 @@ void ExN02PhysicsList::ConstructLeptons()
 
 //....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......
 
-void ExN02PhysicsList::ConstructMesons()
+void NXPhysicsList::ConstructMesons()
 {
     //  mesons
     //    light mesons
@@ -87,7 +87,7 @@ void ExN02PhysicsList::ConstructMesons()
 
 //....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......
 
-void ExN02PhysicsList::ConstructBaryons()
+void NXPhysicsList::ConstructBaryons()
 {
     //  barions
     G4Proton::ProtonDefinition();
@@ -99,7 +99,7 @@ void ExN02PhysicsList::ConstructBaryons()
 
 //....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......
 
-void ExN02PhysicsList::ConstructProcess()
+void NXPhysicsList::ConstructProcess()
 {
     AddTransportation();
     ConstructEM();
@@ -132,7 +132,7 @@ void ExN02PhysicsList::ConstructProcess()
 
 //....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......
 
-void ExN02PhysicsList::ConstructEM()
+void NXPhysicsList::ConstructEM()
 {
     theParticleIterator->reset();
     while( (*theParticleIterator)() ){
@@ -197,7 +197,7 @@ void ExN02PhysicsList::ConstructEM()
 
 #include "G4Decay.hh"
 
-void ExN02PhysicsList::ConstructGeneral()
+void NXPhysicsList::ConstructGeneral()
 {
     // Add Decay Process
     G4Decay* theDecayProcess = new G4Decay();
@@ -219,7 +219,7 @@ void ExN02PhysicsList::ConstructGeneral()
 #include "G4StepLimiter.hh"
 #include "G4UserSpecialCuts.hh"
 
-void ExN02PhysicsList::AddStepMax()
+void NXPhysicsList::AddStepMax()
 {
     // Step limitation seen as a process
     G4StepLimiter* stepLimiter = new G4StepLimiter();
@@ -240,7 +240,7 @@ void ExN02PhysicsList::AddStepMax()
 
 //....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......
 
-void ExN02PhysicsList::SetCuts()
+void NXPhysicsList::SetCuts()
 {
     //G4VUserPhysicsList::SetCutsWithDefault method sets 
     //the default cut value for all particle types 

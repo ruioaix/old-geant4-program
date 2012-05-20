@@ -221,7 +221,7 @@ G4VPhysicalVolume* ExN02DetectorConstruction::Construct()
     //--------- example of User Limits -------------------------------
 
     // below is an example of how to set tracking constraints in a given
-    // logical volume(see also in N02PhysicsList how to setup the processes
+    // logical volume(see also in NXPhysicsList how to setup the processes
     // G4StepLimiter or G4UserSpecialCuts).
 
     // Sets a max Step length in the tracker region, with G4StepLimiter
