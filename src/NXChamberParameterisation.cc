@@ -1,7 +1,7 @@
 //....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......
 //....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......
 
-#include "ExN02ChamberParameterisation.hh"
+#include "NXChamberParameterisation.hh"
 
 #include "G4VPhysicalVolume.hh"
 #include "G4ThreeVector.hh"
@@ -9,7 +9,7 @@
 
 //....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......
 
-ExN02ChamberParameterisation::ExN02ChamberParameterisation(  
+NXChamberParameterisation::NXChamberParameterisation(  
         G4int    NoChambers, 
         G4double startZ,          //  Z of center of first 
         G4double spacingZ,        //  Z spacing of centers
@@ -26,7 +26,7 @@ ExN02ChamberParameterisation::ExN02ChamberParameterisation(
     if( NoChambers > 0 ){
         fHalfLengthIncr =  0.5 * (lengthFinal-lengthInitial)/NoChambers;
         if (spacingZ < widthChamber) {
-            G4Exception("ExN02ChamberParameterisation construction: Width>Spacing");
+            G4Exception("NXChamberParameterisation construction: Width>Spacing");
         }
     }
 
@@ -34,12 +34,12 @@ ExN02ChamberParameterisation::ExN02ChamberParameterisation(
 
 //....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......
 
-ExN02ChamberParameterisation::~ExN02ChamberParameterisation()
+NXChamberParameterisation::~NXChamberParameterisation()
 {}
 
 //....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......
 
-void ExN02ChamberParameterisation::ComputeTransformation
+void NXChamberParameterisation::ComputeTransformation
 (const G4int copyNo, G4VPhysicalVolume* physVol) const
 {
     G4double      Zposition= fStartZ + (copyNo+1) * fSpacing;
@@ -50,7 +50,7 @@ void ExN02ChamberParameterisation::ComputeTransformation
 
 //....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......
 
-void ExN02ChamberParameterisation::ComputeDimensions
+void NXChamberParameterisation::ComputeDimensions
 (G4Box& trackerChamber, const G4int copyNo, const G4VPhysicalVolume*) const
 {
     G4double  halfLength= fHalfLengthFirst + copyNo * fHalfLengthIncr;

@@ -1,7 +1,7 @@
 //....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......
 //....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......
 
-#include "ExN02TrackerSD.hh"
+#include "NXSensitiveDetector.hh"
 #include "G4HCofThisEvent.hh"
 #include "G4Step.hh"
 #include "G4ThreeVector.hh"
@@ -10,7 +10,7 @@
 
 //....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......
 
-ExN02TrackerSD::ExN02TrackerSD(G4String name) :
+NXSensitiveDetector::NXSensitiveDetector(G4String name) :
     G4VSensitiveDetector(name)
 {
     G4String HCname;
@@ -19,13 +19,13 @@ ExN02TrackerSD::ExN02TrackerSD(G4String name) :
 
 //....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......
 
-ExN02TrackerSD::~ExN02TrackerSD(){ }
+NXSensitiveDetector::~NXSensitiveDetector(){ }
 
 //....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......
 
-void ExN02TrackerSD::Initialize(G4HCofThisEvent* HCE)
+void NXSensitiveDetector::Initialize(G4HCofThisEvent* HCE)
 {
-    trackerCollection = new ExN02TrackerHitsCollection
+    trackerCollection = new NXHitsCollection
         (SensitiveDetectorName,collectionName[0]); 
     static G4int HCID = -1;
     if(HCID<0)
@@ -35,13 +35,13 @@ void ExN02TrackerSD::Initialize(G4HCofThisEvent* HCE)
 
 //....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......
 
-G4bool ExN02TrackerSD::ProcessHits(G4Step* aStep,G4TouchableHistory*)
+G4bool NXSensitiveDetector::ProcessHits(G4Step* aStep,G4TouchableHistory*)
 {
     G4double edep = aStep->GetTotalEnergyDeposit();
 
     if(edep==0.) return false;
 
-    ExN02TrackerHit* newHit = new ExN02TrackerHit();
+    NXHit* newHit = new NXHit();
     newHit->SetTrackID  (aStep->GetTrack()->GetTrackID());
     newHit->SetChamberNb(aStep->GetPreStepPoint()->GetTouchableHandle()
             ->GetCopyNumber());
@@ -57,7 +57,7 @@ G4bool ExN02TrackerSD::ProcessHits(G4Step* aStep,G4TouchableHistory*)
 
 //....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......
 
-void ExN02TrackerSD::EndOfEvent(G4HCofThisEvent*)
+void NXSensitiveDetector::EndOfEvent(G4HCofThisEvent*)
 {
     if (verboseLevel>0) { 
         G4int NbHits = trackerCollection->entries();

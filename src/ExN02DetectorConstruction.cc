@@ -3,9 +3,9 @@
 
 #include "ExN02DetectorConstruction.hh"
 #include "NXUIMessenger.hh"
-#include "ExN02ChamberParameterisation.hh"
+#include "NXChamberParameterisation.hh"
 #include "NXMagneticField.hh"
-#include "ExN02TrackerSD.hh"
+#include "NXSensitiveDetector.hh"
 
 #include "G4Material.hh"
 #include "G4Box.hh"
@@ -174,7 +174,7 @@ G4VPhysicalVolume* ExN02DetectorConstruction::Construct()
     G4double firstLength = fTrackerLength/10;
     G4double lastLength  = fTrackerLength;
 
-    chamberParam = new ExN02ChamberParameterisation(  
+    chamberParam = new NXChamberParameterisation(  
             NbOfChambers,          // NoChambers 
             firstPosition,         // Z of center of first 
             ChamberSpacing,        // Z spacing of centers
@@ -204,7 +204,7 @@ G4VPhysicalVolume* ExN02DetectorConstruction::Construct()
     G4SDManager* SDman = G4SDManager::GetSDMpointer();
 
     G4String trackerChamberSDname = "ExN02/TrackerChamberSD";
-    ExN02TrackerSD* aTrackerSD = new ExN02TrackerSD( trackerChamberSDname );
+    NXSensitiveDetector* aTrackerSD = new NXSensitiveDetector( trackerChamberSDname );
     SDman->AddNewDetector( aTrackerSD );
     logicChamber->SetSensitiveDetector( aTrackerSD );
 

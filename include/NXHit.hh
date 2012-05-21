@@ -1,8 +1,8 @@
 //....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......
 //....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......
 
-#ifndef ExN02TrackerHit_h
-#define ExN02TrackerHit_h 1
+#ifndef NXHit_h
+#define NXHit_h 1
 
 #include "G4VHit.hh"
 #include "G4THitsCollection.hh"
@@ -11,15 +11,15 @@
 
 //....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......
 
-class ExN02TrackerHit : public G4VHit
+class NXHit : public G4VHit
 {
     public:
 
-        ExN02TrackerHit();
-        ~ExN02TrackerHit();
-        ExN02TrackerHit(const ExN02TrackerHit&);
-        const ExN02TrackerHit& operator=(const ExN02TrackerHit&);
-        G4int operator==(const ExN02TrackerHit&) const;
+        NXHit();
+        ~NXHit();
+        NXHit(const NXHit&);
+        const NXHit& operator=(const NXHit&);
+        G4int operator==(const NXHit&) const;
 
         inline void* operator new(size_t);
         inline void  operator delete(void*);
@@ -49,24 +49,24 @@ class ExN02TrackerHit : public G4VHit
 
 //....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......
 
-typedef G4THitsCollection<ExN02TrackerHit> ExN02TrackerHitsCollection;
+typedef G4THitsCollection<NXHit> NXHitsCollection;
 
-extern G4Allocator<ExN02TrackerHit> ExN02TrackerHitAllocator;
+extern G4Allocator<NXHit> NXHitAllocator;
 
 //....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......
 
-inline void* ExN02TrackerHit::operator new(size_t)
+inline void* NXHit::operator new(size_t)
 {
     void *aHit;
-    aHit = (void *) ExN02TrackerHitAllocator.MallocSingle();
+    aHit = (void *) NXHitAllocator.MallocSingle();
     return aHit;
 }
 
 //....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......
 
-inline void ExN02TrackerHit::operator delete(void *aHit)
+inline void NXHit::operator delete(void *aHit)
 {
-    ExN02TrackerHitAllocator.FreeSingle((ExN02TrackerHit*) aHit);
+    NXHitAllocator.FreeSingle((NXHit*) aHit);
 }
 
 //....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......

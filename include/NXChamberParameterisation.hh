@@ -1,8 +1,8 @@
 //....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......
 //....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......
 
-#ifndef ExN02ChamberParameterisation_H
-#define ExN02ChamberParameterisation_H 1
+#ifndef NXChamberParameterisation_H
+#define NXChamberParameterisation_H 1
 
 #include "globals.hh"
 #include "G4VPVParameterisation.hh"
@@ -25,11 +25,11 @@ class G4Polyhedra;
 
 //....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......
 
-class ExN02ChamberParameterisation : public G4VPVParameterisation
+class NXChamberParameterisation : public G4VPVParameterisation
 { 
     public:
 
-        ExN02ChamberParameterisation(G4int    NoChambers, 
+        NXChamberParameterisation(G4int    NoChambers, 
                 G4double startZ, 
                 G4double spacing,
                 G4double widthChamber, 
@@ -37,7 +37,7 @@ class ExN02ChamberParameterisation : public G4VPVParameterisation
                 G4double lengthFinal );
 
         virtual				 
-            ~ExN02ChamberParameterisation();
+            ~NXChamberParameterisation();
 
         void ComputeTransformation (const G4int copyNo,
                 G4VPhysicalVolume* physVol) const;

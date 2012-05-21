@@ -1,26 +1,26 @@
 //....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......
 //....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......
 
-#include "ExN02TrackerHit.hh"
+#include "NXHit.hh"
 #include "G4UnitsTable.hh"
 #include "G4VVisManager.hh"
 #include "G4Circle.hh"
 #include "G4Colour.hh"
 #include "G4VisAttributes.hh"
 
-G4Allocator<ExN02TrackerHit> ExN02TrackerHitAllocator;
+G4Allocator<NXHit> NXHitAllocator;
 
 //....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......
 
-ExN02TrackerHit::ExN02TrackerHit() {}
+NXHit::NXHit() {}
 
 //....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......
 
-ExN02TrackerHit::~ExN02TrackerHit() {}
+NXHit::~NXHit() {}
 
 //....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......
 
-ExN02TrackerHit::ExN02TrackerHit(const ExN02TrackerHit& right) : 
+NXHit::NXHit(const NXHit& right) : 
     G4VHit()
 {
     trackID   = right.trackID;
@@ -31,7 +31,7 @@ ExN02TrackerHit::ExN02TrackerHit(const ExN02TrackerHit& right) :
 
 //....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......
 
-const ExN02TrackerHit& ExN02TrackerHit::operator=(const ExN02TrackerHit& right)
+const NXHit& NXHit::operator=(const NXHit& right)
 {
     trackID   = right.trackID;
     chamberNb = right.chamberNb;
@@ -42,14 +42,14 @@ const ExN02TrackerHit& ExN02TrackerHit::operator=(const ExN02TrackerHit& right)
 
 //....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......
 
-G4int ExN02TrackerHit::operator==(const ExN02TrackerHit& right) const
+G4int NXHit::operator==(const NXHit& right) const
 {
     return (this==&right) ? 1 : 0;
 }
 
 //....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......
 
-void ExN02TrackerHit::Draw()
+void NXHit::Draw()
 {
     G4VVisManager* pVVisManager = G4VVisManager::GetConcreteInstance();
     if(pVVisManager)
@@ -66,7 +66,7 @@ void ExN02TrackerHit::Draw()
 
 //....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......
 
-void ExN02TrackerHit::Print()
+void NXHit::Print()
 {
     G4cout << "  trackID: " << trackID << "  chamberNb: " << chamberNb
         << "  energy deposit: " << G4BestUnit(edep,"Energy")
