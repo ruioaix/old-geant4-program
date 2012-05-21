@@ -29,10 +29,15 @@ void NXPhysicsList::ConstructParticle()
     // This ensures that objects of these particle types will be
     // created in the program. 
 
+    // there are six major categories: lepton, meson, baryon, boson, shortlived and ion. but here is four. I think they are enougy. (Rui)
     ConstructBosons();
     ConstructLeptons();
     ConstructMesons();
     ConstructBaryons();
+
+    // I add another particle category.
+    ConstructIons();
+
 }
 
 //....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......
@@ -45,57 +50,49 @@ void NXPhysicsList::ConstructBosons()
 
     // gamma
     G4Gamma::GammaDefinition();
+
+    // optical photon
+    G4OpticalPhoton::OpticalPhotonDefinition();
 }
 
 //....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......
 
+#include "G4LeptonConstructor.hh"
 void NXPhysicsList::ConstructLeptons()
 {
-    // leptons
-    //  e+/-
-    G4Electron::ElectronDefinition();
-    G4Positron::PositronDefinition();
-    // mu+/-
-    G4MuonPlus::MuonPlusDefinition();
-    G4MuonMinus::MuonMinusDefinition();
-    // nu_e
-    G4NeutrinoE::NeutrinoEDefinition();
-    G4AntiNeutrinoE::AntiNeutrinoEDefinition();
-    // nu_mu
-    G4NeutrinoMu::NeutrinoMuDefinition();
-    G4AntiNeutrinoMu::AntiNeutrinoMuDefinition();
+    // Construct all leptons
+    G4LeptonConstructor pConstructor;
+    pConstructor.ConstructParticle();
 }
 
 //....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......
 
+#include "G4MesonConstructor.hh"
 void NXPhysicsList::ConstructMesons()
 {
-    //  mesons
-    //    light mesons
-    G4PionPlus::PionPlusDefinition();
-    G4PionMinus::PionMinusDefinition();
-    G4PionZero::PionZeroDefinition();
-    G4Eta::EtaDefinition();
-    G4EtaPrime::EtaPrimeDefinition();
-    G4KaonPlus::KaonPlusDefinition();
-    G4KaonMinus::KaonMinusDefinition();
-    G4KaonZero::KaonZeroDefinition();
-    G4AntiKaonZero::AntiKaonZeroDefinition();
-    G4KaonZeroLong::KaonZeroLongDefinition();
-    G4KaonZeroShort::KaonZeroShortDefinition();
+    //  Construct all mesons
+    G4MesonConstructor pConstructor;
+    pConstructor.ConstructParticle();
 }
 
 //....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......
 
+#include "G4BaryonConstructor.hh"
 void NXPhysicsList::ConstructBaryons()
 {
-    //  barions
-    G4Proton::ProtonDefinition();
-    G4AntiProton::AntiProtonDefinition();
-
-    G4Neutron::NeutronDefinition();
-    G4AntiNeutron::AntiNeutronDefinition();
+    //  Construct all barions
+    G4BaryonConstructor  pConstructor;
+    pConstructor.ConstructParticle();  
 }
+
+#include "G4IonConstructor.hh"
+void NXPhysicsList::ConstructIons()
+{
+    //  Construct light ions
+    G4IonConstructor pConstructor;
+    pConstructor.ConstructParticle();  
+}
+
 
 //....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......
 
