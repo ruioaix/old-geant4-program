@@ -3,11 +3,11 @@
 
 #include "ExN02DetectorConstruction.hh"
 #include "NXPhysicsList.hh"
-#include "ExN02PrimaryGeneratorAction.hh"
+#include "NXPrimaryGeneratorAction.hh"
 #include "NXRunAction.hh"
 #include "NXEventAction.hh"
 #include "NXSteppingAction.hh"
-#include "ExN02SteppingVerbose.hh"
+#include "NXSteppingVerbose.hh"
 
 #include "G4RunManager.hh"
 #include "G4UImanager.hh"
@@ -33,7 +33,7 @@ int main(int argc,char** argv)
     
     // User Verbose output class
     //
-    G4VSteppingVerbose* verbosity = new ExN02SteppingVerbose;
+    G4VSteppingVerbose* verbosity = new NXSteppingVerbose;
     G4VSteppingVerbose::SetInstance(verbosity);
 
     // Run manager
@@ -50,7 +50,7 @@ int main(int argc,char** argv)
 
     // User Action classes
     //
-    G4VUserPrimaryGeneratorAction* gen_action = new ExN02PrimaryGeneratorAction(detector);
+    G4VUserPrimaryGeneratorAction* gen_action = new NXPrimaryGeneratorAction(detector);
     runManager->SetUserAction(gen_action);
     //
     G4UserRunAction* run_action = new NXRunAction;

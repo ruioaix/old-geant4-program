@@ -1,8 +1,8 @@
 //....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......
 //....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......
 
-#ifndef ExN02PrimaryGeneratorAction_h
-#define ExN02PrimaryGeneratorAction_h 1
+#ifndef NXPrimaryGeneratorAction_h
+#define NXPrimaryGeneratorAction_h 1
 
 #include "G4VUserPrimaryGeneratorAction.hh"
 
@@ -12,11 +12,11 @@ class G4Event;
 
 //....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......
 
-class ExN02PrimaryGeneratorAction : public G4VUserPrimaryGeneratorAction
+class NXPrimaryGeneratorAction : public G4VUserPrimaryGeneratorAction
 {
     public:
-        ExN02PrimaryGeneratorAction(ExN02DetectorConstruction*);    
-        ~ExN02PrimaryGeneratorAction();
+        NXPrimaryGeneratorAction(ExN02DetectorConstruction*);    
+        ~NXPrimaryGeneratorAction();
 
     public:
         void GeneratePrimaries(G4Event*);

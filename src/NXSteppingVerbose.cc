@@ -1,24 +1,24 @@
 //....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......
 //....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......
 
-#include "ExN02SteppingVerbose.hh"
+#include "NXSteppingVerbose.hh"
 
 #include "G4SteppingManager.hh"
 #include "G4UnitsTable.hh"
 
 //....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......
 
-ExN02SteppingVerbose::ExN02SteppingVerbose()
+NXSteppingVerbose::NXSteppingVerbose()
 {}
 
 //....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......
 
-ExN02SteppingVerbose::~ExN02SteppingVerbose()
+NXSteppingVerbose::~NXSteppingVerbose()
 {}
 
 //....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......
 
-void ExN02SteppingVerbose::StepInfo()
+void NXSteppingVerbose::StepInfo()
 {
     CopyState();
 
@@ -50,7 +50,6 @@ void ExN02SteppingVerbose::StepInfo()
             << std::setw(6) << G4BestUnit(fTrack->GetTrackLength(),"Length")
             << "  ";
 
-        // if( fStepStatus != fWorldBoundary){ 
         if( fTrack->GetNextVolume() != 0 ) { 
             G4cout << std::setw(10) << fTrack->GetVolume()->GetName();
         } else {
@@ -107,46 +106,45 @@ void ExN02SteppingVerbose::StepInfo()
 
     }
     G4cout.precision(prec);
-    }
+}
+//....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......
 
-    //....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......
+void NXSteppingVerbose::TrackingStarted()
+{
 
-    void ExN02SteppingVerbose::TrackingStarted()
-    {
+    CopyState();
+    G4int prec = G4cout.precision(3);
+    if( verboseLevel > 0 ){
 
-        CopyState();
-        G4int prec = G4cout.precision(3);
-        if( verboseLevel > 0 ){
+        G4cout << std::setw( 5) << "Step#"      << " "
+            << std::setw( 6) << "X"          << "    "
+            << std::setw( 6) << "Y"          << "    "  
+            << std::setw( 6) << "Z"          << "    "
+            << std::setw( 9) << "KineE"      << " "
+            << std::setw( 9) << "dEStep"     << " "  
+            << std::setw(10) << "StepLeng"  
+            << std::setw(10) << "TrakLeng"
+            << std::setw(10) << "Volume"     << "  "
+            << std::setw(10) << "Process"    << G4endl;	     
 
-            G4cout << std::setw( 5) << "Step#"      << " "
-                << std::setw( 6) << "X"          << "    "
-                << std::setw( 6) << "Y"          << "    "  
-                << std::setw( 6) << "Z"          << "    "
-                << std::setw( 9) << "KineE"      << " "
-                << std::setw( 9) << "dEStep"     << " "  
-                << std::setw(10) << "StepLeng"  
-                << std::setw(10) << "TrakLeng"
-                << std::setw(10) << "Volume"     << "  "
-                << std::setw(10) << "Process"    << G4endl;	     
+        G4cout << std::setw(5) << fTrack->GetCurrentStepNumber() << " "
+            << std::setw(6) << G4BestUnit(fTrack->GetPosition().x(),"Length")
+            << std::setw(6) << G4BestUnit(fTrack->GetPosition().y(),"Length")
+            << std::setw(6) << G4BestUnit(fTrack->GetPosition().z(),"Length")
+            << std::setw(6) << G4BestUnit(fTrack->GetKineticEnergy(),"Energy")
+            << std::setw(6) << G4BestUnit(fStep->GetTotalEnergyDeposit(),"Energy")
+            << std::setw(6) << G4BestUnit(fStep->GetStepLength(),"Length")
+            << std::setw(6) << G4BestUnit(fTrack->GetTrackLength(),"Length")
+            << "  ";
 
-            G4cout << std::setw(5) << fTrack->GetCurrentStepNumber() << " "
-                << std::setw(6) << G4BestUnit(fTrack->GetPosition().x(),"Length")
-                << std::setw(6) << G4BestUnit(fTrack->GetPosition().y(),"Length")
-                << std::setw(6) << G4BestUnit(fTrack->GetPosition().z(),"Length")
-                << std::setw(6) << G4BestUnit(fTrack->GetKineticEnergy(),"Energy")
-                << std::setw(6) << G4BestUnit(fStep->GetTotalEnergyDeposit(),"Energy")
-                << std::setw(6) << G4BestUnit(fStep->GetStepLength(),"Length")
-                << std::setw(6) << G4BestUnit(fTrack->GetTrackLength(),"Length")
-                << "  ";
-
-            if(fTrack->GetNextVolume()){
-                G4cout << std::setw(10) << fTrack->GetVolume()->GetName();
-            } else {
-                G4cout << std::setw(10) << "OutOfWorld";
-            }
-            G4cout  << "    initStep" << G4endl;
+        if(fTrack->GetNextVolume()){
+            G4cout << std::setw(10) << fTrack->GetVolume()->GetName();
+        } else {
+            G4cout << std::setw(10) << "OutOfWorld";
         }
-        G4cout.precision(prec);
+        G4cout  << "    initStep" << G4endl;
     }
+    G4cout.precision(prec);
+}
 
-    //....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......
+//....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......

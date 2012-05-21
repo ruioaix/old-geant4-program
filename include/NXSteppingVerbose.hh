@@ -1,21 +1,21 @@
 //....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......
 //....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......
 
-class ExN02SteppingVerbose;
+class NXSteppingVerbose;
 
-#ifndef ExN02SteppingVerbose_h
-#define ExN02SteppingVerbose_h 1
+#ifndef NXSteppingVerbose_h
+#define NXSteppingVerbose_h 1
 
 #include "G4SteppingVerbose.hh"
 
 //....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......
 
-class ExN02SteppingVerbose : public G4SteppingVerbose 
+class NXSteppingVerbose : public G4SteppingVerbose 
 {
     public:
 
-        ExN02SteppingVerbose();
-        ~ExN02SteppingVerbose();
+        NXSteppingVerbose();
+        ~NXSteppingVerbose();
 
         void StepInfo();
         void TrackingStarted();

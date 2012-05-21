@@ -1,7 +1,7 @@
 //....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......
 //....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......
 
-#include "ExN02PrimaryGeneratorAction.hh"
+#include "NXPrimaryGeneratorAction.hh"
 #include "ExN02DetectorConstruction.hh"
 
 #include "G4Event.hh"
@@ -12,7 +12,7 @@
 
 //....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......
 
-ExN02PrimaryGeneratorAction::ExN02PrimaryGeneratorAction( ExN02DetectorConstruction* myDC) :
+NXPrimaryGeneratorAction::NXPrimaryGeneratorAction( ExN02DetectorConstruction* myDC) :
     myDetector(myDC)
 {
     G4int n_particle = 1;
@@ -30,14 +30,14 @@ ExN02PrimaryGeneratorAction::ExN02PrimaryGeneratorAction( ExN02DetectorConstruct
 
 //....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......
 
-ExN02PrimaryGeneratorAction::~ExN02PrimaryGeneratorAction()
+NXPrimaryGeneratorAction::~NXPrimaryGeneratorAction()
 {
     delete particleGun;
 }
 
 //....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......
 
-void ExN02PrimaryGeneratorAction::GeneratePrimaries(G4Event* anEvent)
+void NXPrimaryGeneratorAction::GeneratePrimaries(G4Event* anEvent)
 { 
     G4double position = -0.5*(myDetector->GetWorldFullLength());
     particleGun->SetParticlePosition(G4ThreeVector(0.*cm,0.*cm,position));
