@@ -1,8 +1,8 @@
 //....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......
 //....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......
 
-#ifndef ExN02DetectorConstruction_h
-#define ExN02DetectorConstruction_h 1
+#ifndef NXUserDetectorConstruction_h
+#define NXUserDetectorConstruction_h 1
 
 #include "globals.hh"
 #include "G4VUserDetectorConstruction.hh"
@@ -18,12 +18,12 @@ class NXUIMessenger;
 
 //....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......
 
-class ExN02DetectorConstruction : public G4VUserDetectorConstruction
+class NXUserDetectorConstruction : public G4VUserDetectorConstruction
 {
     public:
 
-        ExN02DetectorConstruction();
-        ~ExN02DetectorConstruction();
+        NXUserDetectorConstruction();
+        ~NXUserDetectorConstruction();
 
     public:
 

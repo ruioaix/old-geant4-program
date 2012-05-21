@@ -1,7 +1,7 @@
 //....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......
 //....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......
 
-#include "ExN02DetectorConstruction.hh"
+#include "NXUserDetectorConstruction.hh"
 #include "NXPhysicsList.hh"
 #include "NXPrimaryGeneratorAction.hh"
 #include "NXRunAction.hh"
@@ -42,7 +42,7 @@ int main(int argc,char** argv)
 
     // User Initialization classes (mandatory)
     //
-    ExN02DetectorConstruction* detector = new ExN02DetectorConstruction;
+    NXUserDetectorConstruction* detector = new NXUserDetectorConstruction;
     runManager->SetUserInitialization(detector);
     //
     G4VUserPhysicsList* physics = new NXPhysicsList;

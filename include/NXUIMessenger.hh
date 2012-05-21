@@ -7,7 +7,7 @@
 #include "globals.hh"
 #include "G4UImessenger.hh"
 
-class ExN02DetectorConstruction;
+class NXUserDetectorConstruction;
 class G4UIdirectory;
 class G4UIcmdWithAString;
 class G4UIcmdWithADoubleAndUnit;
@@ -17,13 +17,13 @@ class G4UIcmdWithADoubleAndUnit;
 class NXUIMessenger: public G4UImessenger
 {
     public:
-        NXUIMessenger(ExN02DetectorConstruction*);
+        NXUIMessenger(NXUserDetectorConstruction*);
         ~NXUIMessenger();
 
         void SetNewValue(G4UIcommand*, G4String);
 
     private:
-        ExN02DetectorConstruction* myDetector;
+        NXUserDetectorConstruction* myDetector;
 
         G4UIdirectory*             N02Dir;
         G4UIdirectory*             detDir;

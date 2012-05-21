@@ -2,7 +2,7 @@
 //....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......
 
 #include "NXPrimaryGeneratorAction.hh"
-#include "ExN02DetectorConstruction.hh"
+#include "NXUserDetectorConstruction.hh"
 
 #include "G4Event.hh"
 #include "G4ParticleGun.hh"
@@ -12,7 +12,7 @@
 
 //....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......
 
-NXPrimaryGeneratorAction::NXPrimaryGeneratorAction( ExN02DetectorConstruction* myDC) :
+NXPrimaryGeneratorAction::NXPrimaryGeneratorAction( NXUserDetectorConstruction* myDC) :
     myDetector(myDC)
 {
     G4int n_particle = 1;

@@ -3,7 +3,7 @@
 
 #include "NXUIMessenger.hh"
 
-#include "ExN02DetectorConstruction.hh"
+#include "NXUserDetectorConstruction.hh"
 #include "G4UIdirectory.hh"
 #include "G4UIcmdWithAString.hh"
 #include "G4UIcmdWithADoubleAndUnit.hh"
@@ -11,7 +11,7 @@
 
 //....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......
 
-NXUIMessenger::NXUIMessenger(ExN02DetectorConstruction* myDet) :
+NXUIMessenger::NXUIMessenger(NXUserDetectorConstruction* myDet) :
     myDetector(myDet)
 { 
     N02Dir = new G4UIdirectory("/N02/");

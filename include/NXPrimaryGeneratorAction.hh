@@ -6,7 +6,7 @@
 
 #include "G4VUserPrimaryGeneratorAction.hh"
 
-class ExN02DetectorConstruction;
+class NXUserDetectorConstruction;
 class G4ParticleGun;
 class G4Event;
 
@@ -15,7 +15,7 @@ class G4Event;
 class NXPrimaryGeneratorAction : public G4VUserPrimaryGeneratorAction
 {
     public:
-        NXPrimaryGeneratorAction(ExN02DetectorConstruction*);    
+        NXPrimaryGeneratorAction(NXUserDetectorConstruction*);    
         ~NXPrimaryGeneratorAction();
 
     public:
@@ -23,7 +23,7 @@ class NXPrimaryGeneratorAction : public G4VUserPrimaryGeneratorAction
 
     private:
         G4ParticleGun* particleGun;
-        ExN02DetectorConstruction* myDetector;
+        NXUserDetectorConstruction* myDetector;
 };
 
 //....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......

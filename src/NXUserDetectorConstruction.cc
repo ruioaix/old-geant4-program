@@ -1,7 +1,7 @@
 //....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo...... 
 //....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......
 
-#include "ExN02DetectorConstruction.hh"
+#include "NXUserDetectorConstruction.hh"
 #include "NXUIMessenger.hh"
 #include "NXChamberParameterisation.hh"
 #include "NXMagneticField.hh"
@@ -25,7 +25,7 @@
 
 //....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......
 
-ExN02DetectorConstruction::ExN02DetectorConstruction() :
+NXUserDetectorConstruction::NXUserDetectorConstruction() :
     solidWorld(0),  logicWorld(0),  physiWorld(0),
     solidTarget(0), logicTarget(0), physiTarget(0), 
     solidTracker(0),logicTracker(0),physiTracker(0), 
@@ -42,7 +42,7 @@ ExN02DetectorConstruction::ExN02DetectorConstruction() :
 
 //....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......
 
-ExN02DetectorConstruction::~ExN02DetectorConstruction()
+NXUserDetectorConstruction::~NXUserDetectorConstruction()
 {
     delete fpMagField;
     delete stepLimit;
@@ -52,7 +52,7 @@ ExN02DetectorConstruction::~ExN02DetectorConstruction()
 
 //....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......
 
-G4VPhysicalVolume* ExN02DetectorConstruction::Construct()
+G4VPhysicalVolume* NXUserDetectorConstruction::Construct()
 {
     //--------- Material definition ---------
 
@@ -241,7 +241,7 @@ G4VPhysicalVolume* ExN02DetectorConstruction::Construct()
 
 //....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......
 
-void ExN02DetectorConstruction::setTargetMaterial(G4String materialName)
+void NXUserDetectorConstruction::setTargetMaterial(G4String materialName)
 {
     // search the material by its name 
     G4Material* pttoMaterial = G4Material::GetMaterial(materialName);  
@@ -255,7 +255,7 @@ void ExN02DetectorConstruction::setTargetMaterial(G4String materialName)
 
 //....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......
 
-void ExN02DetectorConstruction::setChamberMaterial(G4String materialName)
+void NXUserDetectorConstruction::setChamberMaterial(G4String materialName)
 {
     // search the material by its name 
     G4Material* pttoMaterial = G4Material::GetMaterial(materialName);  
@@ -269,14 +269,14 @@ void ExN02DetectorConstruction::setChamberMaterial(G4String materialName)
 
 //....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......
 
-void ExN02DetectorConstruction::SetMagField(G4double fieldValue)
+void NXUserDetectorConstruction::SetMagField(G4double fieldValue)
 {
     fpMagField->SetFieldValue(fieldValue);
 }
 
 //....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......
 
-void ExN02DetectorConstruction::SetMaxStep(G4double maxStep)
+void NXUserDetectorConstruction::SetMaxStep(G4double maxStep)
 {
     if ((stepLimit)&&(maxStep>0.)) stepLimit->SetMaxAllowedStep(maxStep);
 }
