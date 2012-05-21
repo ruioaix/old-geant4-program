@@ -69,35 +69,16 @@ G4VPhysicalVolume* NXUserDetectorConstruction::Construct()
     Air->AddElement(O, 30*perCent);
 
     //Lead
-    G4Material* Pb = 
-        new G4Material("Lead", z=82., a= 207.19*g/mole, density= 11.35*g/cm3);
+    G4Material* Pb = new G4Material("Lead", z=82., a= 207.19*g/mole, density= 11.35*g/cm3);
 
     //Xenon gas
-    G4Material* Xenon = 
-        new G4Material("XenonGas", z=54., a=131.29*g/mole, density= 5.458*mg/cm3,
-                kStateGas, temperature= 293.15*kelvin, pressure= 1*atmosphere);
+    G4Material* Xenon = new G4Material("XenonGas", z=54., a=131.29*g/mole, density= 5.458*mg/cm3, kStateGas, temperature= 293.15*kelvin, pressure= 1*atmosphere);
 
     // Print all the materials defined.
     //
     G4cout << G4endl << "The materials defined are : " << G4endl << G4endl;
     G4cout << *(G4Material::GetMaterialTable()) << G4endl;
 
-    //--------- Sizes of the principal geometrical components (solids)  ---------
-
-    NbOfChambers = 5;
-    ChamberWidth = 20*cm;
-    ChamberSpacing = 80*cm;
-
-    fTrackerLength = (NbOfChambers+1)*ChamberSpacing; // Full length of Tracker
-    fTargetLength  = 5.0 * cm;                        // Full length of Target
-
-    TargetMater  = Pb;
-    ChamberMater = Xenon;
-
-    fWorldLength= 1.2 *(fTargetLength+fTrackerLength);
-
-    G4double targetSize  = 0.5*fTargetLength;    // Half length of the Target  
-    G4double trackerSize = 0.5*fTrackerLength;   // Half length of the Tracker
 
     //--------- Definitions of Solids, Logical Volumes, Physical Volumes ---------
 
@@ -105,6 +86,7 @@ G4VPhysicalVolume* NXUserDetectorConstruction::Construct()
     // World
     //------------------------------ 
 
+    fWorldLength= 1000*cm;
     G4double HalfWorldLength = 0.5*fWorldLength;
 
     G4GeometryManager::GetInstance()->SetWorldMaximumExtent(fWorldLength);
@@ -129,9 +111,11 @@ G4VPhysicalVolume* NXUserDetectorConstruction::Construct()
     // Target
     //------------------------------
 
-    G4ThreeVector positionTarget = G4ThreeVector(0,0,-(targetSize+trackerSize));
+    TargetMater  = Pb;
+    G4ThreeVector positionTarget = G4ThreeVector(0,0,-100*cm);
+    fTargetLength = 1*cm;
 
-    solidTarget = new G4Box("target",targetSize,targetSize,targetSize);
+    solidTarget = new G4Box("target", fTargetLength/2, fTargetLength/2, fTargetLength/2);
     logicTarget = new G4LogicalVolume(solidTarget,TargetMater,"Target",0,0,0);
     physiTarget = new G4PVPlacement(0,               // no rotation
             positionTarget,  // at (x,y,z)
@@ -148,6 +132,8 @@ G4VPhysicalVolume* NXUserDetectorConstruction::Construct()
     // Tracker
     //------------------------------
 
+    fTrackerLength = 5*cm; // Full length of Tracker
+    G4double trackerSize = 0.5*fTrackerLength;   // Half length of the Tracker
     G4ThreeVector positionTracker = G4ThreeVector(0,0,0);
 
     solidTracker = new G4Box("tracker",trackerSize,trackerSize,trackerSize);
@@ -167,20 +153,19 @@ G4VPhysicalVolume* NXUserDetectorConstruction::Construct()
     // An example of Parameterised volumes
     // dummy values for G4Box -- modified by parameterised volume
 
+    NbOfChambers = 1;
+    ChamberWidth = 20*cm;
+    ChamberSpacing = 80*cm;
+    ChamberMater = Xenon;
+
     solidChamber = new G4Box("chamber", 100*cm, 100*cm, 10*cm); 
     logicChamber = new G4LogicalVolume(solidChamber,ChamberMater,"Chamber",0,0,0);
 
-    G4double firstPosition = -trackerSize + 0.5*ChamberWidth;
-    G4double firstLength = fTrackerLength/10;
-    G4double lastLength  = fTrackerLength;
+    G4double firstPosition = 0;
+    G4double firstLength = 0;
+    G4double lastLength  = 0;
 
-    chamberParam = new NXChamberParameterisation(  
-            NbOfChambers,          // NoChambers 
-            firstPosition,         // Z of center of first 
-            ChamberSpacing,        // Z spacing of centers
-            ChamberWidth,          // Width Chamber 
-            firstLength,           // lengthInitial 
-            lastLength);           // lengthFinal
+    chamberParam = new NXChamberParameterisation(  firstPosition);
 
     // dummy value : kZAxis -- modified by parameterised volume
     //

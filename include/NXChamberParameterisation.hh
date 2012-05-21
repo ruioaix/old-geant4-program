@@ -29,12 +29,7 @@ class NXChamberParameterisation : public G4VPVParameterisation
 { 
     public:
 
-        NXChamberParameterisation(G4int    NoChambers, 
-                G4double startZ, 
-                G4double spacing,
-                G4double widthChamber, 
-                G4double lengthInitial,
-                G4double lengthFinal );
+        NXChamberParameterisation( G4double startZ );
 
         virtual				 
             ~NXChamberParameterisation();
@@ -60,12 +55,7 @@ class NXChamberParameterisation : public G4VPVParameterisation
         void ComputeDimensions (G4Polyhedra&,const G4int,const G4VPhysicalVolume*) const {}
     private:
 
-        G4int    fNoChambers;   
         G4double fStartZ;
-        G4double fHalfWidth;    //  The half-width of each tracker chamber
-        G4double fSpacing;      //  The distance between the chambers' center
-        G4double fHalfLengthFirst;  //  The first half-length 
-        G4double fHalfLengthIncr;   //  The Increment for the half-length 
 };
 
 //....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......
