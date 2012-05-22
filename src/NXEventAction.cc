@@ -30,6 +30,7 @@ void NXEventAction::EndOfEventAction(const G4Event* evt)
 {
     G4int event_id = evt->GetEventID();
 
+    /*
     // get number of stored trajectories
     //
     G4TrajectoryContainer* trajectoryContainer = evt->GetTrajectoryContainer();
@@ -43,6 +44,7 @@ void NXEventAction::EndOfEventAction(const G4Event* evt)
         G4cout << "    " << n_trajectories 
             << " trajectories stored in this event." << G4endl;
     }
+    */
 }
 
 //....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......
