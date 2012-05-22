@@ -8,6 +8,8 @@
 #include "G4SDManager.hh"
 #include "G4ios.hh"
 
+#include "G4RunManager.hh"
+#include "NXRunAction.hh"
 //....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......
 
 NXSensitiveDetector::NXSensitiveDetector(G4String name) :
@@ -37,17 +39,72 @@ void NXSensitiveDetector::Initialize(G4HCofThisEvent* HCE)
 
 G4bool NXSensitiveDetector::ProcessHits(G4Step* aStep,G4TouchableHistory*)
 {
-    G4double edep = aStep->GetTotalEnergyDeposit();
+    G4StepPoint* pointPre=aStep->GetPreStepPoint();
+    G4StepPoint* pointPost=aStep->GetPostStepPoint(); 
 
-    if(edep==0.) return false;
+    G4TouchableHandle touchCur=pointPre->GetTouchableHandle();
 
-    NXHit* newHit = new NXHit();
-    newHit->SetTrackID  (aStep->GetTrack()->GetTrackID());
-    newHit->SetChamberNb(aStep->GetPreStepPoint()->GetTouchableHandle()
-            ->GetCopyNumber());
-    newHit->SetEdep     (edep);
-    newHit->SetPos      (aStep->GetPostStepPoint()->GetPosition());
-    trackerCollection->insert( newHit );
+    G4VPhysicalVolume* volumeCur=touchCur->GetVolume();
+
+    G4String volumeCurName=volumeCur->GetName();
+
+    G4int copyNumofChamber=touchCur->GetCopyNumber();
+
+    G4Track* trackCur=aStep->GetTrack();
+
+    G4ParticleDefinition* particleCur = trackCur->GetDefinition();
+    G4String particleCurName = particleCur->GetParticleName();
+
+    G4double kineticEnergyCur = trackCur->GetKineticEnergy();
+
+    G4RunManager* runManager= G4RunManager::GetRunManager();
+    NXRunAction* runActionCur=(NXRunAction *)runManager->GetUserRunAction();
+
+    if(volumeCurName == "Chamber") {
+        if(copyNumofChamber == 0) {
+            if (pointPre->GetStepStatus() != fGeomBoundary) {
+                runActionCur->NumofPrePointNotBoundary++;
+            } else {
+                runActionCur->NumofPrePointIsBoundary++;
+            }
+
+            if(particleCurName == "gamma") {
+                for(G4int i=0;i<2000;i++) {
+                    if(kineticEnergyCur<=((i+1)*0.01*MeV) && kineticEnergyCur>(i*0.01*MeV)) {
+                        runActionCur->CenterESofGamma[i]++;
+                        break;
+                    }
+                }
+            } else if(particleCurName == "e+") {
+                for(G4int i=0;i<2000;i++) {
+                    if(kineticEnergyCur<=((i+1)*0.01*MeV) && kineticEnergyCur>(i*0.01*MeV)) {
+                        runActionCur->CenterESofPositron[i]++;
+                        break;
+                    }
+                }
+            } else if(particleCurName == "e-") {
+                for(G4int i=0;i<2000;i++) {
+                    if(kineticEnergyCur<=((i+1)*0.01*MeV) && kineticEnergyCur>(i*0.01*MeV)) {
+                        runActionCur->CenterESofNegatron[i]++;
+                        break;
+                    }
+                }
+            } else {
+                runActionCur->OtherParticle++;
+                G4double edep = aStep->GetTotalEnergyDeposit();
+
+                if(edep==0.) return false;
+
+                NXHit* newHit = new NXHit();
+                newHit->SetTrackID  (aStep->GetTrack()->GetTrackID());
+                newHit->SetChamberNb(aStep->GetPreStepPoint()->GetTouchableHandle()
+                        ->GetCopyNumber());
+                newHit->SetEdep     (edep);
+                newHit->SetPos      (aStep->GetPostStepPoint()->GetPosition());
+                trackerCollection->insert( newHit );
+            }
+        }
+    }
 
     //newHit->Print();
     //newHit->Draw();

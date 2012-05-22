@@ -42,6 +42,12 @@ NXUIMessenger::NXUIMessenger(NXUserDetectorConstruction* myDet) :
     StepMaxCmd->SetParameterName("stepMax",false);
     StepMaxCmd->SetUnitCategory("Length");
     StepMaxCmd->AvailableForStates(G4State_Idle);    
+
+    TargetLengthZCmd = new G4UIcmdWithADoubleAndUnit("/NX/TargetLengthZ",this);  
+    TargetLengthZCmd->SetGuidance("redefine the length of target.");
+    TargetLengthZCmd->SetParameterName("TargetLengthZ",false);
+    TargetLengthZCmd->SetUnitCategory("Length");
+    TargetLengthZCmd->AvailableForStates(G4State_Idle);    
 }
 
 //....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......
@@ -52,6 +58,7 @@ NXUIMessenger::~NXUIMessenger()
     delete ChamMatCmd;
     delete FieldCmd;
     delete StepMaxCmd;  
+    delete TargetLengthZCmd;  
     delete detDir;
     delete N02Dir;
 }
@@ -71,6 +78,9 @@ void NXUIMessenger::SetNewValue(G4UIcommand* command,G4String newValue)
 
     if( command == StepMaxCmd )
     { myDetector->SetMaxStep(StepMaxCmd->GetNewDoubleValue(newValue));}   
+
+    if( command == TargetLengthZCmd)
+    { myDetector->setTargetLengthZ(TargetLengthZCmd->GetNewDoubleValue(newValue));}   
 }
 
 //....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......

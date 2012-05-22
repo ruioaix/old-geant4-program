@@ -33,3 +33,6 @@
 /vis/scene/endOfEventAction accumulate
 #
 /run/beamOn 10
+
+/NX/TargetLengthZ 10 cm
+/run/beamOn 10

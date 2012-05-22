@@ -36,6 +36,7 @@ class NXUserDetectorConstruction : public G4VUserDetectorConstruction
         G4double GetWorldFullLength()   {return fWorldLength;}; 
 
         void setTargetMaterial (G4String);
+        void setTargetLengthZ (G4double);
         void setChamberMaterial(G4String);
         void SetMagField(G4double);
         void SetMaxStep (G4double);     

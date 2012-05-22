@@ -253,6 +253,10 @@ void NXUserDetectorConstruction::setTargetMaterial(G4String materialName)
     }             
 }
 
+void NXUserDetectorConstruction::setTargetLengthZ(G4double z)
+{
+    solidTarget->SetZHalfLength(z/2);
+}
 //....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......
 
 void NXUserDetectorConstruction::setChamberMaterial(G4String materialName)
