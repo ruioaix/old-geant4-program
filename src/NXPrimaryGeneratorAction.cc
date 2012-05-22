@@ -21,11 +21,15 @@ NXPrimaryGeneratorAction::NXPrimaryGeneratorAction( NXUserDetectorConstruction* 
     // default particle
 
     G4ParticleTable* particleTable = G4ParticleTable::GetParticleTable();
-    G4ParticleDefinition* particle = particleTable->FindParticle("proton");
+    G4ParticleDefinition* particle = particleTable->FindParticle("e-");
+    //G4ParticleDefinition* particle = particleTable->FindParticle("gamma"); 
+    //G4ParticleDefinition* particle = particleTable->FindParticle("neutron");
+    //G4ParticleDefinition* particle = particleTable->FindParticle("alpha");
+    //G4ParticleDefinition* particle = particleTable->FindParticle("proton");
 
     particleGun->SetParticleDefinition(particle);
     particleGun->SetParticleMomentumDirection(G4ThreeVector(0.,0.,1.));
-    particleGun->SetParticleEnergy(3.0*GeV);
+    particleGun->SetParticleEnergy(20.0*MeV);
 }
 
 //....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......
@@ -39,7 +43,7 @@ NXPrimaryGeneratorAction::~NXPrimaryGeneratorAction()
 
 void NXPrimaryGeneratorAction::GeneratePrimaries(G4Event* anEvent)
 { 
-    G4double position = -0.5*(myDetector->GetWorldFullLength());
+    G4double position = -120*cm;
     particleGun->SetParticlePosition(G4ThreeVector(0.*cm,0.*cm,position));
 
     particleGun->GeneratePrimaryVertex(anEvent);

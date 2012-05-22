@@ -33,8 +33,8 @@ NXUserDetectorConstruction::NXUserDetectorConstruction() :
     solidChamber(0),logicChamber(0),physiChamber(0), 
     TargetMater(0), ChamberMater(0),chamberParam(0),
     stepLimit(0), fpMagField(0),
-    fWorldLength(0.),  fTargetLength(0.), fTrackerLength(0.),
-    NbOfChambers(0) ,  ChamberWidth(0.),  ChamberSpacing(0.)
+    fWorldLength(0.),  
+    NbOfChambers(0) 
 {
     //In NXMagneticField, the constructor does everything. now there is no MagneticField, because there is no G4threevector variable in () and it mean the MagneticField is zero.
     fpMagField = new NXMagneticField();
@@ -75,10 +75,17 @@ G4VPhysicalVolume* NXUserDetectorConstruction::Construct()
     //Xenon gas
     G4Material* Xenon = new G4Material("XenonGas", z=54., a=131.29*g/mole, density= 5.458*mg/cm3, kStateGas, temperature= 293.15*kelvin, pressure= 1*atmosphere);
 
+    //Use Nist material Database instead of build material by myself.
     G4NistManager* man=G4NistManager::Instance();
     G4Material* PMMANist=man->FindOrBuildMaterial("G4_PLEXIGLASS");
     G4Material* Fe=man->FindOrBuildMaterial("G4_Fe");
     G4Material* Ta=man->FindOrBuildMaterial("G4_Ta");
+
+    // build material by myself.
+    //vacuum
+    G4Material* Vacuum=new G4Material("Vacuum",1.0,1.01*g/mole,1.0E-25*g/cm3,kStateGas,2.73*kelvin,3.0E-18*pascal);
+    //Ta
+    G4Material* Ta_byme = new G4Material( "Ta", 73., 180.95*g/mole, 16.65* g/cm3 );
 
     // Print all the materials defined.
     //
@@ -92,7 +99,7 @@ G4VPhysicalVolume* NXUserDetectorConstruction::Construct()
     // World
     //------------------------------ 
 
-    fWorldLength= 1000*cm;
+    fWorldLength= 300*cm;
     G4double HalfWorldLength = 0.5*fWorldLength;
 
     G4GeometryManager::GetInstance()->SetWorldMaximumExtent(fWorldLength);
@@ -101,7 +108,7 @@ G4VPhysicalVolume* NXUserDetectorConstruction::Construct()
         << " mm" << G4endl;
 
     solidWorld= new G4Box("world",HalfWorldLength,HalfWorldLength,HalfWorldLength);
-    logicWorld= new G4LogicalVolume( solidWorld, Air, "World", 0, 0, 0);
+    logicWorld= new G4LogicalVolume( solidWorld, Vacuum, "World", 0, 0, 0);
 
     //  Must place the World Physical volume unrotated at (0,0,0).
     // 
@@ -117,11 +124,10 @@ G4VPhysicalVolume* NXUserDetectorConstruction::Construct()
     // Target
     //------------------------------
 
-    TargetMater  = Pb;
+    TargetMater  = Ta;
     G4ThreeVector positionTarget = G4ThreeVector(0,0,-100*cm);
-    fTargetLength = 1*cm;
 
-    solidTarget = new G4Box("target", fTargetLength/2, fTargetLength/2, fTargetLength/2);
+    solidTarget = new G4Box("target", 2*cm, 2*cm, 0.5*cm);
     logicTarget = new G4LogicalVolume(solidTarget,TargetMater,"Target",0,0,0);
     physiTarget = new G4PVPlacement(0,               // no rotation
             positionTarget,  // at (x,y,z)
@@ -131,19 +137,14 @@ G4VPhysicalVolume* NXUserDetectorConstruction::Construct()
             false,           // no boolean operations
             0);              // copy number 
 
-    G4cout << "Target is " << fTargetLength/cm << " cm of " 
-        << TargetMater->GetName() << G4endl;
-
     //------------------------------ 
     // Tracker
     //------------------------------
 
-    fTrackerLength = 5*cm; // Full length of Tracker
-    G4double trackerSize = 0.5*fTrackerLength;   // Half length of the Tracker
     G4ThreeVector positionTracker = G4ThreeVector(0,0,0);
 
-    solidTracker = new G4Box("tracker",trackerSize,trackerSize,trackerSize);
-    logicTracker = new G4LogicalVolume(solidTracker , Air, "Tracker",0,0,0);  
+    solidTracker = new G4Box("tracker", 5*cm, 5*cm, 5*cm);
+    logicTracker = new G4LogicalVolume(solidTracker , Vacuum, "Tracker",0,0,0);  
     physiTracker = new G4PVPlacement(0,              // no rotation
             positionTracker, // at (x,y,z)
             logicTracker,    // its logical volume				  
@@ -160,16 +161,12 @@ G4VPhysicalVolume* NXUserDetectorConstruction::Construct()
     // dummy values for G4Box -- modified by parameterised volume
 
     NbOfChambers = 1;
-    ChamberWidth = 20*cm;
-    ChamberSpacing = 80*cm;
-    ChamberMater = Xenon;
+    ChamberMater = Vacuum;
 
-    solidChamber = new G4Box("chamber", 100*cm, 100*cm, 10*cm); 
+    solidChamber = new G4Box("chamber", 1*cm, 1*cm, 0.5*cm); 
     logicChamber = new G4LogicalVolume(solidChamber,ChamberMater,"Chamber",0,0,0);
 
     G4double firstPosition = 0;
-    G4double firstLength = 0;
-    G4double lastLength  = 0;
 
     chamberParam = new NXChamberParameterisation(  firstPosition);
 
@@ -184,9 +181,8 @@ G4VPhysicalVolume* NXUserDetectorConstruction::Construct()
             chamberParam);   // The parametrisation
 
     G4cout << "There are " << NbOfChambers << " chambers in the tracker region. "
-        << "The chambers are " << ChamberWidth/mm << " mm of " 
         << ChamberMater->GetName() << "\n The distance between chamber is "
-        << ChamberSpacing/cm << " cm" << G4endl;
+        << " cm" << G4endl;
 
     //------------------------------------------------ 
     // Sensitive detectors
@@ -194,20 +190,34 @@ G4VPhysicalVolume* NXUserDetectorConstruction::Construct()
 
     G4SDManager* SDman = G4SDManager::GetSDMpointer();
 
-    G4String trackerChamberSDname = "ExN02/TrackerChamberSD";
+    G4String trackerChamberSDname = "nipXray/NXSensitiveDetector";
     NXSensitiveDetector* aTrackerSD = new NXSensitiveDetector( trackerChamberSDname );
     SDman->AddNewDetector( aTrackerSD );
     logicChamber->SetSensitiveDetector( aTrackerSD );
 
     //--------- Visualization attributes -------------------------------
+    //G4Colour  white   ()                // white    
+    //G4Colour  white   (1.0, 1.0, 1.0)   // white      
+    //G4Colour  gray    (0.5, 0.5, 0.5)   // gray      
+    //G4Colour  black   (0.0, 0.0, 0.0)   // black     
+    //G4Colour  red     (1.0, 0.0, 0.0)   // red      
+    //G4Colour  green   (0.0, 1.0, 0.0)   // green     
+    //G4Colour  blue    (0.0, 0.0, 1.0)   // blue     
+    //G4Colour  cyan    (0.0, 1.0, 1.0)   // cyan     
+    //G4Colour  magenta (1.0, 0.0, 1.0)   // magenta   
+    //G4Colour  yellow  (1.0, 1.0, 0.0)   // yellow
 
     G4VisAttributes* BoxVisAtt= new G4VisAttributes(G4Colour(1.0,1.0,1.0));
-    logicWorld  ->SetVisAttributes(BoxVisAtt);  
-    logicTarget ->SetVisAttributes(BoxVisAtt);
-    logicTracker->SetVisAttributes(BoxVisAtt);
+    logicWorld  ->SetVisAttributes(BoxVisAtt);  //white
+
+    G4VisAttributes* TargetVisAtt= new G4VisAttributes(G4Colour(0,0,1.0));
+    logicTarget ->SetVisAttributes(TargetVisAtt); //blue
+
+    G4VisAttributes* TrackerVisAtt= new G4VisAttributes(G4Colour(0.5, 0.5, 0.5));
+    logicTracker->SetVisAttributes(TrackerVisAtt);  //gray
 
     G4VisAttributes* ChamberVisAtt = new G4VisAttributes(G4Colour(1.0,1.0,0.0));
-    logicChamber->SetVisAttributes(ChamberVisAtt);
+    logicChamber->SetVisAttributes(ChamberVisAtt);  //yellow
 
     //--------- example of User Limits -------------------------------
 
@@ -217,7 +227,7 @@ G4VPhysicalVolume* NXUserDetectorConstruction::Construct()
 
     // Sets a max Step length in the tracker region, with G4StepLimiter
     //
-    G4double maxStep = 0.5*ChamberWidth;
+    G4double maxStep = 0.5*cm;
     stepLimit = new G4UserLimits(maxStep);
     logicTracker->SetUserLimits(stepLimit);
 
@@ -239,8 +249,7 @@ void NXUserDetectorConstruction::setTargetMaterial(G4String materialName)
     if (pttoMaterial)
     {TargetMater = pttoMaterial;
         logicTarget->SetMaterial(pttoMaterial); 
-        G4cout << "\n----> The target is " << fTargetLength/cm << " cm of "
-            << materialName << G4endl;
+        G4cout << "\n----> The target is " << materialName << G4endl;
     }             
 }
 
@@ -253,8 +262,7 @@ void NXUserDetectorConstruction::setChamberMaterial(G4String materialName)
     if (pttoMaterial)
     {ChamberMater = pttoMaterial;
         logicChamber->SetMaterial(pttoMaterial); 
-        G4cout << "\n----> The chambers are " << ChamberWidth/cm << " cm of "
-            << materialName << G4endl;
+        G4cout << "\n----> The chambers are " << materialName << G4endl;
     }             
 }
 

@@ -31,8 +31,8 @@ class NXUserDetectorConstruction : public G4VUserDetectorConstruction
 
         const 
             G4VPhysicalVolume* GetTracker() {return physiTracker;};
-        G4double GetTrackerFullLength() {return fTrackerLength;};
-        G4double GetTargetFullLength()  {return fTargetLength;};
+        //G4double GetTrackerFullLength() {return fTrackerLength;};
+        //G4double GetTargetFullLength()  {return fTargetLength;};
         G4double GetWorldFullLength()   {return fWorldLength;}; 
 
         void setTargetMaterial (G4String);
@@ -69,11 +69,7 @@ class NXUserDetectorConstruction : public G4VUserDetectorConstruction
         NXUIMessenger* detectorMessenger;  // pointer to the Messenger
 
         G4double fWorldLength;            // Full length of the world volume
-        G4double fTargetLength;           // Full length of Target
-        G4double fTrackerLength;          // Full length of Tracker
         G4int    NbOfChambers;            // Nb of chambers in the tracker region
-        G4double ChamberWidth;            // width of the chambers
-        G4double ChamberSpacing;	       // distance between chambers
 };
 
 //....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......

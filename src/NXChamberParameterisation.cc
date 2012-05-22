@@ -34,10 +34,9 @@ void NXChamberParameterisation::ComputeTransformation
 void NXChamberParameterisation::ComputeDimensions
 (G4Box& trackerChamber, const G4int copyNo, const G4VPhysicalVolume*) const
 {
-    G4double  halfLength= 1*cm;
-    trackerChamber.SetXHalfLength(halfLength);
-    trackerChamber.SetYHalfLength(halfLength);
-    trackerChamber.SetZHalfLength(halfLength);
+    trackerChamber.SetXHalfLength(2*cm);
+    trackerChamber.SetYHalfLength(2*cm);
+    trackerChamber.SetZHalfLength(0.5*cm);
 }
 
 //....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......
