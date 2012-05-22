@@ -23,6 +23,7 @@
 
 #include "G4ios.hh"
 
+#include "G4NistManager.hh"
 //....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......
 
 NXUserDetectorConstruction::NXUserDetectorConstruction() :
@@ -76,6 +77,11 @@ G4VPhysicalVolume* NXUserDetectorConstruction::Construct()
     G4Material* Xenon = 
         new G4Material("XenonGas", z=54., a=131.29*g/mole, density= 5.458*mg/cm3,
                 kStateGas, temperature= 293.15*kelvin, pressure= 1*atmosphere);
+
+    G4NistManager* man=G4NistManager::Instance();
+    G4Material* PMMANist=man->FindOrBuildMaterial("G4_PLEXIGLASS");
+    G4Material* Fe=man->FindOrBuildMaterial("G4_Fe");
+    G4Material* Ta=man->FindOrBuildMaterial("G4_Ta");
 
     // Print all the materials defined.
     //
