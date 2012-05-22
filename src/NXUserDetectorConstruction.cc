@@ -99,7 +99,7 @@ G4VPhysicalVolume* NXUserDetectorConstruction::Construct()
     // World
     //------------------------------ 
 
-    fWorldLength= 300*cm;
+    fWorldLength= 2*m;
     G4double HalfWorldLength = 0.5*fWorldLength;
 
     G4GeometryManager::GetInstance()->SetWorldMaximumExtent(fWorldLength);
@@ -125,7 +125,7 @@ G4VPhysicalVolume* NXUserDetectorConstruction::Construct()
     //------------------------------
 
     TargetMater  = Ta;
-    G4ThreeVector positionTarget = G4ThreeVector(0,0,-100*cm);
+    G4ThreeVector positionTarget = G4ThreeVector(0,0,-70*cm);
 
     solidTarget = new G4Box("target", 2*cm, 2*cm, 0.5*cm);
     logicTarget = new G4LogicalVolume(solidTarget,TargetMater,"Target",0,0,0);
@@ -213,11 +213,11 @@ G4VPhysicalVolume* NXUserDetectorConstruction::Construct()
     G4VisAttributes* TargetVisAtt= new G4VisAttributes(G4Colour(0,0,1.0));
     logicTarget ->SetVisAttributes(TargetVisAtt); //blue
 
-    G4VisAttributes* TrackerVisAtt= new G4VisAttributes(G4Colour(0.5, 0.5, 0.5));
-    logicTracker->SetVisAttributes(TrackerVisAtt);  //gray
+    G4VisAttributes* TrackerVisAtt= new G4VisAttributes(G4Colour(1.0,1.0,0.0));
+    logicTracker->SetVisAttributes(TrackerVisAtt);  //yellow
 
-    G4VisAttributes* ChamberVisAtt = new G4VisAttributes(G4Colour(1.0,1.0,0.0));
-    logicChamber->SetVisAttributes(ChamberVisAtt);  //yellow
+    G4VisAttributes* ChamberVisAtt = new G4VisAttributes(G4Colour(0,1.0,0.0));
+    logicChamber->SetVisAttributes(ChamberVisAtt);  //green
 
     //--------- example of User Limits -------------------------------
 
