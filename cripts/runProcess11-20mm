@@ -1,0 +1,11 @@
+#!/bin/bash
+nipXray macs/10run| tee results/10result
+nipXray macs/11run| tee results/11result
+nipXray macs/12run| tee results/12result
+nipXray macs/13run| tee results/13result
+nipXray macs/14run| tee results/14result
+nipXray macs/15run| tee results/15result
+nipXray macs/16run| tee results/16result
+nipXray macs/17run| tee results/17result
+nipXray macs/18run| tee results/18result
+nipXray macs/19run| tee results/19result

@@ -3,7 +3,7 @@
 
 /NX/TargetLengthZ 1 mm
 /tracking/verbose 0
-/run/beamOn 10000
+/run/beamOn 10000000
 
 #/gun/particle mu-
 #/gun/energy 300 MeV
