@@ -55,7 +55,7 @@ void NXRunAction::EndOfRunAction(const G4Run*)
     G4cout<<"All Num of gamma is "<<AllNumofGamma<<G4endl;
     G4cout<<"All Num of Positron is "<<AllNumofPositron<<G4endl;
     G4cout<<"All Num of Negatron is "<<AllNumofNegatron<<G4endl;
-    G4cout<<"All Num of particle is "<<OtherParticle<<G4endl;
+    G4cout<<"All Num of Other particle is "<<OtherParticle<<G4endl;
     G4cout<<"the Num of particle Not bound is  "<<NumofPrePointNotBoundary<<G4endl;
     G4cout<<"the Num of particle bound is  "<<NumofPrePointIsBoundary<<G4endl;
     
