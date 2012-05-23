@@ -28,6 +28,9 @@ void NXRunAction::BeginOfRunAction(const G4Run* aRun)
     NumofPrePointNotBoundary=0;
     NumofPrePointIsBoundary=0;
     OtherParticle=0;
+    EnergyofGammaContrb=0;
+    EnergyofNegatronContrb=0;
+    EnergyofPositronContrb=0;
 }
 
 //....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......
@@ -52,12 +55,18 @@ void NXRunAction::EndOfRunAction(const G4Run*)
         CenterESofNegatronPerC[i]=1.0*CenterESofNegatron[i]/AllNumofNegatron;
     }
 
+    G4cout<<G4endl;
+
     G4cout<<"All Num of gamma is "<<AllNumofGamma<<G4endl;
     G4cout<<"All Num of Positron is "<<AllNumofPositron<<G4endl;
     G4cout<<"All Num of Negatron is "<<AllNumofNegatron<<G4endl;
     G4cout<<"All Num of Other particle is "<<OtherParticle<<G4endl;
     G4cout<<"the Num of particle Not bound is  "<<NumofPrePointNotBoundary<<G4endl;
     G4cout<<"the Num of particle bound is  "<<NumofPrePointIsBoundary<<G4endl;
+    G4cout<<"the Contribution of Energy by Gamma is "<<EnergyofGammaContrb/MeV<<" MeV"<<G4endl;
+    G4cout<<"the Contribution of Energy by Positron is "<<EnergyofPositronContrb/MeV<<" MeV"<<G4endl;
+    G4cout<<"the Contribution of Energy by Negatron is "<<EnergyofNegatronContrb/MeV<<" MeV"<<G4endl;
+    G4cout<<"the Contribution of Energy by Other particles is "<<EnergyofOtherParticleContrb/MeV<<" MeV"<<G4endl;
     
     G4cout<<G4endl;
 

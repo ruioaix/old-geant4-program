@@ -27,6 +27,10 @@ class NXRunAction : public G4UserRunAction
         G4int NumofPrePointNotBoundary;
         G4int NumofPrePointIsBoundary;
         G4int OtherParticle;
+        G4double EnergyofGammaContrb;
+        G4double EnergyofNegatronContrb;
+        G4double EnergyofPositronContrb;
+        G4double EnergyofOtherParticleContrb;
 
 };
 
