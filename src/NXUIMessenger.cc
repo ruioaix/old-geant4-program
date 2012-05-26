@@ -20,7 +20,7 @@ NXUIMessenger::NXUIMessenger(NXUserDetectorConstruction* myDet) :
     detDir = new G4UIdirectory("/N02/det/");
     detDir->SetGuidance("detector control.");
 
-    TargMatCmd = new G4UIcmdWithAString("/N02/det/setTargetMate",this);
+    TargMatCmd = new G4UIcmdWithAString("/NX/TargetMaterial",this);
     TargMatCmd->SetGuidance("Select Material of the Target.");
     TargMatCmd->SetParameterName("choice",false);
     TargMatCmd->AvailableForStates(G4State_PreInit,G4State_Idle);
