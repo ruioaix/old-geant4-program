@@ -81,8 +81,23 @@ G4VPhysicalVolume* NXUserDetectorConstruction::Construct()
     //Use Nist material Database instead of build material by myself.
     G4NistManager* man=G4NistManager::Instance();
     G4Material* PMMANist=man->FindOrBuildMaterial("G4_PLEXIGLASS");
-    G4Material* Fe=man->FindOrBuildMaterial("G4_Fe");
-    G4Material* Ta=man->FindOrBuildMaterial("G4_Ta");
+    G4Material* Al=man->FindOrBuildMaterial("G4_Al"); //13
+
+    //G4Material* Ti=man->FindOrBuildMaterial("G4_Ti"); //22
+    G4Material* V=man->FindOrBuildMaterial("G4_V"); //23
+    //G4Material* Cr=man->FindOrBuildMaterial("G4_Cr"); //24
+    //G4Material* Mn=man->FindOrBuildMaterial("G4_Mn"); //25
+    G4Material* Fe=man->FindOrBuildMaterial("G4_Fe"); //26
+    //G4Material* Co=man->FindOrBuildMaterial("G4_Co"); //27
+    //G4Material* Ni=man->FindOrBuildMaterial("G4_Ni"); //28
+    G4Material* Cu=man->FindOrBuildMaterial("G4_Cu"); //29
+
+    G4Material* Mo=man->FindOrBuildMaterial("G4_Mo"); //42
+    G4Material* Ag=man->FindOrBuildMaterial("G4_Ag"); //47
+
+    G4Material* Ta=man->FindOrBuildMaterial("G4_Ta");//73
+    G4Material* W=man->FindOrBuildMaterial("G4_W");//74
+    G4Material* Au=man->FindOrBuildMaterial("G4_Au");//79
 
     // build material by myself.
     //vacuum
