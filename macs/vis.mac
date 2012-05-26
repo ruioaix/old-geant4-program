@@ -34,5 +34,15 @@
 #
 /run/beamOn 10
 
+/NX/TargetLengthZ 1 mm
+/run/beamOn 10
+
 /NX/TargetLengthZ 10 cm
 /run/beamOn 10
+
+#/NX/GapinTarget 1 mm
+#/run/beamOn 10
+
+#/NX/GapinTarget 10 cm
+#/run/beamOn 10
+#/NX/TargetLengthZ 10 cm

@@ -33,12 +33,15 @@ NXUserDetectorConstruction::NXUserDetectorConstruction() :
     solidChamber(0),logicChamber(0),physiChamber(0), 
     TargetMater(0), ChamberMater(0),chamberParam(0),
     stepLimit(0), fpMagField(0),
-    fWorldLength(0.),  
+    fWorldLength(0.), GapinTarget(0),
     NbOfChambers(0) 
 {
     //In NXMagneticField, the constructor does everything. now there is no MagneticField, because there is no G4threevector variable in () and it mean the MagneticField is zero.
     fpMagField = new NXMagneticField();
     detectorMessenger = new NXUIMessenger(this);
+    for(G4int i=0;i<10;i++) {
+        physiTargetArray[i]=0;
+    }
 }
 
 //....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......
@@ -126,16 +129,21 @@ G4VPhysicalVolume* NXUserDetectorConstruction::Construct()
 
     TargetMater  = Ta;
     G4ThreeVector positionTarget = G4ThreeVector(0,0,-70*cm);
+    //GapinTarget=1*mm;
 
     solidTarget = new G4Box("target", 2*cm, 2*cm, 0.5*cm);
     logicTarget = new G4LogicalVolume(solidTarget,TargetMater,"Target",0,0,0);
-    physiTarget = new G4PVPlacement(0,               // no rotation
-            positionTarget,  // at (x,y,z)
-            logicTarget,     // its logical volume				  
-            "Target",        // its name
-            logicWorld,      // its mother  volume
-            false,           // no boolean operations
-            0);              // copy number 
+    for(G4int i=0;i<10;i++) {
+        G4double z=-70*cm+i*(GapinTarget+2*(solidTarget->GetZHalfLength()));
+        positionTarget=G4ThreeVector(0,0,z);
+        physiTargetArray[i] = new G4PVPlacement(0,               // no rotation
+                positionTarget,  // at (x,y,z)
+                logicTarget,     // its logical volume				  
+                "Target",        // its name
+                logicWorld,      // its mother  volume
+                false,           // no boolean operations
+                0);              // copy number 
+    }
 
     //------------------------------ 
     // Tracker
@@ -258,6 +266,24 @@ void NXUserDetectorConstruction::setTargetLengthZ(G4double z)
     solidTarget->SetZHalfLength(z/2);
 }
 //....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......
+
+void NXUserDetectorConstruction::setGapinTarget(G4double gap)
+{
+    GapinTarget=gap;
+    G4ThreeVector positionTarget = G4ThreeVector(0,0,-70*cm);
+    for(G4int i=0;i<10;i++) {
+        G4double z=-70*cm+i*(GapinTarget+2*(solidTarget->GetZHalfLength()));
+        positionTarget=G4ThreeVector(0,0,z);
+        delete physiTargetArray[i];
+        physiTargetArray[i]= new G4PVPlacement(0,               // no rotation
+                positionTarget,  // at (x,y,z)
+                logicTarget,     // its logical volume				  
+                "Target",        // its name
+                logicWorld,      // its mother  volume
+                false,           // no boolean operations
+                0);              // copy number 
+    }
+}
 
 void NXUserDetectorConstruction::setChamberMaterial(G4String materialName)
 {

@@ -37,6 +37,7 @@ class NXUserDetectorConstruction : public G4VUserDetectorConstruction
 
         void setTargetMaterial (G4String);
         void setTargetLengthZ (G4double);
+        void setGapinTarget(G4double);
         void setChamberMaterial(G4String);
         void SetMagField(G4double);
         void SetMaxStep (G4double);     
@@ -50,6 +51,7 @@ class NXUserDetectorConstruction : public G4VUserDetectorConstruction
         G4Box*             solidTarget;   // pointer to the solid Target
         G4LogicalVolume*   logicTarget;   // pointer to the logical Target
         G4VPhysicalVolume* physiTarget;   // pointer to the physical Target
+        G4VPhysicalVolume* physiTargetArray[10];   // pointer to the physical Target
 
         G4Box*             solidTracker;  // pointer to the solid Tracker
         G4LogicalVolume*   logicTracker;  // pointer to the logical Tracker
@@ -71,6 +73,7 @@ class NXUserDetectorConstruction : public G4VUserDetectorConstruction
 
         G4double fWorldLength;            // Full length of the world volume
         G4int    NbOfChambers;            // Nb of chambers in the tracker region
+        G4double GapinTarget;
 };
 
 //....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......
