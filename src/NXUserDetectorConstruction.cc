@@ -33,7 +33,7 @@ NXUserDetectorConstruction::NXUserDetectorConstruction() :
     solidChamber(0),logicChamber(0),physiChamber(0), 
     TargetMater(0), ChamberMater(0),chamberParam(0),
     stepLimit(0), fpMagField(0),
-    fWorldLength(0.), GapinTarget(0),
+    fWorldLength(0.), GapinTarget(0), fTargetLength(0),
     NbOfChambers(0) 
 {
     //In NXMagneticField, the constructor does everything. now there is no MagneticField, because there is no G4threevector variable in () and it mean the MagneticField is zero.
@@ -144,9 +144,10 @@ G4VPhysicalVolume* NXUserDetectorConstruction::Construct()
 
     TargetMater  = Ta;
     G4ThreeVector positionTarget = G4ThreeVector(0,0,-70*cm);
-    //GapinTarget=1*mm;
+    fTargetLength=1*cm;
+    G4double fHalfTargetLength=0.5*fTargetLength;
 
-    solidTarget = new G4Box("target", 2*cm, 2*cm, 0.5*cm);
+    solidTarget = new G4Box("target", 2*cm, 2*cm, fHalfTargetLength);
     logicTarget = new G4LogicalVolume(solidTarget,TargetMater,"Target",0,0,0);
     for(G4int i=0;i<10;i++) {
         G4double z=-70*cm+i*(GapinTarget+2*(solidTarget->GetZHalfLength()));
@@ -207,6 +208,9 @@ G4VPhysicalVolume* NXUserDetectorConstruction::Construct()
         << ChamberMater->GetName() << "\n The distance between chamber is "
         << " cm" << G4endl;
 
+    G4cout<<"The world is G4Box, fWorldLength is "<<fWorldLength/cm<<" cm"<<G4endl;
+    G4cout<<"The Target is G4Box, x&y length is 1cm, fTargetLength is "<<fTargetLength/mm<<" mm"<<G4endl;
+
     //------------------------------------------------ 
     // Sensitive detectors
     //------------------------------------------------ 
@@ -253,12 +257,6 @@ G4VPhysicalVolume* NXUserDetectorConstruction::Construct()
     G4double maxStep = 0.5*cm;
     stepLimit = new G4UserLimits(maxStep);
     logicTracker->SetUserLimits(stepLimit);
-
-    // Set additional contraints on the track, with G4UserSpecialCuts
-    //
-    // G4double maxLength = 2*fTrackerLength, maxTime = 0.1*ns, minEkin = 10*MeV;
-    // logicTracker->SetUserLimits(new G4UserLimits(maxStep,maxLength,maxTime,
-    //                                               minEkin));
 
     return physiWorld;
 }

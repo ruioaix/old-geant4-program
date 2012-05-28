@@ -72,6 +72,7 @@ class NXUserDetectorConstruction : public G4VUserDetectorConstruction
         NXUIMessenger* detectorMessenger;  // pointer to the Messenger
 
         G4double fWorldLength;            // Full length of the world volume
+        G4double fTargetLength;
         G4int    NbOfChambers;            // Nb of chambers in the tracker region
         G4double GapinTarget;
 };
