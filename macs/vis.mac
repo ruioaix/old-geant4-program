@@ -34,9 +34,10 @@
 #
 #/run/beamOn 10
 
-/NX/TargetLengthZ 1 cm
-/NX/GapinTarget 0 mm
-/run/beamOn 1
+/NX/TargetMaterial Vacuum
+/NX/TargetLengthZ 1 mm
+/NX/GapinTarget 1 mm
+/run/beamOn 10000
 
 #/NX/TargetLengthZ 1 mm
 #/NX/GapinTarget 1 mm

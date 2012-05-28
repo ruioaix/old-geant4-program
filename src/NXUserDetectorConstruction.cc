@@ -144,7 +144,7 @@ G4VPhysicalVolume* NXUserDetectorConstruction::Construct()
 
     TargetMater  = Ta;
     G4ThreeVector positionTarget = G4ThreeVector(0,0,-70*cm);
-    fTargetLength=1*cm;
+    fTargetLength=1*mm;
     G4double fHalfTargetLength=0.5*fTargetLength;
 
     solidTarget = new G4Box("target", 2*cm, 2*cm, fHalfTargetLength);

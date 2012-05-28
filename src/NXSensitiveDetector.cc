@@ -87,7 +87,7 @@ G4bool NXSensitiveDetector::ProcessHits(G4Step* aStep,G4TouchableHistory*)
             } else if(particleCurName == "e-") {
                 runActionCur->EnergyofNegatronContrb+=kineticEnergyCur;
                 for(G4int i=0;i<2000;i++) {
-                    if(kineticEnergyCur<=((i+1)*0.01*MeV) && kineticEnergyCur>(i*0.01*MeV)) {
+                    if(kineticEnergyCur<=(0.01*(i+1.0)*MeV) && kineticEnergyCur>(i*0.01*MeV)) {
                         runActionCur->CenterESofNegatron[i]++;
                         break;
                     }

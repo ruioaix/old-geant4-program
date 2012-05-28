@@ -10,6 +10,7 @@
 #include "G4ParticleDefinition.hh"
 #include "globals.hh"
 
+#include "Randomize.hh"
 //....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......
 
 NXPrimaryGeneratorAction::NXPrimaryGeneratorAction( NXUserDetectorConstruction* myDC) :
@@ -28,8 +29,10 @@ NXPrimaryGeneratorAction::NXPrimaryGeneratorAction( NXUserDetectorConstruction* 
     //G4ParticleDefinition* particle = particleTable->FindParticle("proton");
 
     particleGun->SetParticleDefinition(particle);
-    particleGun->SetParticleMomentumDirection(G4ThreeVector(0.,0.,1.));
     particleGun->SetParticleEnergy(20.0*MeV);
+
+    G4double position = -699.5*mm;
+    particleGun->SetParticlePosition(G4ThreeVector(0.*cm,0.*cm,position));
 }
 
 //....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......
@@ -43,8 +46,14 @@ NXPrimaryGeneratorAction::~NXPrimaryGeneratorAction()
 
 void NXPrimaryGeneratorAction::GeneratePrimaries(G4Event* anEvent)
 { 
-    G4double position = -120*cm;
-    particleGun->SetParticlePosition(G4ThreeVector(0.*cm,0.*cm,position));
+
+    G4double x2y2_2 = 10*G4UniformRand();
+    G4double phi=twopi*G4UniformRand();
+    G4double x=x2y2_2*std::sin(phi);
+    G4double y=x2y2_2*std::cos(phi);
+    G4double z=232;
+    
+    particleGun->SetParticleMomentumDirection(G4ThreeVector(x,y,z));
 
     particleGun->GeneratePrimaryVertex(anEvent);
 }
