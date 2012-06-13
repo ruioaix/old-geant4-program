@@ -48,10 +48,10 @@ void NXChamberParameterisation::ComputeDimensions
 
 G4Material* NXChamberParameterisation::ComputeMaterial (const G4int copyNo,G4VPhysicalVolume * physVol,const G4VTouchable*)
 {
-    if(copyNo%2 == 0) {
-        physVol->GetLogicalVolume()->SetMaterial(Fe);
-        return Fe; 
-    }
+    //if(copyNo%2 == 0) {
+    //    physVol->GetLogicalVolume()->SetMaterial(Fe);
+    //    return Fe; 
+    //}
     physVol->GetLogicalVolume()->SetMaterial(Vacuum);
     return Vacuum; 
 }

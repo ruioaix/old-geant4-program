@@ -1,12 +1,12 @@
 /run/verbose 2
 /event/verbose 0
 
-/NX/TargetMaterial Ta
+/NX/TargetMaterial Vacuum 
 
 /NX/TargetLengthZ 1 mm
 
 /tracking/verbose 0
-/run/beamOn 10000000
+/run/beamOn 100000
 
 #/gun/particle mu-
 #/gun/energy 300 MeV

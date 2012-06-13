@@ -21,8 +21,8 @@
 #
 /vis/drawVolume
 #
-/vis/viewer/set/viewpointThetaPhi 0 180 deg
-#/vis/viewer/set/viewpointThetaPhi 70 200 deg
+#/vis/viewer/set/viewpointThetaPhi 0 180 deg
+/vis/viewer/set/viewpointThetaPhi 70 200 deg
 /vis/viewer/zoom 1.4
 #
 # for drawing the tracks
