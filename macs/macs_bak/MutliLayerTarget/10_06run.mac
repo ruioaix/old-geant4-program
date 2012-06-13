@@ -1,0 +1,12 @@
+/run/verbose 2
+/event/verbose 0
+/tracking/verbose 0
+
+/NX/TargetLengthZ 1 mm
+/NX/GapinTarget 0.6 mm
+/run/beamOn 100000000
+
+#/gun/particle mu-
+#/gun/energy 300 MeV
+#/tracking/verbose 0
+#/run/beamOn 3
