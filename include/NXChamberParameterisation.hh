@@ -6,6 +6,7 @@
 
 #include "globals.hh"
 #include "G4VPVParameterisation.hh"
+#include "G4NistManager.hh"
 
 class G4VPhysicalVolume;
 class G4Box;
@@ -40,6 +41,9 @@ class NXChamberParameterisation : public G4VPVParameterisation
         void ComputeDimensions (G4Box & trackerLayer, const G4int copyNo,
                 const G4VPhysicalVolume* physVol) const;
 
+        G4Material* ComputeMaterial(const G4int repNo,G4VPhysicalVolume *currentVol,
+                const G4VTouchable *parentTouch=0);
+
     private:  // Dummy declarations to get rid of warnings ...
 
         void ComputeDimensions (G4Trd&,const G4int,const G4VPhysicalVolume*) const {}
@@ -56,6 +60,8 @@ class NXChamberParameterisation : public G4VPVParameterisation
     private:
 
         G4double fStartZ;
+        G4Material* Fe;
+        G4Material* Vacuum;
 };
 
 //....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......
