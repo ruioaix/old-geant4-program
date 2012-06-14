@@ -31,7 +31,7 @@ NXChamberParameterisation::~NXChamberParameterisation()
 void NXChamberParameterisation::ComputeTransformation
 (const G4int copyNo, G4VPhysicalVolume* physVol) const
 {
-    G4double      Zposition= fStartZ;
+    G4double      Zposition= fStartZ+copyNo*2*cm;
     physVol->SetTranslation(G4ThreeVector(0,0,Zposition));
     physVol->SetRotation(0);
 }
@@ -48,7 +48,7 @@ void NXChamberParameterisation::ComputeDimensions
 
 G4Material* NXChamberParameterisation::ComputeMaterial (const G4int copyNo,G4VPhysicalVolume * physVol,const G4VTouchable*)
 {
-    //if(copyNo%2 == 0) {
+    //if(copyNo == 0) {
     //    physVol->GetLogicalVolume()->SetMaterial(Fe);
     //    return Fe; 
     //}

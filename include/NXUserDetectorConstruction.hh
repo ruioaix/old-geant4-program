@@ -30,12 +30,13 @@ class NXUserDetectorConstruction : public G4VUserDetectorConstruction
         G4VPhysicalVolume* Construct();
 
         const 
-            G4VPhysicalVolume* GetTracker() {return physiTracker;};
+        G4VPhysicalVolume* GetTracker() {return physiTracker;};
         //G4double GetTrackerFullLength() {return fTrackerLength;};
         //G4double GetTargetFullLength()  {return fTargetLength;};
         G4double GetWorldFullLength()   {return fWorldLength;}; 
 
         void setTargetMaterial (G4String);
+        void setOneFeLengthZ( G4double);
         void setTargetLengthZ (G4double);
         void setGapinTarget(G4double);
         void setChamberMaterial(G4String);
@@ -52,6 +53,10 @@ class NXUserDetectorConstruction : public G4VUserDetectorConstruction
         G4LogicalVolume*   logicTarget;   // pointer to the logical Target
         G4VPhysicalVolume* physiTarget;   // pointer to the physical Target
         G4VPhysicalVolume* physiTargetArray[10];   // pointer to the physical Target
+
+        G4Box             *solidoneFe;
+        G4LogicalVolume*   logiconeFe;  
+        G4VPhysicalVolume* physioneFe;  
 
         G4Box*             solidTracker;  // pointer to the solid Tracker
         G4LogicalVolume*   logicTracker;  // pointer to the logical Tracker

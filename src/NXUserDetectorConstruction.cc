@@ -30,6 +30,7 @@ NXUserDetectorConstruction::NXUserDetectorConstruction() :
     solidWorld(0),  logicWorld(0),  physiWorld(0),
     solidTarget(0), logicTarget(0), physiTarget(0), 
     solidTracker(0),logicTracker(0),physiTracker(0), 
+    solidoneFe(0),logiconeFe(0),physioneFe(0), 
     solidChamber(0),logicChamber(0),physiChamber(0), 
     TargetMater(0), ChamberMater(0),chamberParam(0),
     stepLimit(0), fpMagField(0),
@@ -162,10 +163,26 @@ G4VPhysicalVolume* NXUserDetectorConstruction::Construct()
     }
 
     //------------------------------ 
+    // OneFe 
+    //------------------------------
+    G4ThreeVector positiononeFe= G4ThreeVector(0,0,0);
+
+    solidoneFe= new G4Box("oneFe", 5*cm, 5*cm, 5*mm);
+    logiconeFe= new G4LogicalVolume(solidoneFe, Fe, "OneFe",0,0,0);  
+    physioneFe= new G4PVPlacement(0,              // no rotation
+            positiononeFe, // at (x,y,z)
+            logiconeFe,    // its logical volume				  
+            "Tracker",       // its name
+            logicWorld,      // its mother  volume
+            false,           // no boolean operations
+            0);              // copy number 
+
+
+    //------------------------------ 
     // Tracker
     //------------------------------
 
-    G4ThreeVector positionTracker = G4ThreeVector(0,0,0);
+    G4ThreeVector positionTracker = G4ThreeVector(0,0,20*cm);
 
     solidTracker = new G4Box("tracker", 5*cm, 5*cm, 5*cm);
     logicTracker = new G4LogicalVolume(solidTracker , Vacuum, "Tracker",0,0,0);  
@@ -324,3 +341,10 @@ void NXUserDetectorConstruction::SetMaxStep(G4double maxStep)
 }
 
 //....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......
+void NXUserDetectorConstruction::setOneFeLengthZ(G4double z)
+{
+    // search the material by its name 
+    solidoneFe->SetZHalfLength(z/2);
+}
+
+
