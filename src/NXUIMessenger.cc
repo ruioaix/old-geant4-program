@@ -49,6 +49,12 @@ NXUIMessenger::NXUIMessenger(NXUserDetectorConstruction* myDet) :
     TargetLengthZCmd->SetUnitCategory("Length");
     TargetLengthZCmd->AvailableForStates(G4State_Idle);    
 
+    OneFeLengthZCmd = new G4UIcmdWithADoubleAndUnit("/NX/OneFeLengthZ",this);  
+    OneFeLengthZCmd->SetGuidance("redefine the length of oneFe.");
+    OneFeLengthZCmd->SetParameterName("OneFeLengthZ",false);
+    OneFeLengthZCmd->SetUnitCategory("Length");
+    OneFeLengthZCmd->AvailableForStates(G4State_Idle);    
+
     GapinTargetCmd = new G4UIcmdWithADoubleAndUnit("/NX/GapinTarget",this);  
     GapinTargetCmd->SetGuidance("define the gap between target.");
     GapinTargetCmd->SetParameterName("GapinTarget",false);
@@ -87,6 +93,9 @@ void NXUIMessenger::SetNewValue(G4UIcommand* command,G4String newValue)
 
     if( command == TargetLengthZCmd)
     { myDetector->setTargetLengthZ(TargetLengthZCmd->GetNewDoubleValue(newValue));}   
+
+    if( command == OneFeLengthZCmd)
+    { myDetector->setOneFeLengthZ(OneFeLengthZCmd->GetNewDoubleValue(newValue));}   
 
     if( command == GapinTargetCmd)
     { myDetector->setGapinTarget(GapinTargetCmd->GetNewDoubleValue(newValue));}   
