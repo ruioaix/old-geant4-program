@@ -150,7 +150,7 @@ G4VPhysicalVolume* NXUserDetectorConstruction::Construct()
 
     solidTarget = new G4Box("target", 2*cm, 2*cm, fHalfTargetLength);
     logicTarget = new G4LogicalVolume(solidTarget,TargetMater,"Target",0,0,0);
-    for(G4int i=0;i<10;i++) {
+    for(G4int i=0;i<24;i++) {
         G4double z=-70*cm+i*(GapinTarget+2*(solidTarget->GetZHalfLength()));
         positionTarget=G4ThreeVector(0,0,z);
         physiTargetArray[i] = new G4PVPlacement(0,               // no rotation
