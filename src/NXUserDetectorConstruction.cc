@@ -9,6 +9,7 @@
 
 #include "G4Material.hh"
 #include "G4Box.hh"
+#include "G4Tubs.hh"
 #include "G4LogicalVolume.hh"
 #include "G4PVPlacement.hh"
 #include "G4PVParameterised.hh"
@@ -204,7 +205,7 @@ G4VPhysicalVolume* NXUserDetectorConstruction::Construct()
     NbOfChambers = 1;
     ChamberMater = Vacuum;
 
-    solidChamber = new G4Box("chamber", 1*cm, 1*cm, 0.5*cm); 
+    solidChamber = new G4Tubs("chamber", 0*cm, 1.5*cm, 0.5*cm, 0*deg, 360*deg); 
     logicChamber = new G4LogicalVolume(solidChamber,ChamberMater,"Chamber",0,0,0);
 
     G4double firstPosition = 0;

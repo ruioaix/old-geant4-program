@@ -38,8 +38,7 @@ class NXChamberParameterisation : public G4VPVParameterisation
         void ComputeTransformation (const G4int copyNo,
                 G4VPhysicalVolume* physVol) const;
 
-        void ComputeDimensions (G4Box & trackerLayer, const G4int copyNo,
-                const G4VPhysicalVolume* physVol) const;
+        void ComputeDimensions (G4Tubs&,const G4int,const G4VPhysicalVolume*) const; 
 
         G4Material* ComputeMaterial(const G4int repNo,G4VPhysicalVolume *currentVol,
                 const G4VTouchable *parentTouch=0);
@@ -52,9 +51,9 @@ class NXChamberParameterisation : public G4VPVParameterisation
         void ComputeDimensions (G4Sphere&,const G4int,const G4VPhysicalVolume*) const {}
         void ComputeDimensions (G4Orb&,const G4int,const G4VPhysicalVolume*) const {}
         void ComputeDimensions (G4Torus&,const G4int,const G4VPhysicalVolume*) const {}
+        void ComputeDimensions (G4Box & trackerLayer, const G4int copyNo, const G4VPhysicalVolume* physVol) const {}
         void ComputeDimensions (G4Para&,const G4int,const G4VPhysicalVolume*) const {}
         void ComputeDimensions (G4Hype&,const G4int,const G4VPhysicalVolume*) const {}
-        void ComputeDimensions (G4Tubs&,const G4int,const G4VPhysicalVolume*) const {}
         void ComputeDimensions (G4Polycone&,const G4int,const G4VPhysicalVolume*) const {}
         void ComputeDimensions (G4Polyhedra&,const G4int,const G4VPhysicalVolume*) const {}
     private:

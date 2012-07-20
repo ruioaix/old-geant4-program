@@ -9,6 +9,7 @@
 #include "NXMagneticField.hh"
 
 class G4Box;
+class G4Tubs;
 class G4LogicalVolume;
 class G4VPhysicalVolume;
 class G4Material;
@@ -62,7 +63,7 @@ class NXUserDetectorConstruction : public G4VUserDetectorConstruction
         G4LogicalVolume*   logicTracker;  // pointer to the logical Tracker
         G4VPhysicalVolume* physiTracker;  // pointer to the physical Tracker
 
-        G4Box*             solidChamber;  // pointer to the solid Chamber
+        G4Tubs*             solidChamber;  // pointer to the solid Chamber
         G4LogicalVolume*   logicChamber;  // pointer to the logical Chamber
         G4VPhysicalVolume* physiChamber;  // pointer to the physical Chamber
 

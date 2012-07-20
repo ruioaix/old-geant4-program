@@ -6,6 +6,7 @@
 #include "G4VPhysicalVolume.hh"
 #include "G4ThreeVector.hh"
 #include "G4Box.hh"
+#include "G4Tubs.hh"
 
 #include "G4LogicalVolume.hh"
 //....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......
@@ -39,10 +40,14 @@ void NXChamberParameterisation::ComputeTransformation
 //....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......
 
 void NXChamberParameterisation::ComputeDimensions
-(G4Box& trackerChamber, const G4int copyNo, const G4VPhysicalVolume*) const
+//(G4Box& trackerChamber, const G4int copyNo, const G4VPhysicalVolume*) const
+(G4Tubs& trackerChamber, const G4int copyNo, const G4VPhysicalVolume*) const
 {
-    trackerChamber.SetXHalfLength(2*cm);
-    trackerChamber.SetYHalfLength(2*cm);
+    //trackerChamber.SetXHalfLength(2*cm);
+    //trackerChamber.SetYHalfLength(2*cm);
+    //trackerChamber.SetZHalfLength(0.5*cm);
+    trackerChamber.SetInnerRadius(0);
+    trackerChamber.SetOuterRadius(1.5*cm);
     trackerChamber.SetZHalfLength(0.5*cm);
 }
 

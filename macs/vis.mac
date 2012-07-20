@@ -39,8 +39,10 @@
 /NX/TargetLengthZ 0.05 mm
 /NX/GapinTarget 0.5 mm
 /NX/OneFeLengthZ 1 mm
-/run/beamOn 10000
+/run/beamOn 10
 
 #/NX/TargetLengthZ 1 mm
 #/NX/GapinTarget 1 mm
 #/run/beamOn 10
+#/vis/viewer/set/viewpointThetaPhi 70 200 deg
+#/vis/viewer/zoom 1.4

@@ -20,7 +20,7 @@ NXRunAction::~NXRunAction()
 void NXRunAction::BeginOfRunAction(const G4Run* aRun)
 {
     G4cout << "### Run " << aRun->GetRunID() << " start." << G4endl;
-    for(G4int i=0;i<2000;i++) {
+    for(G4int i=0;i<40;i++) {
         CenterESofGamma[i]=0;
         CenterESofPositron[i]=0;
         CenterESofNegatron[i]=0;
@@ -40,16 +40,16 @@ void NXRunAction::EndOfRunAction(const G4Run*)
     G4int AllNumofGamma=0;
     G4int AllNumofPositron=0;
     G4int AllNumofNegatron=0;
-    for(G4int i=0;i<2000;i++) {
+    for(G4int i=0;i<40;i++) {
         AllNumofGamma+=CenterESofGamma[i];
         AllNumofPositron+=CenterESofPositron[i];
         AllNumofNegatron+=CenterESofNegatron[i];
     }
 
-    G4double CenterESofGammaPerC[2000];
-    G4double CenterESofPositronPerC[2000];
-    G4double CenterESofNegatronPerC[2000];
-    for (G4int i=0;i<2000;i++) {
+    G4double CenterESofGammaPerC[40];
+    G4double CenterESofPositronPerC[40];
+    G4double CenterESofNegatronPerC[40];
+    for (G4int i=0;i<40;i++) {
         CenterESofGammaPerC[i]=1.0*CenterESofGamma[i]/AllNumofGamma;
         CenterESofPositronPerC[i]=1.0*CenterESofPositron[i]/AllNumofPositron;
         CenterESofNegatronPerC[i]=1.0*CenterESofNegatron[i]/AllNumofNegatron;
@@ -71,8 +71,8 @@ void NXRunAction::EndOfRunAction(const G4Run*)
     G4cout<<G4endl;
 
     G4cout<<"Energy/MeV\t Gamma\t Positron\t Negatron"<<G4endl;
-    for(G4int i=0;i<2000;i++) {
-        G4double i_20MeV=(i/100.0)*MeV;
+    for(G4int i=0;i<40;i++) {
+        G4double i_20MeV=(i/2.0)*MeV;
         G4cout<<i_20MeV/MeV<<"\t "<<CenterESofGammaPerC[i]
             <<"\t "<<CenterESofPositronPerC[i]
             <<"\t "<<CenterESofNegatronPerC[i]<<G4endl;

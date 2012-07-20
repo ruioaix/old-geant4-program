@@ -21,9 +21,12 @@ class NXRunAction : public G4UserRunAction
         void BeginOfRunAction(const G4Run*);
         void EndOfRunAction(const G4Run*);
 
-        G4int CenterESofGamma[2000];
-        G4int CenterESofPositron[2000];
-        G4int CenterESofNegatron[2000];
+        G4int CenterESofGamma[40];
+        G4int CenterESofPositron[40];
+        G4int CenterESofNegatron[40];
+        //G4int CenterESofGamma[2000];
+        //G4int CenterESofPositron[2000];
+        //G4int CenterESofNegatron[2000];
         G4int NumofPrePointNotBoundary;
         G4int NumofPrePointIsBoundary;
         G4int OtherParticle;
