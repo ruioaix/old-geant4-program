@@ -93,7 +93,21 @@ void NXPrimaryGeneratorAction::GeneratePrimaries(G4Event* anEvent)
     particleGun->SetParticleEnergy(energyPara);
 */
 
-    
+/*
+    G4double mean;
+    G4double stddev;
+    mean = 0;
+    stddev = 0.3*mm/2.35482;
+    G4double x2plusy2_2;
+    x2plusy2_2 = G4RandGauss::shoot(mean,stddev);
+    G4double phi=twopi*G4UniformRand();
+    phi=3.1415926*G4UniformRand();
+    G4double x=x2plusy2_2*std::sin(phi);
+    G4double y=x2plusy2_2*std::cos(phi);
+    G4double z = -799.5*mm;
+    particleGun->SetParticlePosition(G4ThreeVector(x,y,z));
+*/
+   
     particleGun->SetParticleMomentumDirection(G4ThreeVector(0,0,1));
     particleGun->SetParticleEnergy(20*MeV);
     particleGun->GeneratePrimaryVertex(anEvent);
