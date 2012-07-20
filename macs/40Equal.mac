@@ -1,0 +1,19 @@
+/run/verbose 2
+/event/verbose 0
+/tracking/verbose 0
+
+/gun/particle e-
+
+/NX/TargetMaterial Ta
+/NX/TargetLengthZ 0.1 mm
+/NX/GapinTarget 0.5 mm
+
+/NX/OneFeLengthZ 10.2698259  mm    
+/NX/OneFeMaterial Vacuum
+
+/run/beamOn 50000
+
+#/gun/particle mu-
+#/gun/energy 300 MeV
+#/tracking/verbose 0
+#/run/beamOn 3
