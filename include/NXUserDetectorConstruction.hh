@@ -37,6 +37,7 @@ class NXUserDetectorConstruction : public G4VUserDetectorConstruction
         G4double GetWorldFullLength()   {return fWorldLength;}; 
 
         void setTargetMaterial (G4String);
+        void setOneFeMaterial (G4String);
         void setOneFeLengthZ( G4double);
         void setTargetLengthZ (G4double);
         void setGapinTarget(G4double);

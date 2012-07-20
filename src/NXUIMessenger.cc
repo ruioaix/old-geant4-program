@@ -20,11 +20,6 @@ NXUIMessenger::NXUIMessenger(NXUserDetectorConstruction* myDet) :
     detDir = new G4UIdirectory("/N02/det/");
     detDir->SetGuidance("detector control.");
 
-    TargMatCmd = new G4UIcmdWithAString("/NX/TargetMaterial",this);
-    TargMatCmd->SetGuidance("Select Material of the Target.");
-    TargMatCmd->SetParameterName("choice",false);
-    TargMatCmd->AvailableForStates(G4State_PreInit,G4State_Idle);
-
     ChamMatCmd = new G4UIcmdWithAString("/N02/det/setChamberMate",this);
     ChamMatCmd->SetGuidance("Select Material of the Target.");
     ChamMatCmd->SetParameterName("choice",false);
@@ -43,11 +38,22 @@ NXUIMessenger::NXUIMessenger(NXUserDetectorConstruction* myDet) :
     StepMaxCmd->SetUnitCategory("Length");
     StepMaxCmd->AvailableForStates(G4State_Idle);    
 
+    TargMatCmd = new G4UIcmdWithAString("/NX/TargetMaterial",this);
+    TargMatCmd->SetGuidance("Select Material of the Target.");
+    TargMatCmd->SetParameterName("choice",false);
+    TargMatCmd->AvailableForStates(G4State_PreInit,G4State_Idle);
+
     TargetLengthZCmd = new G4UIcmdWithADoubleAndUnit("/NX/TargetLengthZ",this);  
     TargetLengthZCmd->SetGuidance("redefine the length of target.");
     TargetLengthZCmd->SetParameterName("TargetLengthZ",false);
     TargetLengthZCmd->SetUnitCategory("Length");
     TargetLengthZCmd->AvailableForStates(G4State_Idle);    
+
+    GapinTargetCmd = new G4UIcmdWithADoubleAndUnit("/NX/GapinTarget",this);  
+    GapinTargetCmd->SetGuidance("define the gap between target.");
+    GapinTargetCmd->SetParameterName("GapinTarget",false);
+    GapinTargetCmd->SetUnitCategory("Length");
+    GapinTargetCmd->AvailableForStates(G4State_Idle);    
 
     OneFeLengthZCmd = new G4UIcmdWithADoubleAndUnit("/NX/OneFeLengthZ",this);  
     OneFeLengthZCmd->SetGuidance("redefine the length of oneFe.");
@@ -55,11 +61,12 @@ NXUIMessenger::NXUIMessenger(NXUserDetectorConstruction* myDet) :
     OneFeLengthZCmd->SetUnitCategory("Length");
     OneFeLengthZCmd->AvailableForStates(G4State_Idle);    
 
-    GapinTargetCmd = new G4UIcmdWithADoubleAndUnit("/NX/GapinTarget",this);  
-    GapinTargetCmd->SetGuidance("define the gap between target.");
-    GapinTargetCmd->SetParameterName("GapinTarget",false);
-    GapinTargetCmd->SetUnitCategory("Length");
-    GapinTargetCmd->AvailableForStates(G4State_Idle);    
+    OneFeMaterialCmd = new G4UIcmdWithAString("/NX/OneFeMaterial",this);
+    OneFeMaterialCmd->SetGuidance("Select Material of the OneFe.");
+    OneFeMaterialCmd->SetParameterName("choice",false);
+    OneFeMaterialCmd->AvailableForStates(G4State_PreInit,G4State_Idle);
+
+
 }
 
 //....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......
@@ -79,8 +86,6 @@ NXUIMessenger::~NXUIMessenger()
 
 void NXUIMessenger::SetNewValue(G4UIcommand* command,G4String newValue)
 { 
-    if( command == TargMatCmd )
-    { myDetector->setTargetMaterial(newValue);}
 
     if( command == ChamMatCmd )
     { myDetector->setChamberMaterial(newValue);}  
@@ -93,12 +98,16 @@ void NXUIMessenger::SetNewValue(G4UIcommand* command,G4String newValue)
 
     if( command == TargetLengthZCmd)
     { myDetector->setTargetLengthZ(TargetLengthZCmd->GetNewDoubleValue(newValue));}   
+    if( command == GapinTargetCmd)
+    { myDetector->setGapinTarget(GapinTargetCmd->GetNewDoubleValue(newValue));}   
+    if( command == TargMatCmd )
+    { myDetector->setTargetMaterial(newValue);}
 
     if( command == OneFeLengthZCmd)
     { myDetector->setOneFeLengthZ(OneFeLengthZCmd->GetNewDoubleValue(newValue));}   
+    if( command == OneFeMaterialCmd)
+    { myDetector->setOneFeMaterial(newValue);}
 
-    if( command == GapinTargetCmd)
-    { myDetector->setGapinTarget(GapinTargetCmd->GetNewDoubleValue(newValue));}   
 }
 
 //....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......

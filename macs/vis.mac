@@ -36,6 +36,7 @@
 #/run/beamOn 10
 
 /NX/TargetMaterial Vacuum
+/NX/OneFeMaterial Vacuum
 /NX/TargetLengthZ 0.05 mm
 /NX/GapinTarget 0.5 mm
 /NX/OneFeLengthZ 1 mm

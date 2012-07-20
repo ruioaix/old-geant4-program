@@ -348,4 +348,15 @@ void NXUserDetectorConstruction::setOneFeLengthZ(G4double z)
     solidoneFe->SetZHalfLength(z/2);
 }
 
+void NXUserDetectorConstruction::setOneFeMaterial(G4String materialName)
+{
+    // search the material by its name 
+    G4Material* pttoMaterial = G4Material::GetMaterial(materialName);  
+    if (pttoMaterial)
+    {TargetMater = pttoMaterial;
+        logiconeFe->SetMaterial(pttoMaterial); 
+        G4cout << "\n----> The OneFe's material is " << materialName << G4endl;
+    }             
+}
+
 

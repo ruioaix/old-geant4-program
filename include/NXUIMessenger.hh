@@ -31,9 +31,12 @@ class NXUIMessenger: public G4UImessenger
         G4UIcmdWithAString*        ChamMatCmd;    
         G4UIcmdWithADoubleAndUnit* FieldCmd;
         G4UIcmdWithADoubleAndUnit* StepMaxCmd;    
+        
         G4UIcmdWithADoubleAndUnit* TargetLengthZCmd;    
-        G4UIcmdWithADoubleAndUnit* OneFeLengthZCmd;    
         G4UIcmdWithADoubleAndUnit* GapinTargetCmd;    
+
+        G4UIcmdWithADoubleAndUnit* OneFeLengthZCmd;    
+        G4UIcmdWithAString* OneFeMaterialCmd;    
 };
 
 //....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......
