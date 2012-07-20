@@ -24,6 +24,9 @@ void NXRunAction::BeginOfRunAction(const G4Run* aRun)
         CenterESofGamma[i]=0;
         CenterESofPositron[i]=0;
         CenterESofNegatron[i]=0;
+        OneSD_ESofGamma[i]   =0;
+        OneSD_ESofNegatron[i]=0;
+        OneSD_ESofPositron[i]=0;
     }
     NumofPrePointNotBoundary=0;
     NumofPrePointIsBoundary=0;
@@ -31,6 +34,7 @@ void NXRunAction::BeginOfRunAction(const G4Run* aRun)
     EnergyofGammaContrb=0;
     EnergyofNegatronContrb=0;
     EnergyofPositronContrb=0;
+
 }
 
 //....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......
@@ -40,19 +44,31 @@ void NXRunAction::EndOfRunAction(const G4Run*)
     G4int AllNumofGamma=0;
     G4int AllNumofPositron=0;
     G4int AllNumofNegatron=0;
+    G4int OneSD_AllNumofGamma=0;
+    G4int OneSD_AllNumofPositron=0;
+    G4int OneSD_AllNumofNegatron=0;
     for(G4int i=0;i<40;i++) {
         AllNumofGamma+=CenterESofGamma[i];
         AllNumofPositron+=CenterESofPositron[i];
         AllNumofNegatron+=CenterESofNegatron[i];
+        OneSD_AllNumofGamma+=OneSD_ESofGamma[i];
+        OneSD_AllNumofPositron+=OneSD_ESofPositron[i];
+        OneSD_AllNumofNegatron+=OneSD_ESofNegatron[i];
     }
 
     G4double CenterESofGammaPerC[40];
     G4double CenterESofPositronPerC[40];
     G4double CenterESofNegatronPerC[40];
+    G4double OneSD_ofGammaPerC[40];
+    G4double OneSD_ofPositronPerC[40];
+    G4double OneSD_ofNegatronPerC[40];
     for (G4int i=0;i<40;i++) {
         CenterESofGammaPerC[i]=1.0*CenterESofGamma[i]/AllNumofGamma;
         CenterESofPositronPerC[i]=1.0*CenterESofPositron[i]/AllNumofPositron;
         CenterESofNegatronPerC[i]=1.0*CenterESofNegatron[i]/AllNumofNegatron;
+        OneSD_ofGammaPerC[i]=1.0*OneSD_ESofGamma[i]/OneSD_AllNumofGamma;
+        OneSD_ofPositronPerC[i]=1.0*OneSD_ESofPositron[i]/OneSD_AllNumofPositron;
+        OneSD_ofNegatronPerC[i]=1.0*OneSD_ESofNegatron[i]/OneSD_AllNumofNegatron;
     }
 
     G4cout<<G4endl;
@@ -78,7 +94,20 @@ void NXRunAction::EndOfRunAction(const G4Run*)
             <<"\t "<<CenterESofNegatronPerC[i]<<G4endl;
     }
 
+    G4cout<<"In OneSD, All Num of gamma is "<<OneSD_AllNumofGamma<<G4endl;
+    G4cout<<"In OneSD, All Num of Positron is "<<OneSD_AllNumofPositron<<G4endl;
+    G4cout<<"In OneSD, All Num of Negatron is "<<OneSD_AllNumofNegatron<<G4endl;
+
+    G4cout<<"Energy/MeV\t Gamma\t Positron\t Negatron"<<G4endl;
+    for(G4int i=0;i<40;i++) {
+        G4double i_20MeV=(i/2.0+0.25)*MeV;
+        G4cout<<i_20MeV/MeV<<"\t "<<OneSD_ofGammaPerC[i]
+            <<"\t "<<OneSD_ofPositronPerC[i]
+            <<"\t "<<OneSD_ofNegatronPerC[i]<<G4endl;
+    }
+
 }
+
 
 //....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......
 

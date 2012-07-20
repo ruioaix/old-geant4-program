@@ -35,6 +35,7 @@
 #
 #/run/beamOn 10
 
+/gun/particle gamma
 /NX/TargetMaterial Vacuum
 /NX/OneFeMaterial Vacuum
 /NX/TargetLengthZ 0.05 mm

@@ -35,6 +35,10 @@ class NXRunAction : public G4UserRunAction
         G4double EnergyofPositronContrb;
         G4double EnergyofOtherParticleContrb;
 
+        G4int OneSD_ESofGamma[40];
+        G4int OneSD_ESofNegatron[40];
+        G4int OneSD_ESofPositron[40];
+
 };
 
 //....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......

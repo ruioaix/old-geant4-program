@@ -60,6 +60,33 @@ G4bool NXSensitiveDetector::ProcessHits(G4Step* aStep,G4TouchableHistory*)
     G4RunManager* runManager= G4RunManager::GetRunManager();
     NXRunAction* runActionCur=(NXRunAction *)runManager->GetUserRunAction();
 
+    if(volumeCurName == "OneSD") {
+        if(particleCurName == "gamma") {
+            for(G4int i=0;i<40;i++) {
+                if(kineticEnergyCur<=((i+1)*0.5*MeV) && kineticEnergyCur>(i*0.5*MeV)) {
+                    runActionCur->OneSD_ESofGamma[i]++;
+                    break;
+                }
+            }
+        } else if(particleCurName == "e+") {
+            for(G4int i=0;i<40;i++) {
+                if(kineticEnergyCur<=((i+1)*0.5*MeV) && kineticEnergyCur>(i*0.5*MeV)) {
+                    runActionCur->OneSD_ESofPositron[i]++;
+                    break;
+                }
+            }
+        } else if(particleCurName == "e-") {
+            for(G4int i=0;i<40;i++) {
+                if(kineticEnergyCur<=(0.5*(i+1.0)*MeV) && kineticEnergyCur>(i*0.5*MeV)) {
+                    runActionCur->OneSD_ESofNegatron[i]++;
+                    break;
+                }
+            }
+        } else {
+            runActionCur->OtherParticle++;
+        }
+    }
+    
     if(volumeCurName == "Chamber") {
         if(copyNumofChamber == 0) {
             if (pointPre->GetStepStatus() != fGeomBoundary) {
