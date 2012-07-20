@@ -32,6 +32,7 @@ NXUserDetectorConstruction::NXUserDetectorConstruction() :
     solidTarget(0), logicTarget(0), physiTarget(0), 
     solidTracker(0),logicTracker(0),physiTracker(0), 
     solidoneFe(0),logiconeFe(0),physioneFe(0), 
+    solidoneSD(0),logiconeSD(0),physioneSD(0), 
     solidChamber(0),logicChamber(0),physiChamber(0), 
     TargetMater(0), ChamberMater(0),chamberParam(0),
     stepLimit(0), fpMagField(0),
@@ -164,6 +165,22 @@ G4VPhysicalVolume* NXUserDetectorConstruction::Construct()
     }
 
     //------------------------------ 
+    // OneSD 
+    //------------------------------
+    G4ThreeVector positiononeSD= G4ThreeVector(0,0,-50*cm);
+
+    solidoneSD= new G4Tubs("oneSD", 0*cm, 1.5*cm, 5*mm, 0*deg, 360*deg);
+    logiconeSD= new G4LogicalVolume(solidoneSD, Vacuum, "OneSD",0,0,0);  
+    physioneSD= new G4PVPlacement(0,              // no rotation
+            positiononeSD, // at (x,y,z)
+            logiconeSD,    // its logical volume				  
+            "OneSD",       // its name
+            logicWorld,      // its mother  volume
+            false,           // no boolean operations
+            0);              // copy number 
+
+
+    //------------------------------ 
     // OneFe 
     //------------------------------
     G4ThreeVector positiononeFe= G4ThreeVector(0,0,0);
@@ -173,7 +190,7 @@ G4VPhysicalVolume* NXUserDetectorConstruction::Construct()
     physioneFe= new G4PVPlacement(0,              // no rotation
             positiononeFe, // at (x,y,z)
             logiconeFe,    // its logical volume				  
-            "Tracker",       // its name
+            "OneFe",       // its name
             logicWorld,      // its mother  volume
             false,           // no boolean operations
             0);              // copy number 
@@ -239,6 +256,8 @@ G4VPhysicalVolume* NXUserDetectorConstruction::Construct()
     NXSensitiveDetector* aTrackerSD = new NXSensitiveDetector( trackerChamberSDname );
     SDman->AddNewDetector( aTrackerSD );
     logicChamber->SetSensitiveDetector( aTrackerSD );
+    logiconeSD->SetSensitiveDetector( aTrackerSD );
+
 
     //--------- Visualization attributes -------------------------------
     //G4Colour  white   ()                // white    

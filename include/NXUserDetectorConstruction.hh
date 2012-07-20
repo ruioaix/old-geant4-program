@@ -60,6 +60,10 @@ class NXUserDetectorConstruction : public G4VUserDetectorConstruction
         G4LogicalVolume*   logiconeFe;  
         G4VPhysicalVolume* physioneFe;  
 
+        G4Tubs*            solidoneSD; 
+        G4LogicalVolume*   logiconeSD; 
+        G4VPhysicalVolume* physioneSD; 
+
         G4Box*             solidTracker;  // pointer to the solid Tracker
         G4LogicalVolume*   logicTracker;  // pointer to the logical Tracker
         G4VPhysicalVolume* physiTracker;  // pointer to the physical Tracker
