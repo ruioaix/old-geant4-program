@@ -40,6 +40,7 @@ class NXRunAction : public G4UserRunAction
         G4int OneSD_ESofPositron[40];
 
         G4int Allgammaof20MeV;
+        G4double AllenergyofBASE;
 
 };
 
