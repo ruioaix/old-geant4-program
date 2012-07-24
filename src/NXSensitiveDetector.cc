@@ -62,6 +62,8 @@ G4bool NXSensitiveDetector::ProcessHits(G4Step* aStep,G4TouchableHistory*)
 
     if(volumeCurName == "OneSD") {
         if(particleCurName == "gamma") {
+            if(kineticEnergyCur == 20*MeV)
+                runActionCur->Allgammaof20MeV++;
             for(G4int i=0;i<40;i++) {
                 if(kineticEnergyCur<=((i+1)*0.5*MeV) && kineticEnergyCur>(i*0.5*MeV)) {
                     runActionCur->OneSD_ESofGamma[i]++;

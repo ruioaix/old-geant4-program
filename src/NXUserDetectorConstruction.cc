@@ -183,10 +183,10 @@ G4VPhysicalVolume* NXUserDetectorConstruction::Construct()
     //------------------------------ 
     // OneFe 
     //------------------------------
-    G4ThreeVector positiononeFe= G4ThreeVector(0,0,0);
+    G4ThreeVector positiononeFe= G4ThreeVector(0,0,-55*cm);
 
     solidoneFe= new G4Box("oneFe", 5*cm, 5*cm, 5*mm);
-    logiconeFe= new G4LogicalVolume(solidoneFe, Fe, "OneFe",0,0,0);  
+    logiconeFe= new G4LogicalVolume(solidoneFe, Vacuum, "OneFe",0,0,0);  
     physioneFe= new G4PVPlacement(0,              // no rotation
             positiononeFe, // at (x,y,z)
             logiconeFe,    // its logical volume				  

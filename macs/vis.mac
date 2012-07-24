@@ -37,11 +37,11 @@
 
 /gun/particle gamma
 /NX/TargetMaterial Vacuum
-/NX/OneFeMaterial Vacuum
+/NX/OneFeMaterial G4_Fe
 /NX/TargetLengthZ 0.05 mm
 /NX/GapinTarget 0.5 mm
 /NX/OneFeLengthZ 1 mm
-/run/beamOn 10
+/run/beamOn 10000
 
 #/NX/TargetLengthZ 1 mm
 #/NX/GapinTarget 1 mm

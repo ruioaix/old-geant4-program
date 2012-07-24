@@ -35,6 +35,7 @@ void NXRunAction::BeginOfRunAction(const G4Run* aRun)
     EnergyofNegatronContrb=0;
     EnergyofPositronContrb=0;
 
+    Allgammaof20MeV=0;
 }
 
 //....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......
@@ -97,6 +98,7 @@ void NXRunAction::EndOfRunAction(const G4Run*)
     G4cout<<"In OneSD, All Num of gamma is "<<OneSD_AllNumofGamma<<G4endl;
     G4cout<<"In OneSD, All Num of Positron is "<<OneSD_AllNumofPositron<<G4endl;
     G4cout<<"In OneSD, All Num of Negatron is "<<OneSD_AllNumofNegatron<<G4endl;
+    G4cout<<"In OneSD, All Num of gamma whose energy is 20MeV is "<<Allgammaof20MeV<<G4endl;
 
     G4cout<<"Energy/MeV\t Gamma\t Positron\t Negatron"<<G4endl;
     for(G4int i=0;i<40;i++) {
