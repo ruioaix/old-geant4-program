@@ -55,43 +55,50 @@ void NXPrimaryGeneratorAction::GeneratePrimaries(G4Event* anEvent)
     particleGun->SetParticleMomentumDirection(G4ThreeVector(x,y,z));
 */
 
-/*
     // For discrete Energy Spectrum
     particleGun->SetParticleMomentumDirection(G4ThreeVector(0,0,1));
     G4double energyPara;
     G4double rand=G4UniformRand();
-    if(rand<0.006662231) energyPara=0.2*MeV;
-    else if(rand<0.019986694) energyPara=0.4*MeV;
-    else if(rand<0.039973387) energyPara=0.6*MeV;
-    else if(rand<0.066622312) energyPara=0.8*MeV;
-    else if(rand<0.099933468) energyPara=1*MeV;
-    else if(rand<0.139906855) energyPara=1.2*MeV;
-    else if(rand<0.186542474) energyPara=1.4*MeV;
-    else if(rand<0.239840323) energyPara=1.6*MeV;
-    else if(rand<0.299800404) energyPara=1.8*MeV;
-    else if(rand<0.366422716) energyPara=2*MeV;
-    else if(rand<0.429713913) energyPara=2.2*MeV;
-    else if(rand<0.489673993) energyPara=2.4*MeV;
-    else if(rand<0.546302959) energyPara=2.6*MeV;
-    else if(rand<0.599600808) energyPara=2.8*MeV;
-    else if(rand<0.649567542) energyPara=3*MeV;
-    else if(rand<0.696203161) energyPara=3.2*MeV;
-    else if(rand<0.739507663) energyPara=3.4*MeV;
-    else if(rand<0.779481051) energyPara=3.6*MeV;
-    else if(rand<0.816123322) energyPara=3.8*MeV;
-    else if(rand<0.849434478) energyPara=4*MeV;
-    else if(rand<0.879414339) energyPara=4.2*MeV;
-    else if(rand<0.906063104) energyPara=4.4*MeV;
-    else if(rand<0.929380773) energyPara=4.6*MeV;
-    else if(rand<0.949367347) energyPara=4.8*MeV;
-    else if(rand<0.966022825) energyPara=5*MeV;
-    else if(rand<0.979347207) energyPara=6*MeV;
-    else if(rand<0.989340494) energyPara=8*MeV;
-    else if(rand<0.996002685) energyPara=10*MeV;
-    else if(rand<0.999333781) energyPara=15*MeV;
-    else if(rand<1) energyPara=20*MeV;
+         if(rand<0.0025) energyPara=0.25*MeV;
+    else if(rand<0.0075) energyPara=0.75*MeV;
+    else if(rand<0.0150) energyPara=1.25*MeV;
+    else if(rand<0.0250) energyPara=1.75*MeV;
+    else if(rand<0.0375) energyPara=2.25*MeV;
+    else if(rand<0.0525) energyPara=2.75*MeV;
+    else if(rand<0.0700) energyPara=3.25*MeV;
+    else if(rand<0.0900) energyPara=3.75*MeV;
+    else if(rand<0.1125) energyPara=4.25*MeV;
+    else if(rand<0.1375) energyPara=4.75*MeV;
+    else if(rand<0.1650) energyPara=5.25*MeV;
+    else if(rand<0.1950) energyPara=5.75*MeV;
+    else if(rand<0.2275) energyPara=6.25*MeV;
+    else if(rand<0.2625) energyPara=6.75*MeV;
+    else if(rand<0.3000) energyPara=7.25*MeV;
+    else if(rand<0.3400) energyPara=7.75*MeV;
+    else if(rand<0.3825) energyPara=8.25*MeV;
+    else if(rand<0.4275) energyPara=8.75*MeV;
+    else if(rand<0.4750) energyPara=9.25*MeV;
+    else if(rand<0.5250) energyPara=9.75*MeV;
+    else if(rand<0.5725) energyPara=10.25*MeV;
+    else if(rand<0.6175) energyPara=10.75*MeV;
+    else if(rand<0.6600) energyPara=11.25*MeV;
+    else if(rand<0.7000) energyPara=11.75*MeV;
+    else if(rand<0.7375) energyPara=12.25*MeV;
+    else if(rand<0.7725) energyPara=12.75*MeV;
+    else if(rand<0.8050) energyPara=13.25*MeV;
+    else if(rand<0.8350) energyPara=13.75*MeV;
+    else if(rand<0.8625) energyPara=14.25*MeV;
+    else if(rand<0.8875) energyPara=14.75*MeV;
+    else if(rand<0.9100) energyPara=15.25*MeV;
+    else if(rand<0.9300) energyPara=15.75*MeV;
+    else if(rand<0.9475) energyPara=16.25*MeV;
+    else if(rand<0.9625) energyPara=16.75*MeV;
+    else if(rand<0.9750) energyPara=17.25*MeV;
+    else if(rand<0.9850) energyPara=17.75*MeV;
+    else if(rand<0.9925) energyPara=18.25*MeV;
+    else if(rand<0.9975) energyPara=18.75*MeV;
+    else if(rand<1) energyPara=19.25*MeV;
     particleGun->SetParticleEnergy(energyPara);
-*/
 
 /*
     G4double mean;
@@ -109,7 +116,7 @@ void NXPrimaryGeneratorAction::GeneratePrimaries(G4Event* anEvent)
 */
    
     particleGun->SetParticleMomentumDirection(G4ThreeVector(0,0,1));
-    particleGun->SetParticleEnergy(20*MeV);
+    //particleGun->SetParticleEnergy(20*MeV);
     particleGun->GeneratePrimaryVertex(anEvent);
 }
 
