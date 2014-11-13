@@ -1,0 +1,2611 @@
+开始时间：Wed Dec 15 14:12:35 2010
+
+*************************************************************
+ Geant4 version Name: geant4-09-02-patch-02    (28-August-2009)
+                      Copyright : Geant4 Collaboration
+                      Reference : NIM A 506 (2003), 250-303
+                            WWW : http://cern.ch/geant4
+*************************************************************
+
+Visualization Manager instantiating...
+Visualization Manager initialising...
+Registering graphics systems...
+
+You have successfully registered the following graphics systems.
+Current available graphics systems are:
+  ASCIITree (ATree)
+  DAWNFILE (DAWNFILE)
+  G4HepRep (HepRepXML)
+  G4HepRepFile (HepRepFile)
+  RayTracer (RayTracer)
+  VRML1FILE (VRML1FILE)
+  VRML2FILE (VRML2FILE)
+  OpenGLImmediateX (OGLIX)
+  OpenGLStoredX (OGLSX)
+  RayTracerX (RayTracerX)
+
+Registering model factories...
+
+You have successfully registered the following model factories.
+Registered model factories:
+  generic
+  drawByCharge
+  drawByParticleID
+  drawByOriginVolume
+  drawByAttribute
+
+Registered filter factories:
+  chargeFilter
+  particleFilter
+  originVolumeFilter
+  attributeFilter
+
+
+phot:   for  gamma    SubType= 12
+      ===== EM models for the G4Region  DefaultRegionForTheWorld ======
+       PhotoElectric :     Emin=          0 eV         Emax=   100 TeV
+
+compt:   for  gamma    SubType= 13
+      Lambda tables from 100 eV  to 100 TeV in 84 bins, spline: 1
+      ===== EM models for the G4Region  DefaultRegionForTheWorld ======
+       Klein-Nishina :     Emin=          0 eV         Emax=   100 TeV
+
+conv:   for  gamma    SubType= 14
+      Lambda tables from 1.022 MeV to 100 TeV in 84 bins, spline: 1
+      ===== EM models for the G4Region  DefaultRegionForTheWorld ======
+       Bethe-Heitler :     Emin=          0 eV         Emax=   100 TeV
+
+msc:   for e-    SubType= 10
+      Lambda tables from 100 eV  to 100 TeV in 84 bins, spline: 1
+      RangeFactor= 0.04, step limit type: 1, lateralDisplacement: 1, skin= 3, geomFactor= 2.5
+      ===== EM models for the G4Region  DefaultRegionForTheWorld ======
+        UrbanMscUni2 :     Emin=          0 eV         Emax=   100 TeV
+
+eIoni:   for  e-    SubType= 2
+      dE/dx and range tables from 100 eV  to 100 TeV in 84 bins
+      Lambda tables from threshold to 100 TeV in 84 bins, spline: 1
+      finalRange(mm)= 1, dRoverRange= 0.2, integral: 1, fluct: 1, linLossLimit= 0.01
+      ===== EM models for the G4Region  DefaultRegionForTheWorld ======
+        MollerBhabha :     Emin=          0 eV         Emax=   100 TeV
+
+eBrem:   for  e-    SubType= 3
+      dE/dx and range tables from 100 eV  to 100 TeV in 84 bins
+      Lambda tables from threshold to 100 TeV in 84 bins, spline: 1
+      LPM flag: 1 for E > 1 GeV
+      ===== EM models for the G4Region  DefaultRegionForTheWorld ======
+               eBrem :     Emin=          0 eV         Emax=   1 GeV
+            eBremRel :     Emin=          1 GeV        Emax=   100 TeV
+
+eIoni:   for  e+    SubType= 2
+      dE/dx and range tables from 100 eV  to 100 TeV in 84 bins
+      Lambda tables from threshold to 100 TeV in 84 bins, spline: 1
+      finalRange(mm)= 1, dRoverRange= 0.2, integral: 1, fluct: 1, linLossLimit= 0.01
+      ===== EM models for the G4Region  DefaultRegionForTheWorld ======
+        MollerBhabha :     Emin=          0 eV         Emax=   100 TeV
+
+eBrem:   for  e+    SubType= 3
+      dE/dx and range tables from 100 eV  to 100 TeV in 84 bins
+      Lambda tables from threshold to 100 TeV in 84 bins, spline: 1
+      LPM flag: 1 for E > 1 GeV
+      ===== EM models for the G4Region  DefaultRegionForTheWorld ======
+               eBrem :     Emin=          0 eV         Emax=   1 GeV
+            eBremRel :     Emin=          1 GeV        Emax=   100 TeV
+
+annihil:   for  e+    SubType= 5
+      Lambda tables from 100 eV  to 100 TeV in 84 bins, spline: 1
+      ===== EM models for the G4Region  DefaultRegionForTheWorld ======
+            eplus2gg :     Emin=          0 eV         Emax=   100 TeV
+
+msc:   for proton    SubType= 10
+      Lambda tables from 100 eV  to 100 TeV in 84 bins, spline: 1
+      RangeFactor= 0.2, step limit type: 0, lateralDisplacement: 1, skin= 3
+      ===== EM models for the G4Region  DefaultRegionForTheWorld ======
+       UrbanMscUni90 :     Emin=          0 eV         Emax=   100 TeV
+
+hIoni:   for  proton    SubType= 2
+      dE/dx and range tables from 100 eV  to 100 TeV in 84 bins
+      Lambda tables from threshold to 100 TeV in 84 bins, spline: 1
+      finalRange(mm)= 1, dRoverRange= 0.2, integral: 1, fluct: 1, linLossLimit= 0.01
+      NuclearStopping= 1
+      ===== EM models for the G4Region  DefaultRegionForTheWorld ======
+               Bragg :     Emin=          0 eV         Emax=   2 MeV
+          BetheBloch :     Emin=          2 MeV        Emax=   100 TeV
+
+hBrems:   for  proton    SubType= 3
+      dE/dx and range tables from 100 eV  to 100 TeV in 84 bins
+      Lambda tables from threshold to 100 TeV in 84 bins, spline: 1
+      ===== EM models for the G4Region  DefaultRegionForTheWorld ======
+               hBrem :     Emin=          0 eV         Emax=   100 TeV
+
+hPairProd:   for  proton    SubType= 4
+      dE/dx and range tables from 100 eV  to 100 TeV in 84 bins
+      Lambda tables from threshold to 100 TeV in 84 bins, spline: 1
+      ===== EM models for the G4Region  DefaultRegionForTheWorld ======
+           hPairProd :     Emin=          0 eV         Emax=   100 TeV
+
+hIoni:   for  anti_proton    SubType= 2
+      dE/dx and range tables from 100 eV  to 100 TeV in 84 bins
+      Lambda tables from threshold to 100 TeV in 84 bins, spline: 1
+      finalRange(mm)= 1, dRoverRange= 0.2, integral: 1, fluct: 1, linLossLimit= 0.01
+      NuclearStopping= 1
+      ===== EM models for the G4Region  DefaultRegionForTheWorld ======
+               Bragg :     Emin=          0 eV         Emax=   2 MeV
+          BetheBloch :     Emin=          2 MeV        Emax=   100 TeV
+
+hIoni:   for  kaon+    SubType= 2
+      dE/dx and range tables from 100 eV  to 100 TeV in 84 bins
+      Lambda tables from threshold to 100 TeV in 84 bins, spline: 1
+      finalRange(mm)= 1, dRoverRange= 0.2, integral: 1, fluct: 1, linLossLimit= 0.01
+      NuclearStopping= 0
+      ===== EM models for the G4Region  DefaultRegionForTheWorld ======
+               Bragg :     Emin=          0 eV         Emax=   1.05231 MeV
+          BetheBloch :     Emin=    1.05231 MeV        Emax=   100 TeV
+
+hIoni:   for  kaon-    SubType= 2
+      dE/dx and range tables from 100 eV  to 100 TeV in 84 bins
+      Lambda tables from threshold to 100 TeV in 84 bins, spline: 1
+      finalRange(mm)= 1, dRoverRange= 0.2, integral: 1, fluct: 1, linLossLimit= 0.01
+      NuclearStopping= 0
+      ===== EM models for the G4Region  DefaultRegionForTheWorld ======
+               Bragg :     Emin=          0 eV         Emax=   1.05231 MeV
+          BetheBloch :     Emin=    1.05231 MeV        Emax=   100 TeV
+
+msc:   for mu+    SubType= 10
+      Lambda tables from 100 eV  to 100 TeV in 84 bins, spline: 1
+      RangeFactor= 0.2, step limit type: 0, lateralDisplacement: 1, skin= 3
+      ===== EM models for the G4Region  DefaultRegionForTheWorld ======
+       UrbanMscUni90 :     Emin=          0 eV         Emax=   100 TeV
+
+muIoni:   for  mu+    SubType= 2
+      dE/dx and range tables from 100 eV  to 100 TeV in 84 bins
+      Lambda tables from threshold to 100 TeV in 84 bins, spline: 1
+      finalRange(mm)= 1, dRoverRange= 0.2, integral: 1, fluct: 1, linLossLimit= 0.01
+      ===== EM models for the G4Region  DefaultRegionForTheWorld ======
+               Bragg :     Emin=          0 eV         Emax=   200 keV
+          BetheBloch :     Emin=        200 keV        Emax=   1 GeV
+        MuBetheBloch :     Emin=          1 GeV        Emax=   100 TeV
+
+muBrems:   for  mu+    SubType= 3
+      dE/dx and range tables from 100 eV  to 100 TeV in 84 bins
+      Lambda tables from threshold to 100 TeV in 84 bins, spline: 1
+      ===== EM models for the G4Region  DefaultRegionForTheWorld ======
+              MuBrem :     Emin=          0 eV         Emax=   100 TeV
+
+muPairProd:   for  mu+    SubType= 4
+      dE/dx and range tables from 100 eV  to 100 TeV in 84 bins
+      Lambda tables from threshold to 100 TeV in 84 bins, spline: 1
+      ===== EM models for the G4Region  DefaultRegionForTheWorld ======
+          muPairProd :     Emin=          0 eV         Emax=   100 TeV
+
+muIoni:   for  mu-    SubType= 2
+      dE/dx and range tables from 100 eV  to 100 TeV in 84 bins
+      Lambda tables from threshold to 100 TeV in 84 bins, spline: 1
+      finalRange(mm)= 1, dRoverRange= 0.2, integral: 1, fluct: 1, linLossLimit= 0.01
+      ===== EM models for the G4Region  DefaultRegionForTheWorld ======
+               Bragg :     Emin=          0 eV         Emax=   200 keV
+          BetheBloch :     Emin=        200 keV        Emax=   1 GeV
+        MuBetheBloch :     Emin=          1 GeV        Emax=   100 TeV
+
+muBrems:   for  mu-    SubType= 3
+      dE/dx and range tables from 100 eV  to 100 TeV in 84 bins
+      Lambda tables from threshold to 100 TeV in 84 bins, spline: 1
+      ===== EM models for the G4Region  DefaultRegionForTheWorld ======
+              MuBrem :     Emin=          0 eV         Emax=   100 TeV
+
+muPairProd:   for  mu-    SubType= 4
+      dE/dx and range tables from 100 eV  to 100 TeV in 84 bins
+      Lambda tables from threshold to 100 TeV in 84 bins, spline: 1
+      ===== EM models for the G4Region  DefaultRegionForTheWorld ======
+          muPairProd :     Emin=          0 eV         Emax=   100 TeV
+
+hIoni:   for  pi+    SubType= 2
+      dE/dx and range tables from 100 eV  to 100 TeV in 84 bins
+      Lambda tables from threshold to 100 TeV in 84 bins, spline: 1
+      finalRange(mm)= 1, dRoverRange= 0.2, integral: 1, fluct: 1, linLossLimit= 0.01
+      NuclearStopping= 0
+      ===== EM models for the G4Region  DefaultRegionForTheWorld ======
+               Bragg :     Emin=          0 eV         Emax=   297.504 keV
+          BetheBloch :     Emin=    297.504 keV        Emax=   100 TeV
+
+hBrems:   for  pi+    SubType= 3
+      dE/dx and range tables from 100 eV  to 100 TeV in 84 bins
+      Lambda tables from threshold to 100 TeV in 84 bins, spline: 1
+      ===== EM models for the G4Region  DefaultRegionForTheWorld ======
+               hBrem :     Emin=          0 eV         Emax=   100 TeV
+
+hPairProd:   for  pi+    SubType= 4
+      dE/dx and range tables from 100 eV  to 100 TeV in 84 bins
+      Lambda tables from threshold to 100 TeV in 84 bins, spline: 1
+      ===== EM models for the G4Region  DefaultRegionForTheWorld ======
+           hPairProd :     Emin=          0 eV         Emax=   100 TeV
+
+msc:   for pi-    SubType= 10
+      Lambda tables from 100 eV  to 100 TeV in 84 bins, spline: 1
+      RangeFactor= 0.2, step limit type: 0, lateralDisplacement: 1, skin= 3
+      ===== EM models for the G4Region  DefaultRegionForTheWorld ======
+       UrbanMscUni90 :     Emin=          0 eV         Emax=   100 TeV
+
+hIoni:   for  pi-    SubType= 2
+      dE/dx and range tables from 100 eV  to 100 TeV in 84 bins
+      Lambda tables from threshold to 100 TeV in 84 bins, spline: 1
+      finalRange(mm)= 1, dRoverRange= 0.2, integral: 1, fluct: 1, linLossLimit= 0.01
+      NuclearStopping= 0
+      ===== EM models for the G4Region  DefaultRegionForTheWorld ======
+               Bragg :     Emin=          0 eV         Emax=   297.504 keV
+          BetheBloch :     Emin=    297.504 keV        Emax=   100 TeV
+
+hBrems:   for  pi-    SubType= 3
+      dE/dx and range tables from 100 eV  to 100 TeV in 84 bins
+      Lambda tables from threshold to 100 TeV in 84 bins, spline: 1
+      ===== EM models for the G4Region  DefaultRegionForTheWorld ======
+               hBrem :     Emin=          0 eV         Emax=   100 TeV
+
+hPairProd:   for  pi-    SubType= 4
+      dE/dx and range tables from 100 eV  to 100 TeV in 84 bins
+      Lambda tables from threshold to 100 TeV in 84 bins, spline: 1
+      ===== EM models for the G4Region  DefaultRegionForTheWorld ======
+           hPairProd :     Emin=          0 eV         Emax=   100 TeV
+
+========= Table of registered couples ==============================
+
+Index : 0     used in the geometry : Yes     recalculation needed : No 
+ Material : Vacuum
+ Range cuts        :  gamma 1 cm     e- 1 cm     e+ 1 cm 
+ Energy thresholds :  gamma 990 eV     e- 990 eV     e+ 990 eV 
+ Region(s) which use this couple : 
+    DefaultRegionForTheWorld
+
+Index : 1     used in the geometry : Yes     recalculation needed : No 
+ Material : tungsten
+ Range cuts        :  gamma 1 cm     e- 1 cm     e+ 1 cm 
+ Energy thresholds :  gamma 358.22 keV    e- 29.1871 MeV    e+ 27.109 MeV
+ Region(s) which use this couple : 
+    DefaultRegionForTheWorld
+
+Index : 2     used in the geometry : Yes     recalculation needed : No 
+ Material : iron
+ Range cuts        :  gamma 1 cm     e- 1 cm     e+ 1 cm 
+ Energy thresholds :  gamma 60.1334 keV    e- 12.9518 MeV    e+ 12.0297 MeV
+ Region(s) which use this couple : 
+    DefaultRegionForTheWorld
+
+====================================================================
+
+在time：Wed Dec 15 14:26:23 2010
+模拟完成了：1%
+ 
+在time：Wed Dec 15 14:40:10 2010
+模拟完成了：2%
+ 
+在time：Wed Dec 15 14:53:57 2010
+模拟完成了：3%
+ 
+在time：Wed Dec 15 15:07:44 2010
+模拟完成了：4%
+ 
+在time：Wed Dec 15 15:21:31 2010
+模拟完成了：5%
+ 
+在time：Wed Dec 15 15:35:18 2010
+模拟完成了：6%
+ 
+在time：Wed Dec 15 15:49:04 2010
+模拟完成了：7%
+ 
+在time：Wed Dec 15 16:02:52 2010
+模拟完成了：8%
+ 
+在time：Wed Dec 15 16:16:38 2010
+模拟完成了：9%
+ 
+在time：Wed Dec 15 16:30:22 2010
+模拟完成了：10%
+ 
+在time：Wed Dec 15 16:44:07 2010
+模拟完成了：11%
+ 
+在time：Wed Dec 15 16:57:52 2010
+模拟完成了：12%
+ 
+在time：Wed Dec 15 17:11:37 2010
+模拟完成了：13%
+ 
+在time：Wed Dec 15 17:25:23 2010
+模拟完成了：14%
+ 
+在time：Wed Dec 15 17:39:10 2010
+模拟完成了：15%
+ 
+在time：Wed Dec 15 17:52:57 2010
+模拟完成了：16%
+ 
+在time：Wed Dec 15 18:06:44 2010
+模拟完成了：17%
+ 
+在time：Wed Dec 15 18:20:31 2010
+模拟完成了：18%
+ 
+在time：Wed Dec 15 18:34:17 2010
+模拟完成了：19%
+ 
+在time：Wed Dec 15 18:48:04 2010
+模拟完成了：20%
+ 
+在time：Wed Dec 15 19:01:50 2010
+模拟完成了：21%
+ 
+在time：Wed Dec 15 19:15:37 2010
+模拟完成了：22%
+ 
+在time：Wed Dec 15 19:29:23 2010
+模拟完成了：23%
+ 
+在time：Wed Dec 15 19:43:10 2010
+模拟完成了：24%
+ 
+在time：Wed Dec 15 19:56:56 2010
+模拟完成了：25%
+ 
+在time：Wed Dec 15 20:10:43 2010
+模拟完成了：26%
+ 
+在time：Wed Dec 15 20:24:30 2010
+模拟完成了：27%
+ 
+在time：Wed Dec 15 20:38:17 2010
+模拟完成了：28%
+ 
+在time：Wed Dec 15 20:52:03 2010
+模拟完成了：29%
+ 
+在time：Wed Dec 15 21:05:49 2010
+模拟完成了：30%
+ 
+在time：Wed Dec 15 21:19:35 2010
+模拟完成了：31%
+ 
+在time：Wed Dec 15 21:33:23 2010
+模拟完成了：32%
+ 
+在time：Wed Dec 15 21:47:10 2010
+模拟完成了：33%
+ 
+在time：Wed Dec 15 22:00:57 2010
+模拟完成了：34%
+ 
+在time：Wed Dec 15 22:14:44 2010
+模拟完成了：35%
+ 
+在time：Wed Dec 15 22:28:33 2010
+模拟完成了：36%
+ 
+在time：Wed Dec 15 22:42:20 2010
+模拟完成了：37%
+ 
+在time：Wed Dec 15 22:56:08 2010
+模拟完成了：38%
+ 
+在time：Wed Dec 15 23:09:55 2010
+模拟完成了：39%
+ 
+在time：Wed Dec 15 23:23:41 2010
+模拟完成了：40%
+ 
+在time：Wed Dec 15 23:37:29 2010
+模拟完成了：41%
+ 
+在time：Wed Dec 15 23:51:16 2010
+模拟完成了：42%
+ 
+在time：Thu Dec 16 00:05:02 2010
+模拟完成了：43%
+ 
+在time：Thu Dec 16 00:18:49 2010
+模拟完成了：44%
+ 
+在time：Thu Dec 16 00:32:36 2010
+模拟完成了：45%
+ 
+在time：Thu Dec 16 00:46:24 2010
+模拟完成了：46%
+ 
+在time：Thu Dec 16 01:00:10 2010
+模拟完成了：47%
+ 
+在time：Thu Dec 16 01:13:57 2010
+模拟完成了：48%
+ 
+在time：Thu Dec 16 01:27:45 2010
+模拟完成了：49%
+ 
+在time：Thu Dec 16 01:41:33 2010
+模拟完成了：50%
+ 
+在time：Thu Dec 16 01:55:18 2010
+模拟完成了：51%
+ 
+在time：Thu Dec 16 02:09:05 2010
+模拟完成了：52%
+ 
+在time：Thu Dec 16 02:22:52 2010
+模拟完成了：53%
+ 
+在time：Thu Dec 16 02:36:38 2010
+模拟完成了：54%
+ 
+在time：Thu Dec 16 02:50:25 2010
+模拟完成了：55%
+ 
+在time：Thu Dec 16 03:04:12 2010
+模拟完成了：56%
+ 
+在time：Thu Dec 16 03:18:00 2010
+模拟完成了：57%
+ 
+在time：Thu Dec 16 03:31:46 2010
+模拟完成了：58%
+ 
+在time：Thu Dec 16 03:45:34 2010
+模拟完成了：59%
+ 
+在time：Thu Dec 16 03:59:21 2010
+模拟完成了：60%
+ 
+在time：Thu Dec 16 04:13:09 2010
+模拟完成了：61%
+ 
+在time：Thu Dec 16 04:26:55 2010
+模拟完成了：62%
+ 
+在time：Thu Dec 16 04:40:42 2010
+模拟完成了：63%
+ 
+在time：Thu Dec 16 04:54:30 2010
+模拟完成了：64%
+ 
+在time：Thu Dec 16 05:08:17 2010
+模拟完成了：65%
+ 
+在time：Thu Dec 16 05:22:04 2010
+模拟完成了：66%
+ 
+在time：Thu Dec 16 05:35:50 2010
+模拟完成了：67%
+ 
+在time：Thu Dec 16 05:49:37 2010
+模拟完成了：68%
+ 
+在time：Thu Dec 16 06:03:23 2010
+模拟完成了：69%
+ 
+在time：Thu Dec 16 06:17:10 2010
+模拟完成了：70%
+ 
+在time：Thu Dec 16 06:30:56 2010
+模拟完成了：71%
+ 
+在time：Thu Dec 16 06:44:43 2010
+模拟完成了：72%
+ 
+在time：Thu Dec 16 06:58:30 2010
+模拟完成了：73%
+ 
+在time：Thu Dec 16 07:12:18 2010
+模拟完成了：74%
+ 
+在time：Thu Dec 16 07:26:05 2010
+模拟完成了：75%
+ 
+在time：Thu Dec 16 07:39:52 2010
+模拟完成了：76%
+ 
+在time：Thu Dec 16 07:53:39 2010
+模拟完成了：77%
+ 
+在time：Thu Dec 16 08:07:26 2010
+模拟完成了：78%
+ 
+在time：Thu Dec 16 08:21:14 2010
+模拟完成了：79%
+ 
+在time：Thu Dec 16 08:35:01 2010
+模拟完成了：80%
+ 
+在time：Thu Dec 16 08:48:48 2010
+模拟完成了：81%
+ 
+在time：Thu Dec 16 09:02:36 2010
+模拟完成了：82%
+ 
+在time：Thu Dec 16 09:16:23 2010
+模拟完成了：83%
+ 
+在time：Thu Dec 16 09:30:12 2010
+模拟完成了：84%
+ 
+在time：Thu Dec 16 09:43:59 2010
+模拟完成了：85%
+ 
+在time：Thu Dec 16 09:57:47 2010
+模拟完成了：86%
+ 
+在time：Thu Dec 16 10:11:35 2010
+模拟完成了：87%
+ 
+在time：Thu Dec 16 10:25:23 2010
+模拟完成了：88%
+ 
+在time：Thu Dec 16 10:39:11 2010
+模拟完成了：89%
+ 
+在time：Thu Dec 16 10:52:58 2010
+模拟完成了：90%
+ 
+在time：Thu Dec 16 11:06:45 2010
+模拟完成了：91%
+ 
+在time：Thu Dec 16 11:20:32 2010
+模拟完成了：92%
+ 
+在time：Thu Dec 16 11:34:20 2010
+模拟完成了：93%
+ 
+在time：Thu Dec 16 11:48:08 2010
+模拟完成了：94%
+ 
+在time：Thu Dec 16 12:01:55 2010
+模拟完成了：95%
+ 
+在time：Thu Dec 16 12:15:43 2010
+模拟完成了：96%
+ 
+在time：Thu Dec 16 12:29:31 2010
+模拟完成了：97%
+ 
+在time：Thu Dec 16 12:43:18 2010
+模拟完成了：98%
+ 
+在time：Thu Dec 16 12:57:05 2010
+模拟完成了：99%
+ 
+在time：Thu Dec 16 13:10:53 2010
+模拟完成了：100%
+ 
+初始能谱：
+0	--0.01MeV	0
+0.01	--0.02MeV	0
+0.02	--0.03MeV	0
+0.03	--0.04MeV	0
+0.04	--0.05MeV	0
+0.05	--0.06MeV	0
+0.06	--0.07MeV	0
+0.07	--0.08MeV	0
+0.08	--0.09MeV	0
+0.09	--0.1MeV	0
+0.1	--0.11MeV	0
+0.11	--0.12MeV	0
+0.12	--0.13MeV	0
+0.13	--0.14MeV	1
+0.14	--0.15MeV	2
+0.15	--0.16MeV	0
+0.16	--0.17MeV	0
+0.17	--0.18MeV	1
+0.18	--0.19MeV	1
+0.19	--0.2MeV	1
+0.2	--0.21MeV	0
+0.21	--0.22MeV	0
+0.22	--0.23MeV	0
+0.23	--0.24MeV	0
+0.24	--0.25MeV	1
+0.25	--0.26MeV	0
+0.26	--0.27MeV	1
+0.27	--0.28MeV	0
+0.28	--0.29MeV	0
+0.29	--0.3MeV	0
+0.3	--0.31MeV	0
+0.31	--0.32MeV	1
+0.32	--0.33MeV	1
+0.33	--0.34MeV	0
+0.34	--0.35MeV	0
+0.35	--0.36MeV	8
+0.36	--0.37MeV	32
+0.37	--0.38MeV	37
+0.38	--0.39MeV	40
+0.39	--0.4MeV	53
+0.4	--0.41MeV	39
+0.41	--0.42MeV	70
+0.42	--0.43MeV	64
+0.43	--0.44MeV	62
+0.44	--0.45MeV	65
+0.45	--0.46MeV	85
+0.46	--0.47MeV	84
+0.47	--0.48MeV	78
+0.48	--0.49MeV	92
+0.49	--0.5MeV	102
+0.5	--0.51MeV	93
+0.51	--0.52MeV	220
+0.52	--0.53MeV	100
+0.53	--0.54MeV	117
+0.54	--0.55MeV	111
+0.55	--0.56MeV	126
+0.56	--0.57MeV	127
+0.57	--0.58MeV	130
+0.58	--0.59MeV	137
+0.59	--0.6MeV	132
+0.6	--0.61MeV	149
+0.61	--0.62MeV	159
+0.62	--0.63MeV	153
+0.63	--0.64MeV	143
+0.64	--0.65MeV	142
+0.65	--0.66MeV	169
+0.66	--0.67MeV	146
+0.67	--0.68MeV	163
+0.68	--0.69MeV	165
+0.69	--0.7MeV	173
+0.7	--0.71MeV	160
+0.71	--0.72MeV	156
+0.72	--0.73MeV	163
+0.73	--0.74MeV	179
+0.74	--0.75MeV	155
+0.75	--0.76MeV	194
+0.76	--0.77MeV	164
+0.77	--0.78MeV	192
+0.78	--0.79MeV	174
+0.79	--0.8MeV	197
+0.8	--0.81MeV	164
+0.81	--0.82MeV	173
+0.82	--0.83MeV	185
+0.83	--0.84MeV	192
+0.84	--0.85MeV	185
+0.85	--0.86MeV	186
+0.86	--0.87MeV	178
+0.87	--0.88MeV	201
+0.88	--0.89MeV	191
+0.89	--0.9MeV	179
+0.9	--0.91MeV	188
+0.91	--0.92MeV	181
+0.92	--0.93MeV	194
+0.93	--0.94MeV	189
+0.94	--0.95MeV	184
+0.95	--0.96MeV	198
+0.96	--0.97MeV	193
+0.97	--0.98MeV	185
+0.98	--0.99MeV	179
+0.99	--1MeV	181
+1	--1.01MeV	199
+1.01	--1.02MeV	192
+1.02	--1.03MeV	194
+1.03	--1.04MeV	177
+1.04	--1.05MeV	177
+1.05	--1.06MeV	183
+1.06	--1.07MeV	183
+1.07	--1.08MeV	205
+1.08	--1.09MeV	188
+1.09	--1.1MeV	177
+1.1	--1.11MeV	200
+1.11	--1.12MeV	181
+1.12	--1.13MeV	198
+1.13	--1.14MeV	174
+1.14	--1.15MeV	189
+1.15	--1.16MeV	176
+1.16	--1.17MeV	195
+1.17	--1.18MeV	180
+1.18	--1.19MeV	189
+1.19	--1.2MeV	191
+1.2	--1.21MeV	186
+1.21	--1.22MeV	154
+1.22	--1.23MeV	189
+1.23	--1.24MeV	214
+1.24	--1.25MeV	190
+1.25	--1.26MeV	172
+1.26	--1.27MeV	183
+1.27	--1.28MeV	197
+1.28	--1.29MeV	180
+1.29	--1.3MeV	196
+1.3	--1.31MeV	185
+1.31	--1.32MeV	172
+1.32	--1.33MeV	189
+1.33	--1.34MeV	172
+1.34	--1.35MeV	168
+1.35	--1.36MeV	182
+1.36	--1.37MeV	170
+1.37	--1.38MeV	168
+1.38	--1.39MeV	198
+1.39	--1.4MeV	181
+1.4	--1.41MeV	162
+1.41	--1.42MeV	183
+1.42	--1.43MeV	183
+1.43	--1.44MeV	169
+1.44	--1.45MeV	159
+1.45	--1.46MeV	181
+1.46	--1.47MeV	172
+1.47	--1.48MeV	162
+1.48	--1.49MeV	172
+1.49	--1.5MeV	183
+1.5	--1.51MeV	154
+1.51	--1.52MeV	156
+1.52	--1.53MeV	174
+1.53	--1.54MeV	179
+1.54	--1.55MeV	166
+1.55	--1.56MeV	160
+1.56	--1.57MeV	160
+1.57	--1.58MeV	174
+1.58	--1.59MeV	148
+1.59	--1.6MeV	144
+1.6	--1.61MeV	150
+1.61	--1.62MeV	162
+1.62	--1.63MeV	166
+1.63	--1.64MeV	174
+1.64	--1.65MeV	167
+1.65	--1.66MeV	164
+1.66	--1.67MeV	154
+1.67	--1.68MeV	160
+1.68	--1.69MeV	148
+1.69	--1.7MeV	162
+1.7	--1.71MeV	171
+1.71	--1.72MeV	134
+1.72	--1.73MeV	180
+1.73	--1.74MeV	165
+1.74	--1.75MeV	154
+1.75	--1.76MeV	147
+1.76	--1.77MeV	130
+1.77	--1.78MeV	161
+1.78	--1.79MeV	156
+1.79	--1.8MeV	137
+1.8	--1.81MeV	164
+1.81	--1.82MeV	119
+1.82	--1.83MeV	143
+1.83	--1.84MeV	152
+1.84	--1.85MeV	160
+1.85	--1.86MeV	127
+1.86	--1.87MeV	161
+1.87	--1.88MeV	164
+1.88	--1.89MeV	149
+1.89	--1.9MeV	142
+1.9	--1.91MeV	153
+1.91	--1.92MeV	142
+1.92	--1.93MeV	148
+1.93	--1.94MeV	147
+1.94	--1.95MeV	154
+1.95	--1.96MeV	121
+1.96	--1.97MeV	141
+1.97	--1.98MeV	134
+1.98	--1.99MeV	143
+1.99	--2MeV	153
+2	--2.01MeV	141
+2.01	--2.02MeV	149
+2.02	--2.03MeV	118
+2.03	--2.04MeV	142
+2.04	--2.05MeV	119
+2.05	--2.06MeV	148
+2.06	--2.07MeV	133
+2.07	--2.08MeV	130
+2.08	--2.09MeV	131
+2.09	--2.1MeV	124
+2.1	--2.11MeV	148
+2.11	--2.12MeV	126
+2.12	--2.13MeV	133
+2.13	--2.14MeV	115
+2.14	--2.15MeV	120
+2.15	--2.16MeV	123
+2.16	--2.17MeV	140
+2.17	--2.18MeV	114
+2.18	--2.19MeV	121
+2.19	--2.2MeV	117
+2.2	--2.21MeV	132
+2.21	--2.22MeV	113
+2.22	--2.23MeV	133
+2.23	--2.24MeV	118
+2.24	--2.25MeV	116
+2.25	--2.26MeV	113
+2.26	--2.27MeV	131
+2.27	--2.28MeV	118
+2.28	--2.29MeV	132
+2.29	--2.3MeV	120
+2.3	--2.31MeV	119
+2.31	--2.32MeV	105
+2.32	--2.33MeV	125
+2.33	--2.34MeV	140
+2.34	--2.35MeV	112
+2.35	--2.36MeV	125
+2.36	--2.37MeV	117
+2.37	--2.38MeV	103
+2.38	--2.39MeV	137
+2.39	--2.4MeV	126
+2.4	--2.41MeV	131
+2.41	--2.42MeV	126
+2.42	--2.43MeV	129
+2.43	--2.44MeV	130
+2.44	--2.45MeV	112
+2.45	--2.46MeV	134
+2.46	--2.47MeV	114
+2.47	--2.48MeV	98
+2.48	--2.49MeV	108
+2.49	--2.5MeV	120
+2.5	--2.51MeV	109
+2.51	--2.52MeV	126
+2.52	--2.53MeV	128
+2.53	--2.54MeV	126
+2.54	--2.55MeV	125
+2.55	--2.56MeV	124
+2.56	--2.57MeV	99
+2.57	--2.58MeV	106
+2.58	--2.59MeV	112
+2.59	--2.6MeV	108
+2.6	--2.61MeV	102
+2.61	--2.62MeV	99
+2.62	--2.63MeV	104
+2.63	--2.64MeV	95
+2.64	--2.65MeV	112
+2.65	--2.66MeV	107
+2.66	--2.67MeV	112
+2.67	--2.68MeV	120
+2.68	--2.69MeV	95
+2.69	--2.7MeV	112
+2.7	--2.71MeV	106
+2.71	--2.72MeV	105
+2.72	--2.73MeV	93
+2.73	--2.74MeV	104
+2.74	--2.75MeV	104
+2.75	--2.76MeV	104
+2.76	--2.77MeV	105
+2.77	--2.78MeV	95
+2.78	--2.79MeV	94
+2.79	--2.8MeV	102
+2.8	--2.81MeV	89
+2.81	--2.82MeV	106
+2.82	--2.83MeV	78
+2.83	--2.84MeV	106
+2.84	--2.85MeV	117
+2.85	--2.86MeV	104
+2.86	--2.87MeV	91
+2.87	--2.88MeV	93
+2.88	--2.89MeV	108
+2.89	--2.9MeV	96
+2.9	--2.91MeV	82
+2.91	--2.92MeV	104
+2.92	--2.93MeV	117
+2.93	--2.94MeV	97
+2.94	--2.95MeV	90
+2.95	--2.96MeV	111
+2.96	--2.97MeV	84
+2.97	--2.98MeV	96
+2.98	--2.99MeV	97
+2.99	--3MeV	95
+3	--3.01MeV	92
+3.01	--3.02MeV	98
+3.02	--3.03MeV	93
+3.03	--3.04MeV	83
+3.04	--3.05MeV	91
+3.05	--3.06MeV	94
+3.06	--3.07MeV	98
+3.07	--3.08MeV	105
+3.08	--3.09MeV	78
+3.09	--3.1MeV	85
+3.1	--3.11MeV	88
+3.11	--3.12MeV	115
+3.12	--3.13MeV	99
+3.13	--3.14MeV	88
+3.14	--3.15MeV	82
+3.15	--3.16MeV	93
+3.16	--3.17MeV	91
+3.17	--3.18MeV	97
+3.18	--3.19MeV	81
+3.19	--3.2MeV	90
+3.2	--3.21MeV	89
+3.21	--3.22MeV	116
+3.22	--3.23MeV	82
+3.23	--3.24MeV	77
+3.24	--3.25MeV	76
+3.25	--3.26MeV	91
+3.26	--3.27MeV	76
+3.27	--3.28MeV	85
+3.28	--3.29MeV	91
+3.29	--3.3MeV	86
+3.3	--3.31MeV	68
+3.31	--3.32MeV	88
+3.32	--3.33MeV	82
+3.33	--3.34MeV	88
+3.34	--3.35MeV	88
+3.35	--3.36MeV	87
+3.36	--3.37MeV	77
+3.37	--3.38MeV	98
+3.38	--3.39MeV	75
+3.39	--3.4MeV	77
+3.4	--3.41MeV	72
+3.41	--3.42MeV	71
+3.42	--3.43MeV	86
+3.43	--3.44MeV	99
+3.44	--3.45MeV	92
+3.45	--3.46MeV	65
+3.46	--3.47MeV	82
+3.47	--3.48MeV	83
+3.48	--3.49MeV	79
+3.49	--3.5MeV	67
+3.5	--3.51MeV	91
+3.51	--3.52MeV	77
+3.52	--3.53MeV	84
+3.53	--3.54MeV	66
+3.54	--3.55MeV	75
+3.55	--3.56MeV	67
+3.56	--3.57MeV	88
+3.57	--3.58MeV	69
+3.58	--3.59MeV	75
+3.59	--3.6MeV	79
+3.6	--3.61MeV	59
+3.61	--3.62MeV	52
+3.62	--3.63MeV	67
+3.63	--3.64MeV	71
+3.64	--3.65MeV	84
+3.65	--3.66MeV	73
+3.66	--3.67MeV	64
+3.67	--3.68MeV	77
+3.68	--3.69MeV	85
+3.69	--3.7MeV	82
+3.7	--3.71MeV	83
+3.71	--3.72MeV	77
+3.72	--3.73MeV	65
+3.73	--3.74MeV	82
+3.74	--3.75MeV	83
+3.75	--3.76MeV	71
+3.76	--3.77MeV	84
+3.77	--3.78MeV	71
+3.78	--3.79MeV	80
+3.79	--3.8MeV	73
+3.8	--3.81MeV	75
+3.81	--3.82MeV	60
+3.82	--3.83MeV	65
+3.83	--3.84MeV	68
+3.84	--3.85MeV	74
+3.85	--3.86MeV	52
+3.86	--3.87MeV	74
+3.87	--3.88MeV	77
+3.88	--3.89MeV	52
+3.89	--3.9MeV	74
+3.9	--3.91MeV	58
+3.91	--3.92MeV	67
+3.92	--3.93MeV	71
+3.93	--3.94MeV	68
+3.94	--3.95MeV	54
+3.95	--3.96MeV	69
+3.96	--3.97MeV	57
+3.97	--3.98MeV	54
+3.98	--3.99MeV	67
+3.99	--4MeV	55
+4	--4.01MeV	48
+4.01	--4.02MeV	47
+4.02	--4.03MeV	67
+4.03	--4.04MeV	54
+4.04	--4.05MeV	53
+4.05	--4.06MeV	68
+4.06	--4.07MeV	61
+4.07	--4.08MeV	83
+4.08	--4.09MeV	50
+4.09	--4.1MeV	70
+4.1	--4.11MeV	69
+4.11	--4.12MeV	77
+4.12	--4.13MeV	71
+4.13	--4.14MeV	62
+4.14	--4.15MeV	63
+4.15	--4.16MeV	79
+4.16	--4.17MeV	71
+4.17	--4.18MeV	63
+4.18	--4.19MeV	49
+4.19	--4.2MeV	65
+4.2	--4.21MeV	72
+4.21	--4.22MeV	67
+4.22	--4.23MeV	70
+4.23	--4.24MeV	68
+4.24	--4.25MeV	77
+4.25	--4.26MeV	57
+4.26	--4.27MeV	60
+4.27	--4.28MeV	52
+4.28	--4.29MeV	63
+4.29	--4.3MeV	46
+4.3	--4.31MeV	62
+4.31	--4.32MeV	53
+4.32	--4.33MeV	56
+4.33	--4.34MeV	67
+4.34	--4.35MeV	58
+4.35	--4.36MeV	55
+4.36	--4.37MeV	57
+4.37	--4.38MeV	53
+4.38	--4.39MeV	56
+4.39	--4.4MeV	61
+4.4	--4.41MeV	45
+4.41	--4.42MeV	50
+4.42	--4.43MeV	56
+4.43	--4.44MeV	53
+4.44	--4.45MeV	71
+4.45	--4.46MeV	66
+4.46	--4.47MeV	54
+4.47	--4.48MeV	55
+4.48	--4.49MeV	67
+4.49	--4.5MeV	50
+4.5	--4.51MeV	65
+4.51	--4.52MeV	55
+4.52	--4.53MeV	61
+4.53	--4.54MeV	59
+4.54	--4.55MeV	59
+4.55	--4.56MeV	57
+4.56	--4.57MeV	72
+4.57	--4.58MeV	49
+4.58	--4.59MeV	45
+4.59	--4.6MeV	50
+4.6	--4.61MeV	50
+4.61	--4.62MeV	55
+4.62	--4.63MeV	60
+4.63	--4.64MeV	52
+4.64	--4.65MeV	48
+4.65	--4.66MeV	48
+4.66	--4.67MeV	48
+4.67	--4.68MeV	48
+4.68	--4.69MeV	45
+4.69	--4.7MeV	59
+4.7	--4.71MeV	43
+4.71	--4.72MeV	50
+4.72	--4.73MeV	52
+4.73	--4.74MeV	56
+4.74	--4.75MeV	47
+4.75	--4.76MeV	48
+4.76	--4.77MeV	52
+4.77	--4.78MeV	61
+4.78	--4.79MeV	49
+4.79	--4.8MeV	51
+4.8	--4.81MeV	57
+4.81	--4.82MeV	48
+4.82	--4.83MeV	46
+4.83	--4.84MeV	48
+4.84	--4.85MeV	51
+4.85	--4.86MeV	47
+4.86	--4.87MeV	46
+4.87	--4.88MeV	48
+4.88	--4.89MeV	49
+4.89	--4.9MeV	44
+4.9	--4.91MeV	51
+4.91	--4.92MeV	45
+4.92	--4.93MeV	52
+4.93	--4.94MeV	40
+4.94	--4.95MeV	54
+4.95	--4.96MeV	42
+4.96	--4.97MeV	50
+4.97	--4.98MeV	46
+4.98	--4.99MeV	47
+4.99	--5MeV	41
+5	--5.01MeV	48
+5.01	--5.02MeV	34
+5.02	--5.03MeV	47
+5.03	--5.04MeV	35
+5.04	--5.05MeV	50
+5.05	--5.06MeV	54
+5.06	--5.07MeV	52
+5.07	--5.08MeV	43
+5.08	--5.09MeV	52
+5.09	--5.1MeV	50
+5.1	--5.11MeV	35
+5.11	--5.12MeV	46
+5.12	--5.13MeV	45
+5.13	--5.14MeV	58
+5.14	--5.15MeV	38
+5.15	--5.16MeV	31
+5.16	--5.17MeV	45
+5.17	--5.18MeV	57
+5.18	--5.19MeV	40
+5.19	--5.2MeV	52
+5.2	--5.21MeV	46
+5.21	--5.22MeV	47
+5.22	--5.23MeV	47
+5.23	--5.24MeV	36
+5.24	--5.25MeV	48
+5.25	--5.26MeV	51
+5.26	--5.27MeV	47
+5.27	--5.28MeV	46
+5.28	--5.29MeV	40
+5.29	--5.3MeV	38
+5.3	--5.31MeV	47
+5.31	--5.32MeV	31
+5.32	--5.33MeV	48
+5.33	--5.34MeV	48
+5.34	--5.35MeV	41
+5.35	--5.36MeV	40
+5.36	--5.37MeV	44
+5.37	--5.38MeV	51
+5.38	--5.39MeV	46
+5.39	--5.4MeV	58
+5.4	--5.41MeV	43
+5.41	--5.42MeV	49
+5.42	--5.43MeV	37
+5.43	--5.44MeV	40
+5.44	--5.45MeV	41
+5.45	--5.46MeV	41
+5.46	--5.47MeV	55
+5.47	--5.48MeV	36
+5.48	--5.49MeV	47
+5.49	--5.5MeV	36
+5.5	--5.51MeV	54
+5.51	--5.52MeV	48
+5.52	--5.53MeV	51
+5.53	--5.54MeV	40
+5.54	--5.55MeV	29
+5.55	--5.56MeV	40
+5.56	--5.57MeV	42
+5.57	--5.58MeV	52
+5.58	--5.59MeV	29
+5.59	--5.6MeV	42
+5.6	--5.61MeV	42
+5.61	--5.62MeV	38
+5.62	--5.63MeV	45
+5.63	--5.64MeV	43
+5.64	--5.65MeV	36
+5.65	--5.66MeV	32
+5.66	--5.67MeV	40
+5.67	--5.68MeV	29
+5.68	--5.69MeV	32
+5.69	--5.7MeV	33
+5.7	--5.71MeV	48
+5.71	--5.72MeV	36
+5.72	--5.73MeV	41
+5.73	--5.74MeV	41
+5.74	--5.75MeV	43
+5.75	--5.76MeV	45
+5.76	--5.77MeV	49
+5.77	--5.78MeV	37
+5.78	--5.79MeV	39
+5.79	--5.8MeV	33
+5.8	--5.81MeV	49
+5.81	--5.82MeV	39
+5.82	--5.83MeV	32
+5.83	--5.84MeV	30
+5.84	--5.85MeV	40
+5.85	--5.86MeV	33
+5.86	--5.87MeV	46
+5.87	--5.88MeV	43
+5.88	--5.89MeV	41
+5.89	--5.9MeV	39
+5.9	--5.91MeV	40
+5.91	--5.92MeV	44
+5.92	--5.93MeV	39
+5.93	--5.94MeV	35
+5.94	--5.95MeV	44
+5.95	--5.96MeV	26
+5.96	--5.97MeV	39
+5.97	--5.98MeV	32
+5.98	--5.99MeV	35
+5.99	--6MeV	30
+6	--6.01MeV	33
+6.01	--6.02MeV	42
+6.02	--6.03MeV	34
+6.03	--6.04MeV	37
+6.04	--6.05MeV	37
+6.05	--6.06MeV	38
+6.06	--6.07MeV	38
+6.07	--6.08MeV	26
+6.08	--6.09MeV	39
+6.09	--6.1MeV	31
+6.1	--6.11MeV	32
+6.11	--6.12MeV	30
+6.12	--6.13MeV	38
+6.13	--6.14MeV	44
+6.14	--6.15MeV	32
+6.15	--6.16MeV	43
+6.16	--6.17MeV	38
+6.17	--6.18MeV	29
+6.18	--6.19MeV	22
+6.19	--6.2MeV	24
+6.2	--6.21MeV	27
+6.21	--6.22MeV	34
+6.22	--6.23MeV	34
+6.23	--6.24MeV	33
+6.24	--6.25MeV	30
+6.25	--6.26MeV	33
+6.26	--6.27MeV	31
+6.27	--6.28MeV	38
+6.28	--6.29MeV	42
+6.29	--6.3MeV	36
+6.3	--6.31MeV	39
+6.31	--6.32MeV	21
+6.32	--6.33MeV	30
+6.33	--6.34MeV	28
+6.34	--6.35MeV	31
+6.35	--6.36MeV	37
+6.36	--6.37MeV	25
+6.37	--6.38MeV	37
+6.38	--6.39MeV	40
+6.39	--6.4MeV	31
+6.4	--6.41MeV	33
+6.41	--6.42MeV	36
+6.42	--6.43MeV	22
+6.43	--6.44MeV	41
+6.44	--6.45MeV	37
+6.45	--6.46MeV	39
+6.46	--6.47MeV	24
+6.47	--6.48MeV	31
+6.48	--6.49MeV	26
+6.49	--6.5MeV	38
+6.5	--6.51MeV	39
+6.51	--6.52MeV	24
+6.52	--6.53MeV	24
+6.53	--6.54MeV	22
+6.54	--6.55MeV	32
+6.55	--6.56MeV	32
+6.56	--6.57MeV	36
+6.57	--6.58MeV	32
+6.58	--6.59MeV	30
+6.59	--6.6MeV	27
+6.6	--6.61MeV	24
+6.61	--6.62MeV	21
+6.62	--6.63MeV	32
+6.63	--6.64MeV	40
+6.64	--6.65MeV	32
+6.65	--6.66MeV	27
+6.66	--6.67MeV	25
+6.67	--6.68MeV	31
+6.68	--6.69MeV	37
+6.69	--6.7MeV	19
+6.7	--6.71MeV	29
+6.71	--6.72MeV	30
+6.72	--6.73MeV	34
+6.73	--6.74MeV	29
+6.74	--6.75MeV	28
+6.75	--6.76MeV	27
+6.76	--6.77MeV	25
+6.77	--6.78MeV	28
+6.78	--6.79MeV	33
+6.79	--6.8MeV	24
+6.8	--6.81MeV	33
+6.81	--6.82MeV	20
+6.82	--6.83MeV	24
+6.83	--6.84MeV	26
+6.84	--6.85MeV	29
+6.85	--6.86MeV	27
+6.86	--6.87MeV	20
+6.87	--6.88MeV	33
+6.88	--6.89MeV	19
+6.89	--6.9MeV	19
+6.9	--6.91MeV	28
+6.91	--6.92MeV	37
+6.92	--6.93MeV	30
+6.93	--6.94MeV	22
+6.94	--6.95MeV	30
+6.95	--6.96MeV	30
+6.96	--6.97MeV	31
+6.97	--6.98MeV	27
+6.98	--6.99MeV	27
+6.99	--7MeV	30
+7	--7.01MeV	35
+7.01	--7.02MeV	27
+7.02	--7.03MeV	24
+7.03	--7.04MeV	33
+7.04	--7.05MeV	29
+7.05	--7.06MeV	26
+7.06	--7.07MeV	37
+7.07	--7.08MeV	20
+7.08	--7.09MeV	27
+7.09	--7.1MeV	30
+7.1	--7.11MeV	27
+7.11	--7.12MeV	38
+7.12	--7.13MeV	27
+7.13	--7.14MeV	27
+7.14	--7.15MeV	37
+7.15	--7.16MeV	30
+7.16	--7.17MeV	31
+7.17	--7.18MeV	27
+7.18	--7.19MeV	38
+7.19	--7.2MeV	24
+7.2	--7.21MeV	33
+7.21	--7.22MeV	24
+7.22	--7.23MeV	27
+7.23	--7.24MeV	34
+7.24	--7.25MeV	24
+7.25	--7.26MeV	33
+7.26	--7.27MeV	29
+7.27	--7.28MeV	35
+7.28	--7.29MeV	18
+7.29	--7.3MeV	29
+7.3	--7.31MeV	22
+7.31	--7.32MeV	32
+7.32	--7.33MeV	32
+7.33	--7.34MeV	25
+7.34	--7.35MeV	33
+7.35	--7.36MeV	26
+7.36	--7.37MeV	19
+7.37	--7.38MeV	23
+7.38	--7.39MeV	26
+7.39	--7.4MeV	18
+7.4	--7.41MeV	19
+7.41	--7.42MeV	33
+7.42	--7.43MeV	29
+7.43	--7.44MeV	28
+7.44	--7.45MeV	22
+7.45	--7.46MeV	31
+7.46	--7.47MeV	19
+7.47	--7.48MeV	20
+7.48	--7.49MeV	26
+7.49	--7.5MeV	18
+7.5	--7.51MeV	32
+7.51	--7.52MeV	29
+7.52	--7.53MeV	18
+7.53	--7.54MeV	26
+7.54	--7.55MeV	26
+7.55	--7.56MeV	26
+7.56	--7.57MeV	22
+7.57	--7.58MeV	28
+7.58	--7.59MeV	20
+7.59	--7.6MeV	33
+7.6	--7.61MeV	37
+7.61	--7.62MeV	21
+7.62	--7.63MeV	24
+7.63	--7.64MeV	28
+7.64	--7.65MeV	23
+7.65	--7.66MeV	24
+7.66	--7.67MeV	20
+7.67	--7.68MeV	18
+7.68	--7.69MeV	27
+7.69	--7.7MeV	20
+7.7	--7.71MeV	20
+7.71	--7.72MeV	33
+7.72	--7.73MeV	32
+7.73	--7.74MeV	26
+7.74	--7.75MeV	34
+7.75	--7.76MeV	16
+7.76	--7.77MeV	26
+7.77	--7.78MeV	25
+7.78	--7.79MeV	24
+7.79	--7.8MeV	26
+7.8	--7.81MeV	40
+7.81	--7.82MeV	25
+7.82	--7.83MeV	29
+7.83	--7.84MeV	15
+7.84	--7.85MeV	32
+7.85	--7.86MeV	29
+7.86	--7.87MeV	22
+7.87	--7.88MeV	20
+7.88	--7.89MeV	23
+7.89	--7.9MeV	25
+7.9	--7.91MeV	28
+7.91	--7.92MeV	23
+7.92	--7.93MeV	19
+7.93	--7.94MeV	16
+7.94	--7.95MeV	28
+7.95	--7.96MeV	13
+7.96	--7.97MeV	17
+7.97	--7.98MeV	28
+7.98	--7.99MeV	19
+7.99	--8MeV	22
+8	--8.01MeV	22
+8.01	--8.02MeV	22
+8.02	--8.03MeV	14
+8.03	--8.04MeV	8
+8.04	--8.05MeV	29
+8.05	--8.06MeV	21
+8.06	--8.07MeV	27
+8.07	--8.08MeV	27
+8.08	--8.09MeV	17
+8.09	--8.1MeV	20
+8.1	--8.11MeV	16
+8.11	--8.12MeV	18
+8.12	--8.13MeV	20
+8.13	--8.14MeV	24
+8.14	--8.15MeV	24
+8.15	--8.16MeV	19
+8.16	--8.17MeV	26
+8.17	--8.18MeV	23
+8.18	--8.19MeV	25
+8.19	--8.2MeV	25
+8.2	--8.21MeV	22
+8.21	--8.22MeV	24
+8.22	--8.23MeV	19
+8.23	--8.24MeV	21
+8.24	--8.25MeV	14
+8.25	--8.26MeV	18
+8.26	--8.27MeV	26
+8.27	--8.28MeV	15
+8.28	--8.29MeV	15
+8.29	--8.3MeV	31
+8.3	--8.31MeV	15
+8.31	--8.32MeV	17
+8.32	--8.33MeV	21
+8.33	--8.34MeV	23
+8.34	--8.35MeV	16
+8.35	--8.36MeV	16
+8.36	--8.37MeV	19
+8.37	--8.38MeV	25
+8.38	--8.39MeV	17
+8.39	--8.4MeV	25
+8.4	--8.41MeV	22
+8.41	--8.42MeV	17
+8.42	--8.43MeV	24
+8.43	--8.44MeV	12
+8.44	--8.45MeV	28
+8.45	--8.46MeV	20
+8.46	--8.47MeV	15
+8.47	--8.48MeV	21
+8.48	--8.49MeV	25
+8.49	--8.5MeV	28
+8.5	--8.51MeV	24
+8.51	--8.52MeV	23
+8.52	--8.53MeV	19
+8.53	--8.54MeV	19
+8.54	--8.55MeV	9
+8.55	--8.56MeV	21
+8.56	--8.57MeV	20
+8.57	--8.58MeV	14
+8.58	--8.59MeV	22
+8.59	--8.6MeV	19
+8.6	--8.61MeV	15
+8.61	--8.62MeV	25
+8.62	--8.63MeV	18
+8.63	--8.64MeV	22
+8.64	--8.65MeV	25
+8.65	--8.66MeV	21
+8.66	--8.67MeV	15
+8.67	--8.68MeV	28
+8.68	--8.69MeV	15
+8.69	--8.7MeV	21
+8.7	--8.71MeV	14
+8.71	--8.72MeV	11
+8.72	--8.73MeV	19
+8.73	--8.74MeV	13
+8.74	--8.75MeV	15
+8.75	--8.76MeV	25
+8.76	--8.77MeV	17
+8.77	--8.78MeV	16
+8.78	--8.79MeV	15
+8.79	--8.8MeV	12
+8.8	--8.81MeV	14
+8.81	--8.82MeV	11
+8.82	--8.83MeV	23
+8.83	--8.84MeV	17
+8.84	--8.85MeV	20
+8.85	--8.86MeV	15
+8.86	--8.87MeV	19
+8.87	--8.88MeV	24
+8.88	--8.89MeV	20
+8.89	--8.9MeV	18
+8.9	--8.91MeV	21
+8.91	--8.92MeV	15
+8.92	--8.93MeV	24
+8.93	--8.94MeV	16
+8.94	--8.95MeV	14
+8.95	--8.96MeV	22
+8.96	--8.97MeV	19
+8.97	--8.98MeV	17
+8.98	--8.99MeV	24
+8.99	--9MeV	16
+9	--9.01MeV	17
+9.01	--9.02MeV	13
+9.02	--9.03MeV	12
+9.03	--9.04MeV	15
+9.04	--9.05MeV	10
+9.05	--9.06MeV	10
+9.06	--9.07MeV	14
+9.07	--9.08MeV	23
+9.08	--9.09MeV	17
+9.09	--9.1MeV	18
+9.1	--9.11MeV	16
+9.11	--9.12MeV	14
+9.12	--9.13MeV	16
+9.13	--9.14MeV	16
+9.14	--9.15MeV	15
+9.15	--9.16MeV	21
+9.16	--9.17MeV	18
+9.17	--9.18MeV	23
+9.18	--9.19MeV	16
+9.19	--9.2MeV	16
+9.2	--9.21MeV	16
+9.21	--9.22MeV	14
+9.22	--9.23MeV	13
+9.23	--9.24MeV	20
+9.24	--9.25MeV	18
+9.25	--9.26MeV	23
+9.26	--9.27MeV	20
+9.27	--9.28MeV	18
+9.28	--9.29MeV	19
+9.29	--9.3MeV	14
+9.3	--9.31MeV	21
+9.31	--9.32MeV	11
+9.32	--9.33MeV	22
+9.33	--9.34MeV	19
+9.34	--9.35MeV	18
+9.35	--9.36MeV	29
+9.36	--9.37MeV	19
+9.37	--9.38MeV	16
+9.38	--9.39MeV	9
+9.39	--9.4MeV	18
+9.4	--9.41MeV	18
+9.41	--9.42MeV	19
+9.42	--9.43MeV	19
+9.43	--9.44MeV	17
+9.44	--9.45MeV	22
+9.45	--9.46MeV	13
+9.46	--9.47MeV	18
+9.47	--9.48MeV	20
+9.48	--9.49MeV	14
+9.49	--9.5MeV	16
+9.5	--9.51MeV	23
+9.51	--9.52MeV	12
+9.52	--9.53MeV	20
+9.53	--9.54MeV	20
+9.54	--9.55MeV	17
+9.55	--9.56MeV	16
+9.56	--9.57MeV	24
+9.57	--9.58MeV	19
+9.58	--9.59MeV	19
+9.59	--9.6MeV	15
+9.6	--9.61MeV	16
+9.61	--9.62MeV	13
+9.62	--9.63MeV	10
+9.63	--9.64MeV	16
+9.64	--9.65MeV	17
+9.65	--9.66MeV	13
+9.66	--9.67MeV	14
+9.67	--9.68MeV	16
+9.68	--9.69MeV	20
+9.69	--9.7MeV	11
+9.7	--9.71MeV	18
+9.71	--9.72MeV	15
+9.72	--9.73MeV	11
+9.73	--9.74MeV	14
+9.74	--9.75MeV	21
+9.75	--9.76MeV	12
+9.76	--9.77MeV	18
+9.77	--9.78MeV	16
+9.78	--9.79MeV	12
+9.79	--9.8MeV	12
+9.8	--9.81MeV	13
+9.81	--9.82MeV	16
+9.82	--9.83MeV	8
+9.83	--9.84MeV	16
+9.84	--9.85MeV	12
+9.85	--9.86MeV	19
+9.86	--9.87MeV	14
+9.87	--9.88MeV	14
+9.88	--9.89MeV	23
+9.89	--9.9MeV	13
+9.9	--9.91MeV	11
+9.91	--9.92MeV	12
+9.92	--9.93MeV	16
+9.93	--9.94MeV	8
+9.94	--9.95MeV	12
+9.95	--9.96MeV	12
+9.96	--9.97MeV	17
+9.97	--9.98MeV	22
+9.98	--9.99MeV	13
+9.99	--10MeV	15
+10	--10.01MeV	15
+10.01	--10.02MeV	20
+10.02	--10.03MeV	17
+10.03	--10.04MeV	13
+10.04	--10.05MeV	18
+10.05	--10.06MeV	15
+10.06	--10.07MeV	15
+10.07	--10.08MeV	11
+10.08	--10.09MeV	18
+10.09	--10.1MeV	18
+10.1	--10.11MeV	19
+10.11	--10.12MeV	18
+10.12	--10.13MeV	11
+10.13	--10.14MeV	13
+10.14	--10.15MeV	19
+10.15	--10.16MeV	11
+10.16	--10.17MeV	12
+10.17	--10.18MeV	19
+10.18	--10.19MeV	11
+10.19	--10.2MeV	21
+10.2	--10.21MeV	15
+10.21	--10.22MeV	13
+10.22	--10.23MeV	16
+10.23	--10.24MeV	17
+10.24	--10.25MeV	22
+10.25	--10.26MeV	9
+10.26	--10.27MeV	12
+10.27	--10.28MeV	17
+10.28	--10.29MeV	17
+10.29	--10.3MeV	20
+10.3	--10.31MeV	13
+10.31	--10.32MeV	17
+10.32	--10.33MeV	9
+10.33	--10.34MeV	19
+10.34	--10.35MeV	11
+10.35	--10.36MeV	14
+10.36	--10.37MeV	17
+10.37	--10.38MeV	15
+10.38	--10.39MeV	19
+10.39	--10.4MeV	13
+10.4	--10.41MeV	10
+10.41	--10.42MeV	13
+10.42	--10.43MeV	11
+10.43	--10.44MeV	13
+10.44	--10.45MeV	11
+10.45	--10.46MeV	15
+10.46	--10.47MeV	14
+10.47	--10.48MeV	11
+10.48	--10.49MeV	18
+10.49	--10.5MeV	12
+10.5	--10.51MeV	12
+10.51	--10.52MeV	20
+10.52	--10.53MeV	14
+10.53	--10.54MeV	14
+10.54	--10.55MeV	8
+10.55	--10.56MeV	14
+10.56	--10.57MeV	12
+10.57	--10.58MeV	13
+10.58	--10.59MeV	7
+10.59	--10.6MeV	13
+10.6	--10.61MeV	18
+10.61	--10.62MeV	15
+10.62	--10.63MeV	15
+10.63	--10.64MeV	16
+10.64	--10.65MeV	13
+10.65	--10.66MeV	22
+10.66	--10.67MeV	13
+10.67	--10.68MeV	16
+10.68	--10.69MeV	21
+10.69	--10.7MeV	6
+10.7	--10.71MeV	10
+10.71	--10.72MeV	14
+10.72	--10.73MeV	11
+10.73	--10.74MeV	16
+10.74	--10.75MeV	18
+10.75	--10.76MeV	12
+10.76	--10.77MeV	14
+10.77	--10.78MeV	15
+10.78	--10.79MeV	19
+10.79	--10.8MeV	12
+10.8	--10.81MeV	11
+10.81	--10.82MeV	12
+10.82	--10.83MeV	14
+10.83	--10.84MeV	19
+10.84	--10.85MeV	9
+10.85	--10.86MeV	10
+10.86	--10.87MeV	14
+10.87	--10.88MeV	8
+10.88	--10.89MeV	10
+10.89	--10.9MeV	9
+10.9	--10.91MeV	10
+10.91	--10.92MeV	18
+10.92	--10.93MeV	15
+10.93	--10.94MeV	10
+10.94	--10.95MeV	11
+10.95	--10.96MeV	16
+10.96	--10.97MeV	10
+10.97	--10.98MeV	14
+10.98	--10.99MeV	9
+10.99	--11MeV	21
+11	--11.01MeV	16
+11.01	--11.02MeV	16
+11.02	--11.03MeV	14
+11.03	--11.04MeV	10
+11.04	--11.05MeV	7
+11.05	--11.06MeV	10
+11.06	--11.07MeV	8
+11.07	--11.08MeV	10
+11.08	--11.09MeV	7
+11.09	--11.1MeV	13
+11.1	--11.11MeV	12
+11.11	--11.12MeV	10
+11.12	--11.13MeV	11
+11.13	--11.14MeV	6
+11.14	--11.15MeV	7
+11.15	--11.16MeV	15
+11.16	--11.17MeV	11
+11.17	--11.18MeV	8
+11.18	--11.19MeV	10
+11.19	--11.2MeV	14
+11.2	--11.21MeV	6
+11.21	--11.22MeV	12
+11.22	--11.23MeV	13
+11.23	--11.24MeV	8
+11.24	--11.25MeV	9
+11.25	--11.26MeV	13
+11.26	--11.27MeV	14
+11.27	--11.28MeV	11
+11.28	--11.29MeV	19
+11.29	--11.3MeV	12
+11.3	--11.31MeV	17
+11.31	--11.32MeV	10
+11.32	--11.33MeV	13
+11.33	--11.34MeV	17
+11.34	--11.35MeV	13
+11.35	--11.36MeV	11
+11.36	--11.37MeV	8
+11.37	--11.38MeV	14
+11.38	--11.39MeV	12
+11.39	--11.4MeV	14
+11.4	--11.41MeV	9
+11.41	--11.42MeV	15
+11.42	--11.43MeV	17
+11.43	--11.44MeV	15
+11.44	--11.45MeV	6
+11.45	--11.46MeV	19
+11.46	--11.47MeV	10
+11.47	--11.48MeV	5
+11.48	--11.49MeV	10
+11.49	--11.5MeV	15
+11.5	--11.51MeV	11
+11.51	--11.52MeV	13
+11.52	--11.53MeV	9
+11.53	--11.54MeV	13
+11.54	--11.55MeV	12
+11.55	--11.56MeV	9
+11.56	--11.57MeV	7
+11.57	--11.58MeV	7
+11.58	--11.59MeV	12
+11.59	--11.6MeV	6
+11.6	--11.61MeV	9
+11.61	--11.62MeV	12
+11.62	--11.63MeV	16
+11.63	--11.64MeV	10
+11.64	--11.65MeV	13
+11.65	--11.66MeV	12
+11.66	--11.67MeV	13
+11.67	--11.68MeV	12
+11.68	--11.69MeV	16
+11.69	--11.7MeV	6
+11.7	--11.71MeV	4
+11.71	--11.72MeV	7
+11.72	--11.73MeV	11
+11.73	--11.74MeV	10
+11.74	--11.75MeV	10
+11.75	--11.76MeV	11
+11.76	--11.77MeV	17
+11.77	--11.78MeV	11
+11.78	--11.79MeV	15
+11.79	--11.8MeV	11
+11.8	--11.81MeV	9
+11.81	--11.82MeV	8
+11.82	--11.83MeV	15
+11.83	--11.84MeV	12
+11.84	--11.85MeV	11
+11.85	--11.86MeV	13
+11.86	--11.87MeV	9
+11.87	--11.88MeV	12
+11.88	--11.89MeV	11
+11.89	--11.9MeV	10
+11.9	--11.91MeV	17
+11.91	--11.92MeV	17
+11.92	--11.93MeV	10
+11.93	--11.94MeV	14
+11.94	--11.95MeV	10
+11.95	--11.96MeV	7
+11.96	--11.97MeV	13
+11.97	--11.98MeV	7
+11.98	--11.99MeV	9
+11.99	--12MeV	11
+12	--12.01MeV	8
+12.01	--12.02MeV	7
+12.02	--12.03MeV	15
+12.03	--12.04MeV	5
+12.04	--12.05MeV	7
+12.05	--12.06MeV	11
+12.06	--12.07MeV	10
+12.07	--12.08MeV	14
+12.08	--12.09MeV	6
+12.09	--12.1MeV	10
+12.1	--12.11MeV	13
+12.11	--12.12MeV	16
+12.12	--12.13MeV	13
+12.13	--12.14MeV	13
+12.14	--12.15MeV	11
+12.15	--12.16MeV	11
+12.16	--12.17MeV	10
+12.17	--12.18MeV	12
+12.18	--12.19MeV	4
+12.19	--12.2MeV	14
+12.2	--12.21MeV	10
+12.21	--12.22MeV	9
+12.22	--12.23MeV	10
+12.23	--12.24MeV	12
+12.24	--12.25MeV	17
+12.25	--12.26MeV	10
+12.26	--12.27MeV	12
+12.27	--12.28MeV	9
+12.28	--12.29MeV	7
+12.29	--12.3MeV	11
+12.3	--12.31MeV	8
+12.31	--12.32MeV	13
+12.32	--12.33MeV	15
+12.33	--12.34MeV	7
+12.34	--12.35MeV	7
+12.35	--12.36MeV	9
+12.36	--12.37MeV	11
+12.37	--12.38MeV	11
+12.38	--12.39MeV	11
+12.39	--12.4MeV	12
+12.4	--12.41MeV	13
+12.41	--12.42MeV	3
+12.42	--12.43MeV	10
+12.43	--12.44MeV	9
+12.44	--12.45MeV	6
+12.45	--12.46MeV	7
+12.46	--12.47MeV	12
+12.47	--12.48MeV	11
+12.48	--12.49MeV	11
+12.49	--12.5MeV	11
+12.5	--12.51MeV	11
+12.51	--12.52MeV	13
+12.52	--12.53MeV	12
+12.53	--12.54MeV	5
+12.54	--12.55MeV	10
+12.55	--12.56MeV	9
+12.56	--12.57MeV	8
+12.57	--12.58MeV	5
+12.58	--12.59MeV	8
+12.59	--12.6MeV	11
+12.6	--12.61MeV	8
+12.61	--12.62MeV	15
+12.62	--12.63MeV	7
+12.63	--12.64MeV	4
+12.64	--12.65MeV	6
+12.65	--12.66MeV	9
+12.66	--12.67MeV	9
+12.67	--12.68MeV	14
+12.68	--12.69MeV	13
+12.69	--12.7MeV	10
+12.7	--12.71MeV	9
+12.71	--12.72MeV	8
+12.72	--12.73MeV	6
+12.73	--12.74MeV	7
+12.74	--12.75MeV	6
+12.75	--12.76MeV	13
+12.76	--12.77MeV	13
+12.77	--12.78MeV	11
+12.78	--12.79MeV	8
+12.79	--12.8MeV	10
+12.8	--12.81MeV	4
+12.81	--12.82MeV	8
+12.82	--12.83MeV	7
+12.83	--12.84MeV	12
+12.84	--12.85MeV	14
+12.85	--12.86MeV	9
+12.86	--12.87MeV	9
+12.87	--12.88MeV	6
+12.88	--12.89MeV	7
+12.89	--12.9MeV	11
+12.9	--12.91MeV	5
+12.91	--12.92MeV	8
+12.92	--12.93MeV	11
+12.93	--12.94MeV	9
+12.94	--12.95MeV	8
+12.95	--12.96MeV	3
+12.96	--12.97MeV	14
+12.97	--12.98MeV	6
+12.98	--12.99MeV	9
+12.99	--13MeV	6
+13	--13.01MeV	8
+13.01	--13.02MeV	6
+13.02	--13.03MeV	10
+13.03	--13.04MeV	7
+13.04	--13.05MeV	8
+13.05	--13.06MeV	8
+13.06	--13.07MeV	4
+13.07	--13.08MeV	11
+13.08	--13.09MeV	12
+13.09	--13.1MeV	8
+13.1	--13.11MeV	9
+13.11	--13.12MeV	5
+13.12	--13.13MeV	13
+13.13	--13.14MeV	6
+13.14	--13.15MeV	7
+13.15	--13.16MeV	8
+13.16	--13.17MeV	10
+13.17	--13.18MeV	5
+13.18	--13.19MeV	13
+13.19	--13.2MeV	5
+13.2	--13.21MeV	11
+13.21	--13.22MeV	8
+13.22	--13.23MeV	14
+13.23	--13.24MeV	8
+13.24	--13.25MeV	12
+13.25	--13.26MeV	9
+13.26	--13.27MeV	12
+13.27	--13.28MeV	9
+13.28	--13.29MeV	4
+13.29	--13.3MeV	5
+13.3	--13.31MeV	7
+13.31	--13.32MeV	11
+13.32	--13.33MeV	4
+13.33	--13.34MeV	7
+13.34	--13.35MeV	11
+13.35	--13.36MeV	6
+13.36	--13.37MeV	10
+13.37	--13.38MeV	11
+13.38	--13.39MeV	4
+13.39	--13.4MeV	6
+13.4	--13.41MeV	7
+13.41	--13.42MeV	11
+13.42	--13.43MeV	8
+13.43	--13.44MeV	7
+13.44	--13.45MeV	6
+13.45	--13.46MeV	5
+13.46	--13.47MeV	13
+13.47	--13.48MeV	6
+13.48	--13.49MeV	9
+13.49	--13.5MeV	8
+13.5	--13.51MeV	6
+13.51	--13.52MeV	10
+13.52	--13.53MeV	6
+13.53	--13.54MeV	4
+13.54	--13.55MeV	7
+13.55	--13.56MeV	11
+13.56	--13.57MeV	5
+13.57	--13.58MeV	14
+13.58	--13.59MeV	12
+13.59	--13.6MeV	2
+13.6	--13.61MeV	9
+13.61	--13.62MeV	9
+13.62	--13.63MeV	7
+13.63	--13.64MeV	8
+13.64	--13.65MeV	10
+13.65	--13.66MeV	6
+13.66	--13.67MeV	12
+13.67	--13.68MeV	9
+13.68	--13.69MeV	11
+13.69	--13.7MeV	8
+13.7	--13.71MeV	6
+13.71	--13.72MeV	5
+13.72	--13.73MeV	9
+13.73	--13.74MeV	7
+13.74	--13.75MeV	15
+13.75	--13.76MeV	7
+13.76	--13.77MeV	12
+13.77	--13.78MeV	9
+13.78	--13.79MeV	8
+13.79	--13.8MeV	14
+13.8	--13.81MeV	2
+13.81	--13.82MeV	8
+13.82	--13.83MeV	3
+13.83	--13.84MeV	9
+13.84	--13.85MeV	11
+13.85	--13.86MeV	8
+13.86	--13.87MeV	12
+13.87	--13.88MeV	3
+13.88	--13.89MeV	8
+13.89	--13.9MeV	4
+13.9	--13.91MeV	13
+13.91	--13.92MeV	5
+13.92	--13.93MeV	8
+13.93	--13.94MeV	14
+13.94	--13.95MeV	9
+13.95	--13.96MeV	9
+13.96	--13.97MeV	8
+13.97	--13.98MeV	4
+13.98	--13.99MeV	6
+13.99	--14MeV	3
+14	--14.01MeV	7
+14.01	--14.02MeV	6
+14.02	--14.03MeV	8
+14.03	--14.04MeV	2
+14.04	--14.05MeV	12
+14.05	--14.06MeV	7
+14.06	--14.07MeV	10
+14.07	--14.08MeV	11
+14.08	--14.09MeV	11
+14.09	--14.1MeV	8
+14.1	--14.11MeV	6
+14.11	--14.12MeV	11
+14.12	--14.13MeV	5
+14.13	--14.14MeV	5
+14.14	--14.15MeV	6
+14.15	--14.16MeV	7
+14.16	--14.17MeV	9
+14.17	--14.18MeV	7
+14.18	--14.19MeV	7
+14.19	--14.2MeV	8
+14.2	--14.21MeV	9
+14.21	--14.22MeV	6
+14.22	--14.23MeV	8
+14.23	--14.24MeV	12
+14.24	--14.25MeV	10
+14.25	--14.26MeV	10
+14.26	--14.27MeV	9
+14.27	--14.28MeV	8
+14.28	--14.29MeV	9
+14.29	--14.3MeV	9
+14.3	--14.31MeV	6
+14.31	--14.32MeV	7
+14.32	--14.33MeV	7
+14.33	--14.34MeV	4
+14.34	--14.35MeV	5
+14.35	--14.36MeV	1
+14.36	--14.37MeV	3
+14.37	--14.38MeV	7
+14.38	--14.39MeV	4
+14.39	--14.4MeV	11
+14.4	--14.41MeV	6
+14.41	--14.42MeV	6
+14.42	--14.43MeV	5
+14.43	--14.44MeV	7
+14.44	--14.45MeV	7
+14.45	--14.46MeV	5
+14.46	--14.47MeV	10
+14.47	--14.48MeV	8
+14.48	--14.49MeV	9
+14.49	--14.5MeV	4
+14.5	--14.51MeV	8
+14.51	--14.52MeV	7
+14.52	--14.53MeV	9
+14.53	--14.54MeV	5
+14.54	--14.55MeV	6
+14.55	--14.56MeV	7
+14.56	--14.57MeV	9
+14.57	--14.58MeV	4
+14.58	--14.59MeV	6
+14.59	--14.6MeV	6
+14.6	--14.61MeV	3
+14.61	--14.62MeV	6
+14.62	--14.63MeV	3
+14.63	--14.64MeV	9
+14.64	--14.65MeV	5
+14.65	--14.66MeV	6
+14.66	--14.67MeV	4
+14.67	--14.68MeV	8
+14.68	--14.69MeV	11
+14.69	--14.7MeV	8
+14.7	--14.71MeV	4
+14.71	--14.72MeV	2
+14.72	--14.73MeV	6
+14.73	--14.74MeV	6
+14.74	--14.75MeV	7
+14.75	--14.76MeV	5
+14.76	--14.77MeV	4
+14.77	--14.78MeV	10
+14.78	--14.79MeV	9
+14.79	--14.8MeV	3
+14.8	--14.81MeV	6
+14.81	--14.82MeV	7
+14.82	--14.83MeV	9
+14.83	--14.84MeV	8
+14.84	--14.85MeV	8
+14.85	--14.86MeV	6
+14.86	--14.87MeV	4
+14.87	--14.88MeV	5
+14.88	--14.89MeV	2
+14.89	--14.9MeV	8
+14.9	--14.91MeV	8
+14.91	--14.92MeV	4
+14.92	--14.93MeV	8
+14.93	--14.94MeV	2
+14.94	--14.95MeV	11
+14.95	--14.96MeV	8
+14.96	--14.97MeV	6
+14.97	--14.98MeV	6
+14.98	--14.99MeV	7
+14.99	--15MeV	6
+15	--15.01MeV	4
+15.01	--15.02MeV	2
+15.02	--15.03MeV	4
+15.03	--15.04MeV	7
+15.04	--15.05MeV	5
+15.05	--15.06MeV	6
+15.06	--15.07MeV	7
+15.07	--15.08MeV	6
+15.08	--15.09MeV	7
+15.09	--15.1MeV	5
+15.1	--15.11MeV	7
+15.11	--15.12MeV	1
+15.12	--15.13MeV	4
+15.13	--15.14MeV	6
+15.14	--15.15MeV	9
+15.15	--15.16MeV	8
+15.16	--15.17MeV	8
+15.17	--15.18MeV	4
+15.18	--15.19MeV	4
+15.19	--15.2MeV	6
+15.2	--15.21MeV	4
+15.21	--15.22MeV	6
+15.22	--15.23MeV	7
+15.23	--15.24MeV	2
+15.24	--15.25MeV	4
+15.25	--15.26MeV	6
+15.26	--15.27MeV	3
+15.27	--15.28MeV	6
+15.28	--15.29MeV	4
+15.29	--15.3MeV	3
+15.3	--15.31MeV	3
+15.31	--15.32MeV	3
+15.32	--15.33MeV	4
+15.33	--15.34MeV	9
+15.34	--15.35MeV	2
+15.35	--15.36MeV	5
+15.36	--15.37MeV	3
+15.37	--15.38MeV	6
+15.38	--15.39MeV	8
+15.39	--15.4MeV	3
+15.4	--15.41MeV	4
+15.41	--15.42MeV	6
+15.42	--15.43MeV	2
+15.43	--15.44MeV	6
+15.44	--15.45MeV	4
+15.45	--15.46MeV	8
+15.46	--15.47MeV	10
+15.47	--15.48MeV	9
+15.48	--15.49MeV	4
+15.49	--15.5MeV	6
+15.5	--15.51MeV	4
+15.51	--15.52MeV	10
+15.52	--15.53MeV	6
+15.53	--15.54MeV	6
+15.54	--15.55MeV	8
+15.55	--15.56MeV	8
+15.56	--15.57MeV	2
+15.57	--15.58MeV	9
+15.58	--15.59MeV	4
+15.59	--15.6MeV	2
+15.6	--15.61MeV	5
+15.61	--15.62MeV	9
+15.62	--15.63MeV	4
+15.63	--15.64MeV	7
+15.64	--15.65MeV	4
+15.65	--15.66MeV	3
+15.66	--15.67MeV	6
+15.67	--15.68MeV	6
+15.68	--15.69MeV	6
+15.69	--15.7MeV	7
+15.7	--15.71MeV	2
+15.71	--15.72MeV	7
+15.72	--15.73MeV	6
+15.73	--15.74MeV	3
+15.74	--15.75MeV	2
+15.75	--15.76MeV	7
+15.76	--15.77MeV	5
+15.77	--15.78MeV	3
+15.78	--15.79MeV	5
+15.79	--15.8MeV	9
+15.8	--15.81MeV	4
+15.81	--15.82MeV	3
+15.82	--15.83MeV	4
+15.83	--15.84MeV	5
+15.84	--15.85MeV	6
+15.85	--15.86MeV	8
+15.86	--15.87MeV	2
+15.87	--15.88MeV	10
+15.88	--15.89MeV	4
+15.89	--15.9MeV	4
+15.9	--15.91MeV	6
+15.91	--15.92MeV	5
+15.92	--15.93MeV	9
+15.93	--15.94MeV	7
+15.94	--15.95MeV	4
+15.95	--15.96MeV	7
+15.96	--15.97MeV	3
+15.97	--15.98MeV	8
+15.98	--15.99MeV	6
+15.99	--16MeV	5
+16	--16.01MeV	7
+16.01	--16.02MeV	10
+16.02	--16.03MeV	5
+16.03	--16.04MeV	6
+16.04	--16.05MeV	7
+16.05	--16.06MeV	7
+16.06	--16.07MeV	5
+16.07	--16.08MeV	3
+16.08	--16.09MeV	6
+16.09	--16.1MeV	1
+16.1	--16.11MeV	3
+16.11	--16.12MeV	9
+16.12	--16.13MeV	3
+16.13	--16.14MeV	5
+16.14	--16.15MeV	4
+16.15	--16.16MeV	1
+16.16	--16.17MeV	3
+16.17	--16.18MeV	5
+16.18	--16.19MeV	6
+16.19	--16.2MeV	4
+16.2	--16.21MeV	6
+16.21	--16.22MeV	10
+16.22	--16.23MeV	0
+16.23	--16.24MeV	4
+16.24	--16.25MeV	5
+16.25	--16.26MeV	1
+16.26	--16.27MeV	5
+16.27	--16.28MeV	11
+16.28	--16.29MeV	3
+16.29	--16.3MeV	3
+16.3	--16.31MeV	3
+16.31	--16.32MeV	2
+16.32	--16.33MeV	3
+16.33	--16.34MeV	1
+16.34	--16.35MeV	12
+16.35	--16.36MeV	8
+16.36	--16.37MeV	5
+16.37	--16.38MeV	6
+16.38	--16.39MeV	7
+16.39	--16.4MeV	7
+16.4	--16.41MeV	7
+16.41	--16.42MeV	6
+16.42	--16.43MeV	8
+16.43	--16.44MeV	5
+16.44	--16.45MeV	5
+16.45	--16.46MeV	4
+16.46	--16.47MeV	2
+16.47	--16.48MeV	2
+16.48	--16.49MeV	7
+16.49	--16.5MeV	5
+16.5	--16.51MeV	6
+16.51	--16.52MeV	12
+16.52	--16.53MeV	3
+16.53	--16.54MeV	6
+16.54	--16.55MeV	6
+16.55	--16.56MeV	4
+16.56	--16.57MeV	2
+16.57	--16.58MeV	5
+16.58	--16.59MeV	2
+16.59	--16.6MeV	4
+16.6	--16.61MeV	7
+16.61	--16.62MeV	8
+16.62	--16.63MeV	3
+16.63	--16.64MeV	6
+16.64	--16.65MeV	5
+16.65	--16.66MeV	3
+16.66	--16.67MeV	8
+16.67	--16.68MeV	9
+16.68	--16.69MeV	8
+16.69	--16.7MeV	7
+16.7	--16.71MeV	6
+16.71	--16.72MeV	5
+16.72	--16.73MeV	4
+16.73	--16.74MeV	5
+16.74	--16.75MeV	4
+16.75	--16.76MeV	4
+16.76	--16.77MeV	2
+16.77	--16.78MeV	6
+16.78	--16.79MeV	7
+16.79	--16.8MeV	4
+16.8	--16.81MeV	3
+16.81	--16.82MeV	1
+16.82	--16.83MeV	4
+16.83	--16.84MeV	3
+16.84	--16.85MeV	6
+16.85	--16.86MeV	0
+16.86	--16.87MeV	7
+16.87	--16.88MeV	5
+16.88	--16.89MeV	5
+16.89	--16.9MeV	5
+16.9	--16.91MeV	2
+16.91	--16.92MeV	3
+16.92	--16.93MeV	6
+16.93	--16.94MeV	5
+16.94	--16.95MeV	5
+16.95	--16.96MeV	5
+16.96	--16.97MeV	3
+16.97	--16.98MeV	3
+16.98	--16.99MeV	2
+16.99	--17MeV	4
+17	--17.01MeV	7
+17.01	--17.02MeV	4
+17.02	--17.03MeV	4
+17.03	--17.04MeV	4
+17.04	--17.05MeV	7
+17.05	--17.06MeV	4
+17.06	--17.07MeV	2
+17.07	--17.08MeV	5
+17.08	--17.09MeV	4
+17.09	--17.1MeV	2
+17.1	--17.11MeV	1
+17.11	--17.12MeV	2
+17.12	--17.13MeV	5
+17.13	--17.14MeV	2
+17.14	--17.15MeV	5
+17.15	--17.16MeV	4
+17.16	--17.17MeV	4
+17.17	--17.18MeV	3
+17.18	--17.19MeV	2
+17.19	--17.2MeV	2
+17.2	--17.21MeV	5
+17.21	--17.22MeV	8
+17.22	--17.23MeV	5
+17.23	--17.24MeV	3
+17.24	--17.25MeV	7
+17.25	--17.26MeV	4
+17.26	--17.27MeV	7
+17.27	--17.28MeV	5
+17.28	--17.29MeV	2
+17.29	--17.3MeV	1
+17.3	--17.31MeV	3
+17.31	--17.32MeV	6
+17.32	--17.33MeV	6
+17.33	--17.34MeV	3
+17.34	--17.35MeV	6
+17.35	--17.36MeV	6
+17.36	--17.37MeV	5
+17.37	--17.38MeV	1
+17.38	--17.39MeV	5
+17.39	--17.4MeV	1
+17.4	--17.41MeV	6
+17.41	--17.42MeV	4
+17.42	--17.43MeV	7
+17.43	--17.44MeV	3
+17.44	--17.45MeV	2
+17.45	--17.46MeV	2
+17.46	--17.47MeV	10
+17.47	--17.48MeV	6
+17.48	--17.49MeV	3
+17.49	--17.5MeV	1
+17.5	--17.51MeV	6
+17.51	--17.52MeV	3
+17.52	--17.53MeV	4
+17.53	--17.54MeV	5
+17.54	--17.55MeV	4
+17.55	--17.56MeV	6
+17.56	--17.57MeV	5
+17.57	--17.58MeV	6
+17.58	--17.59MeV	4
+17.59	--17.6MeV	2
+17.6	--17.61MeV	1
+17.61	--17.62MeV	3
+17.62	--17.63MeV	5
+17.63	--17.64MeV	2
+17.64	--17.65MeV	2
+17.65	--17.66MeV	5
+17.66	--17.67MeV	4
+17.67	--17.68MeV	7
+17.68	--17.69MeV	3
+17.69	--17.7MeV	2
+17.7	--17.71MeV	6
+17.71	--17.72MeV	5
+17.72	--17.73MeV	4
+17.73	--17.74MeV	3
+17.74	--17.75MeV	3
+17.75	--17.76MeV	4
+17.76	--17.77MeV	4
+17.77	--17.78MeV	2
+17.78	--17.79MeV	3
+17.79	--17.8MeV	0
+17.8	--17.81MeV	4
+17.81	--17.82MeV	2
+17.82	--17.83MeV	2
+17.83	--17.84MeV	2
+17.84	--17.85MeV	2
+17.85	--17.86MeV	2
+17.86	--17.87MeV	2
+17.87	--17.88MeV	2
+17.88	--17.89MeV	1
+17.89	--17.9MeV	3
+17.9	--17.91MeV	0
+17.91	--17.92MeV	4
+17.92	--17.93MeV	4
+17.93	--17.94MeV	5
+17.94	--17.95MeV	7
+17.95	--17.96MeV	5
+17.96	--17.97MeV	1
+17.97	--17.98MeV	4
+17.98	--17.99MeV	2
+17.99	--18MeV	8
+18	--18.01MeV	4
+18.01	--18.02MeV	6
+18.02	--18.03MeV	5
+18.03	--18.04MeV	3
+18.04	--18.05MeV	4
+18.05	--18.06MeV	2
+18.06	--18.07MeV	7
+18.07	--18.08MeV	7
+18.08	--18.09MeV	4
+18.09	--18.1MeV	3
+18.1	--18.11MeV	3
+18.11	--18.12MeV	5
+18.12	--18.13MeV	2
+18.13	--18.14MeV	3
+18.14	--18.15MeV	5
+18.15	--18.16MeV	5
+18.16	--18.17MeV	6
+18.17	--18.18MeV	1
+18.18	--18.19MeV	6
+18.19	--18.2MeV	5
+18.2	--18.21MeV	1
+18.21	--18.22MeV	6
+18.22	--18.23MeV	2
+18.23	--18.24MeV	1
+18.24	--18.25MeV	3
+18.25	--18.26MeV	4
+18.26	--18.27MeV	2
+18.27	--18.28MeV	5
+18.28	--18.29MeV	6
+18.29	--18.3MeV	6
+18.3	--18.31MeV	4
+18.31	--18.32MeV	1
+18.32	--18.33MeV	4
+18.33	--18.34MeV	1
+18.34	--18.35MeV	3
+18.35	--18.36MeV	2
+18.36	--18.37MeV	2
+18.37	--18.38MeV	4
+18.38	--18.39MeV	2
+18.39	--18.4MeV	3
+18.4	--18.41MeV	3
+18.41	--18.42MeV	0
+18.42	--18.43MeV	0
+18.43	--18.44MeV	1
+18.44	--18.45MeV	3
+18.45	--18.46MeV	4
+18.46	--18.47MeV	4
+18.47	--18.48MeV	1
+18.48	--18.49MeV	4
+18.49	--18.5MeV	2
+18.5	--18.51MeV	1
+18.51	--18.52MeV	2
+18.52	--18.53MeV	2
+18.53	--18.54MeV	1
+18.54	--18.55MeV	4
+18.55	--18.56MeV	3
+18.56	--18.57MeV	1
+18.57	--18.58MeV	4
+18.58	--18.59MeV	5
+18.59	--18.6MeV	2
+18.6	--18.61MeV	3
+18.61	--18.62MeV	1
+18.62	--18.63MeV	1
+18.63	--18.64MeV	3
+18.64	--18.65MeV	3
+18.65	--18.66MeV	2
+18.66	--18.67MeV	5
+18.67	--18.68MeV	2
+18.68	--18.69MeV	3
+18.69	--18.7MeV	3
+18.7	--18.71MeV	1
+18.71	--18.72MeV	3
+18.72	--18.73MeV	1
+18.73	--18.74MeV	0
+18.74	--18.75MeV	0
+18.75	--18.76MeV	2
+18.76	--18.77MeV	3
+18.77	--18.78MeV	3
+18.78	--18.79MeV	4
+18.79	--18.8MeV	1
+18.8	--18.81MeV	2
+18.81	--18.82MeV	1
+18.82	--18.83MeV	3
+18.83	--18.84MeV	1
+18.84	--18.85MeV	2
+18.85	--18.86MeV	4
+18.86	--18.87MeV	3
+18.87	--18.88MeV	2
+18.88	--18.89MeV	0
+18.89	--18.9MeV	1
+18.9	--18.91MeV	3
+18.91	--18.92MeV	6
+18.92	--18.93MeV	3
+18.93	--18.94MeV	0
+18.94	--18.95MeV	2
+18.95	--18.96MeV	1
+18.96	--18.97MeV	1
+18.97	--18.98MeV	1
+18.98	--18.99MeV	4
+18.99	--19MeV	0
+19	--19.01MeV	0
+19.01	--19.02MeV	4
+19.02	--19.03MeV	2
+19.03	--19.04MeV	2
+19.04	--19.05MeV	0
+19.05	--19.06MeV	2
+19.06	--19.07MeV	2
+19.07	--19.08MeV	0
+19.08	--19.09MeV	2
+19.09	--19.1MeV	3
+19.1	--19.11MeV	5
+19.11	--19.12MeV	1
+19.12	--19.13MeV	3
+19.13	--19.14MeV	2
+19.14	--19.15MeV	0
+19.15	--19.16MeV	2
+19.16	--19.17MeV	0
+19.17	--19.18MeV	0
+19.18	--19.19MeV	2
+19.19	--19.2MeV	2
+19.2	--19.21MeV	7
+19.21	--19.22MeV	4
+19.22	--19.23MeV	2
+19.23	--19.24MeV	1
+19.24	--19.25MeV	3
+19.25	--19.26MeV	0
+19.26	--19.27MeV	1
+19.27	--19.28MeV	3
+19.28	--19.29MeV	0
+19.29	--19.3MeV	0
+19.3	--19.31MeV	2
+19.31	--19.32MeV	4
+19.32	--19.33MeV	1
+19.33	--19.34MeV	1
+19.34	--19.35MeV	4
+19.35	--19.36MeV	1
+19.36	--19.37MeV	2
+19.37	--19.38MeV	1
+19.38	--19.39MeV	1
+19.39	--19.4MeV	1
+19.4	--19.41MeV	0
+19.41	--19.42MeV	2
+19.42	--19.43MeV	3
+19.43	--19.44MeV	0
+19.44	--19.45MeV	0
+19.45	--19.46MeV	0
+19.46	--19.47MeV	2
+19.47	--19.48MeV	1
+19.48	--19.49MeV	1
+19.49	--19.5MeV	2
+19.5	--19.51MeV	4
+19.51	--19.52MeV	0
+19.52	--19.53MeV	0
+19.53	--19.54MeV	3
+19.54	--19.55MeV	1
+19.55	--19.56MeV	3
+19.56	--19.57MeV	3
+19.57	--19.58MeV	2
+19.58	--19.59MeV	0
+19.59	--19.6MeV	2
+19.6	--19.61MeV	1
+19.61	--19.62MeV	1
+19.62	--19.63MeV	3
+19.63	--19.64MeV	0
+19.64	--19.65MeV	2
+19.65	--19.66MeV	0
+19.66	--19.67MeV	1
+19.67	--19.68MeV	0
+19.68	--19.69MeV	4
+19.69	--19.7MeV	1
+19.7	--19.71MeV	1
+19.71	--19.72MeV	2
+19.72	--19.73MeV	0
+19.73	--19.74MeV	0
+19.74	--19.75MeV	2
+19.75	--19.76MeV	0
+19.76	--19.77MeV	0
+19.77	--19.78MeV	0
+19.78	--19.79MeV	1
+19.79	--19.8MeV	0
+19.8	--19.81MeV	1
+19.81	--19.82MeV	1
+19.82	--19.83MeV	3
+19.83	--19.84MeV	0
+19.84	--19.85MeV	0
+19.85	--19.86MeV	0
+19.86	--19.87MeV	0
+19.87	--19.88MeV	0
+19.88	--19.89MeV	0
+19.89	--19.9MeV	0
+19.9	--19.91MeV	0
+19.91	--19.92MeV	1
+19.92	--19.93MeV	1
+19.93	--19.94MeV	2
+19.94	--19.95MeV	0
+19.95	--19.96MeV	0
+19.96	--19.97MeV	0
+19.97	--19.98MeV	0
+19.98	--19.99MeV	0
+19.99	--20MeV	0
+在通过铁片前收集到的光子总数目是71212个
+铁片后收集到的散射光子总数目是3.1620201e-322个
+十个能量点：
+第1个铁片后的总能量:      171586.1MeV
+第2个铁片后的总能量:      104121.83MeV
+第3个铁片后的总能量:      66975.74MeV
+第4个铁片后的总能量:      43079.086MeV
+第5个铁片后的总能量:      29048.069MeV
+第6个铁片后的总能量:      19872.598MeV
+第7个铁片后的总能量:      13747.468MeV
+第8个铁片后的总能量:      9790.5108MeV
+第9个铁片后的总能量:      6920.4314MeV
+第10个铁片后的总能量:      5028.3145MeV
+第11个铁片后的总能量:      3696.2733MeV
+第12个铁片后的总能量:      2602.9761MeV
+第13个铁片后的总能量:      1973.0768MeV
+第14个铁片后的总能量:      1516.4219MeV
+第15个铁片后的总能量:      1107.6706MeV
+第16个铁片后的总能量:      861.55432MeV
+第17个铁片后的总能量:      640.21867MeV
+第18个铁片后的总能量:      498.81592MeV
+第19个铁片后的总能量:      402.08208MeV
+第20个铁片后的总能量:      320.86692MeV
+第21个铁片后的总能量:      200.20121MeV
+第22个铁片后的总能量:      178.15401MeV
+第23个铁片后的总能量:      112.05974MeV
+第24个铁片后的总能量:      91.720635MeV
+第25个铁片后的总能量:      59.135972MeV
+第26个铁片后的总能量:      48.203319MeV
+第27个铁片后的总能量:      50.17777MeV
+第28个铁片后的总能量:      33.457109MeV
+第29个铁片后的总能量:      21.031428MeV
+第30个铁片后的总能量:      21.031428MeV
+Graphics systems deleted.
+Visualization Manager deleting...
+结束时间：Thu Dec 16 13:10:53 2010
+总耗时:User=82693.69s Real=82702.65s Sys=8.52s
