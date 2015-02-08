@@ -330,7 +330,7 @@ void NXUserDetectorConstruction::setChamberMaterial(G4String materialName)
 
 void NXUserDetectorConstruction::SetMagField(G4double fieldValue)
 {
-    fpMagField->SetFieldValue(fieldValue);
+    fpMagField->SetFieldValue(G4ThreeVector(fieldValue,0,0));
 }
 
 //....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......
