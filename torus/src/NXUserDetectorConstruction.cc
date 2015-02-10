@@ -79,13 +79,13 @@ G4VPhysicalVolume* NXUserDetectorConstruction::Construct()
     G4Element* elFe = new G4Element("Iron"    ,"Fe", 26., 55.85*g/mole);
     G4Element* elH  = new G4Element("Hydrogen","H" ,  1., 1.01*g/mole);
     G4double density     = 1.0e38*g/(densityscalefactor*parsec*parsec*parsec);
-    density = 1e15*g/m3 * (densityscalefactor*parsec*parsec*parsec);
+    density = 1e-5*g/m3 * (densityscalefactor*parsec*parsec*parsec);
     G4double pressure    = 1.e-19*pascal;
     G4double temperature = 10*kelvin;
     G4Material* GalGas = new G4Material("GalacticGas", density, 2, kStateGas, temperature, pressure);
     GalGas->AddElement(elH,  99.9*perCent);
     GalGas->AddElement(elFe, 0.1*perCent);
-    G4double absThickness=1e-20*scale;
+    G4double absThickness=1*scale;
     G4Material*  absMaterial = GalGas;
 
     G4cout<<"construct: target solid"<<G4endl;
