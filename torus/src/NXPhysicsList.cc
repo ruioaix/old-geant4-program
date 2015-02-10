@@ -5,15 +5,20 @@
 #include "G4ParticleTypes.hh"
 #include "G4SystemOfUnits.hh"
 #include "G4PhysicalConstants.hh"
+#include "StdPhysicsList.hh"
+#include "G4VPhysicsConstructor.hh"
 
 NXPhysicsList::NXPhysicsList():  G4VUserPhysicsList()
 {
+    physics = new PhysListEmStandard();
     //defaultCutValue = 1.0*cm;
     SetVerboseLevel(1);
 }
 
 NXPhysicsList::~NXPhysicsList()
-{}
+{
+    delete physics;
+}
 
 void NXPhysicsList::ConstructParticle()
 {
@@ -63,76 +68,10 @@ void NXPhysicsList::ConstructProcess()
 {
     G4cout<<"NXPhysicsList::ConstructProcess"<<G4endl;
     AddTransportation();
-    ConstructEM();
+    physics->ConstructProcess();
     G4cout<<"NXPhysicsList::ConstructProcess done"<<G4endl;
 }
 
-#include "G4ComptonScattering.hh"
-#include "G4GammaConversion.hh"
-#include "G4PhotoElectricEffect.hh"
-
-#include "G4eMultipleScattering.hh"
-#include "G4hMultipleScattering.hh"
-
-#include "G4eIonisation.hh"
-#include "G4eBremsstrahlung.hh"
-#include "G4eplusAnnihilation.hh"
-
-#include "G4MuIonisation.hh"
-#include "G4MuBremsstrahlung.hh"
-#include "G4MuPairProduction.hh"
-
-#include "G4hIonisation.hh"
-#include "G4hBremsstrahlung.hh"
-#include "G4hPairProduction.hh"
-
-#include "G4EmProcessOptions.hh"
-
-#include "G4ionIonisation.hh"
-#include "G4VAtomDeexcitation.hh"
-#include "G4UAtomicDeexcitation.hh"
-
-void NXPhysicsList::ConstructEM()
-{
-    G4cout<<"NXPhysicsList::ConstructEM"<<G4endl;
-    theParticleIterator->reset();
-    while( (*theParticleIterator)() ){
-        G4ParticleDefinition* particle = theParticleIterator->value();
-        G4ProcessManager* pmanager = particle->GetProcessManager();
-        G4String particleName = particle->GetParticleName();
-
-        //G4cout<<"for "<<particleName <<G4endl;
-        if (particleName == "gamma") {
-            // gamma         
-            G4cout<<"adding photon processes "<<G4endl;
-            pmanager->AddDiscreteProcess(new G4PhotoElectricEffect);
-            //pmanager->AddDiscreteProcess(new G4ComptonScattering);
-            //pmanager->AddDiscreteProcess(new G4GammaConversion);
-
-        } else if (particleName == "e-") {
-            //electron
-            G4cout<<"adding electron processes "<<G4endl;
-            //pmanager->AddProcess(new G4eMultipleScattering, -1, 1, 1);
-            //pmanager->AddProcess(new G4eIonisation,         -1, 2, 2);
-            //pmanager->AddProcess(new G4eBremsstrahlung,     -1, 3, 3);      
-        }
-    }
-    G4cout<<"setting EM options"<<G4endl;
-    G4VAtomDeexcitation * de = new G4UAtomicDeexcitation();
-    G4LossTableManager::Instance()->SetAtomDeexcitation(de);
-    
-    //emOptions.SetDeexcitationActive(true);
-    //emOptions.SetAugerActive(true);
-    //emOptions.SetMinEnergy(0.1 * keV);
-    de->SetFluo(true); // To activate deexcitation processes and fluorescence
-    de->SetAuger(true); // To activate Auger effect if deexcitation is activated
-    de->SetPIXE(true); // To activate Particle Induced X-Ray Emission (PIXE) 
-    //ad->SetFluo(true);
-    //ad->SetAuger(true);
-    G4cout << "deexcitation: " << de->IsFluoActive() << G4endl;
-
-    
-}
 
 void NXPhysicsList::SetCuts()
 {

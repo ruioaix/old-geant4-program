@@ -151,7 +151,7 @@ void PhysListEmStandard::ConstructProcess()
       ph->RegisterProcess(eIoni,                   particle);
       ph->RegisterProcess(new G4eBremsstrahlung(), particle);      
             
-    } else if (particleName == "e+") {
+    }/* else if (particleName == "e+") {
 
       G4eIonisation* eIoni = new G4eIonisation();
       eIoni->SetStepFunction(0.1, 100*um);      
@@ -200,7 +200,7 @@ void PhysListEmStandard::ConstructProcess()
                
       //all others charged particles except geantino
       ph->RegisterProcess(new G4hIonisation(),    particle);
-    }
+    }*/
   }
     
   // Deexcitation
@@ -208,7 +208,7 @@ void PhysListEmStandard::ConstructProcess()
   G4VAtomDeexcitation* de = new G4UAtomicDeexcitation();
   de->SetFluo(true);
   de->SetAuger(true);   
-  de->SetPIXE(false);  
+  de->SetPIXE(true);  
   G4LossTableManager::Instance()->SetAtomDeexcitation(de);
 }
 

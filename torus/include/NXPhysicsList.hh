@@ -2,7 +2,10 @@
 #define NXPhysicsList_h 1
 
 #include "G4VUserPhysicsList.hh"
+#include "G4VPhysicsConstructor.hh"
 #include "globals.hh"
+
+class G4VPhysicsConstructor;
 
 class NXPhysicsList: public G4VUserPhysicsList
 {
@@ -26,6 +29,8 @@ class NXPhysicsList: public G4VUserPhysicsList
 protected:
         // these methods Construct physics processes and register them
         void ConstructEM();
+private:
+	G4VPhysicsConstructor* physics;
 };
 
 #endif

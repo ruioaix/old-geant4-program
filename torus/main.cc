@@ -1,8 +1,7 @@
 #include "NXUserDetectorConstruction.hh"
-//#include "NXPhysicsList.hh"
-#include "StdPhysicsList.hh"
+#include "NXPhysicsList.hh"
 #include "NXPrimaryGeneratorAction.hh"
-//#include "NXRunAction.hh"
+#include "NXRunAction.hh"
 
 #include <G4RunManager.hh>
 #include <G4UImanager.hh>
@@ -36,7 +35,7 @@ int main(int argc,char** argv)
 	runManager->SetUserInitialization(detector);
 	//
 	G4cout<<"main: physics loading"<<G4endl;
-	G4VPhysicsConstructor* physics = new /*NXPhysicsList*/ PhysListEmStandard();
+	G4VUserPhysicsList* physics = new NXPhysicsList;
 	G4cout<<"main: physics user init"<<G4endl;
 	runManager->SetUserInitialization(physics);
 

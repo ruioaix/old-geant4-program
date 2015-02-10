@@ -1,5 +1,5 @@
-#ifndef NXPhysicsList_h
-#define NXPhysicsList_h 1
+#ifndef StdPhysicsList_h
+#define StdPhysicsList_h 1
 
 #include "G4VUserPhysicsList.hh"
 #include "G4VPhysicsConstructor.hh"

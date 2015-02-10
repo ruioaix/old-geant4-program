@@ -1,3 +1,6 @@
+/process/em/fluo true
+/process/em/auger true
+/process/em/pixe true
 /gps/verbose 0
 /gps/particle gamma
 /gps/number 100000
