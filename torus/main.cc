@@ -1,27 +1,23 @@
 #include "NXUserDetectorConstruction.hh"
-#include "NXPhysicsList.hh"
+//#include "NXPhysicsList.hh"
+#include "StdPhysicsList.hh"
 #include "NXPrimaryGeneratorAction.hh"
-#include "NXRunAction.hh"
-//#include "NXEventAction.hh"
-//#include "NXSteppingAction.hh"
-//#include "NXSteppingVerbose.hh"
+//#include "NXRunAction.hh"
 
-#include "G4RunManager.hh"
-#include "G4UImanager.hh"
-#include "G4UIterminal.hh"
-#include "G4UItcsh.hh"
+#include <G4RunManager.hh>
+#include <G4UImanager.hh>
+#include <G4UIterminal.hh>
 
-#include "G4Timer.hh"
-#include "ctime"
-#include "cstdio"
+#include <G4Timer.hh>
+#ifdef G4VIS_USE
+#include <G4VisExecutive.hh>
+#endif
+#include <errno.h>
 
 int main(int argc,char** argv)
 {
 	G4Timer myTimer;
 	myTimer.Start(); 	
-	time_t lt = time(NULL);
-	G4cout<<"main: beginning time is"<<ctime(&lt)<<G4endl;
-
 	// User Verbose output class
 	//
 	//G4VSteppingVerbose* verbosity = new NXSteppingVerbose;
@@ -31,7 +27,7 @@ int main(int argc,char** argv)
 	//
 	G4cout<<"main: init G4RunManager"<<G4endl;
 	G4RunManager * runManager = new G4RunManager;
-
+	
 	// User Initialization classes (mandatory)
 	//
 	G4cout<<"main: detector init "<<G4endl;
@@ -40,7 +36,7 @@ int main(int argc,char** argv)
 	runManager->SetUserInitialization(detector);
 	//
 	G4cout<<"main: physics loading"<<G4endl;
-	G4VUserPhysicsList* physics = new NXPhysicsList;
+	G4VPhysicsConstructor* physics = new /*NXPhysicsList*/ PhysListEmStandard();
 	G4cout<<"main: physics user init"<<G4endl;
 	runManager->SetUserInitialization(physics);
 
@@ -51,10 +47,10 @@ int main(int argc,char** argv)
 	G4cout<<"main: generator set action "<<G4endl;
 	runManager->SetUserAction(gen_action);
 	//
-	G4cout<<"main: run action init"<<G4endl;
-	G4UserRunAction* run_action = new NXRunAction;
-	G4cout<<"main: run action user init"<<G4endl;
-	runManager->SetUserAction(run_action);
+	// G4cout<<"main: run action init"<<G4endl;
+	// G4UserRunAction* run_action = new NXRunAction;
+	// G4cout<<"main: run action user init"<<G4endl;
+	// runManager->SetUserAction(run_action);
 	//
 	//G4UserEventAction* event_action = new NXEventAction;
 	//runManager->SetUserAction(event_action);
@@ -67,6 +63,12 @@ int main(int argc,char** argv)
 	G4cout<<G4endl;
 	G4cout<<"main: runManager init"<<G4endl;
 	runManager->Initialize();
+
+	// Instantiation and initialization of the Visualization Manager
+	#ifdef G4VIS_USE
+	G4VisManager* visManager = new G4VisExecutive;
+	visManager->Initialize();
+	#endif
 
 	// Get the pointer to the User Interface manager
 	//
@@ -86,10 +88,11 @@ int main(int argc,char** argv)
 	}
 	
 	delete runManager;
+	#ifdef G4VIS_USE
+	delete visManager;
+	#endif
 	//delete verbosity;
 
-	lt = time(NULL);
-	printf( "the end time is %s", ctime(&lt));
 	myTimer.Stop();
 	G4cout<<"Spend time:"<<myTimer<<G4endl;
 

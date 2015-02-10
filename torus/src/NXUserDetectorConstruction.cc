@@ -1,11 +1,9 @@
-//....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo...... 
-//....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......
-
 #include "NXUserDetectorConstruction.hh"
 #include "NXSensitiveDetector.hh"
 
 #include "G4Material.hh"
 #include "G4Box.hh"
+#include "G4Sphere.hh"
 #include "G4LogicalVolume.hh"
 #include "G4PVPlacement.hh"
 #include "G4PVParameterised.hh"
@@ -17,16 +15,24 @@
 
 #include "G4VisAttributes.hh"
 #include "G4Colour.hh"
-
 #include "G4ios.hh"
-
 #include "G4NistManager.hh"
+#include "G4SystemOfUnits.hh"
+#include "G4PhysicalConstants.hh"
+#include "G4Isotope.hh"
+#include "G4Element.hh"
+#include "G4Material.hh"
+#include "G4UnitsTable.hh"
+
+//#define scale (3.08e13*km / 1000000)
+#define scale (m)
+#define densityscalefactor (scale*scale*scale/(parsec*1.*parsec*parsec))
 
 NXUserDetectorConstruction::NXUserDetectorConstruction() :
     solidWorld(0),  logicWorld(0),  physiWorld(0),
     solidTarget(0), logicTarget(0), physiTarget(0), 
     stepLimit(0), 
-    worldLength(100*m), fTargetLength(0)
+    worldLength(5.*scale), fTargetLength(0)
 {
 }
 
@@ -69,16 +75,26 @@ G4VPhysicalVolume* NXUserDetectorConstruction::Construct()
     // Target
     //------------------------------
     G4cout<<"construct: target material"<<G4endl;
-    G4Material* absMaterial=man->FindOrBuildMaterial("G4_Fe");;
-    G4double absThickness=1*mm;
+    //G4Material* absMaterial=man->FindOrBuildMaterial("G4_Fe");;
+    G4Element* elFe = new G4Element("Iron"    ,"Fe", 26., 55.85*g/mole);
+    G4Element* elH  = new G4Element("Hydrogen","H" ,  1., 1.01*g/mole);
+    G4double density     = 1.0e38*g/(densityscalefactor*parsec*parsec*parsec);
+    density = 1e15*g/m3 * (densityscalefactor*parsec*parsec*parsec);
+    G4double pressure    = 1.e-19*pascal;
+    G4double temperature = 10*kelvin;
+    G4Material* GalGas = new G4Material("GalacticGas", density, 2, kStateGas, temperature, pressure);
+    GalGas->AddElement(elH,  99.9*perCent);
+    GalGas->AddElement(elFe, 0.1*perCent);
+    G4double absThickness=1e-20*scale;
+    G4Material*  absMaterial = GalGas;
 
     G4cout<<"construct: target solid"<<G4endl;
-    solidAbsorber = new G4Box("target", 1*m, 1*m, absThickness / 2);
+    solidAbsorber = new G4Box("target", absThickness / 2., 1.*scale, 1.*scale);
     G4cout<<"construct: target logic"<<G4endl;
     logicAbsorber = new G4LogicalVolume(solidAbsorber, absMaterial,"Target",0,0,0);
     G4cout<<"construct: target physic"<<G4endl;
     physiAbsorber = new G4PVPlacement(0,               // no rotation
-                G4ThreeVector(0,0,0.5*m),  // at (x,y,z)
+                G4ThreeVector(1.*scale,0,0),  // at (x,y,z)
                 logicAbsorber,     // its logical volume				  
                 "Absorber",        // its name
                 logicWorld,      // its mother  volume
@@ -86,16 +102,16 @@ G4VPhysicalVolume* NXUserDetectorConstruction::Construct()
                 0);              // copy number 
     
     G4cout<<"construct: target material"<<G4endl;
-    fTargetLength=1*mm;
-    G4double fHalfTargetLength=0.5*fTargetLength;
+    fTargetLength=worldLength/1000;
 
     G4cout<<"construct: target solid"<<G4endl;
-    solidTarget = new G4Box("target", 1*m, 1*m, fHalfTargetLength);
+    solidTarget = new G4Sphere("target", worldLength/2 - fTargetLength, worldLength/2, 
+		0, 2*pi, 0, pi);
     G4cout<<"construct: target logic"<<G4endl;
     logicTarget = new G4LogicalVolume(solidTarget,Vacuum,"Target",0,0,0);
     G4cout<<"construct: target physic"<<G4endl;
     physiTarget = new G4PVPlacement(0,               // no rotation
-                G4ThreeVector(0,0,1*m),  // at (x,y,z)
+                G4ThreeVector(0,0,0),  // at (x,y,z)
                 logicTarget,     // its logical volume				  
                 "Target",        // its name
                 logicWorld,      // its mother  volume

@@ -5,6 +5,7 @@
 #include "G4VUserDetectorConstruction.hh"
 
 class G4Box;
+class G4Sphere;
 class G4LogicalVolume;
 class G4VPhysicalVolume;
 class G4Material;
@@ -29,7 +30,7 @@ class NXUserDetectorConstruction : public G4VUserDetectorConstruction
         G4LogicalVolume*   logicWorld;    // pointer to the logical envelope
         G4VPhysicalVolume* physiWorld;    // pointer to the physical envelope
 
-        G4Box*             solidTarget;   // pointer to the solid Target
+        G4Sphere*          solidTarget;   // pointer to the solid Target
         G4LogicalVolume*   logicTarget;   // pointer to the logical Target
         G4VPhysicalVolume* physiTarget;   // pointer to the physical Target
 

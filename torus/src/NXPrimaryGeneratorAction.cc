@@ -34,11 +34,11 @@ NXPrimaryGeneratorAction::~NXPrimaryGeneratorAction()
 void NXPrimaryGeneratorAction::GeneratePrimaries(G4Event* anEvent)
 { 
     //particleSource->SetParticleMomentumDirection(G4ThreeVector(0,0,1*m));
-    G4cout<<"NXPrimaryGeneratorAction: shooting " 
+    /*G4cout<<"NXPrimaryGeneratorAction: shooting " 
 	" from "<< particleSource->GetParticlePosition() <<
 	" to "<< particleSource->GetParticleMomentumDirection() <<
 	" with Energy "<< particleSource->GetParticleEnergy() / keV <<
-	" keV" <<G4endl;
+	" keV" <<G4endl;*/
     
     //particleSource->SetParticleMomentumDirection(G4ThreeVector(0,0,1));
     // random energies

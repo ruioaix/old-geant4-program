@@ -3,10 +3,12 @@
 
 #include "G4ProcessManager.hh"
 #include "G4ParticleTypes.hh"
+#include "G4SystemOfUnits.hh"
+#include "G4PhysicalConstants.hh"
 
 NXPhysicsList::NXPhysicsList():  G4VUserPhysicsList()
 {
-    defaultCutValue = 1.0*cm;
+    //defaultCutValue = 1.0*cm;
     SetVerboseLevel(1);
 }
 
@@ -84,7 +86,11 @@ void NXPhysicsList::ConstructProcess()
 #include "G4hBremsstrahlung.hh"
 #include "G4hPairProduction.hh"
 
+#include "G4EmProcessOptions.hh"
+
 #include "G4ionIonisation.hh"
+#include "G4VAtomDeexcitation.hh"
+#include "G4UAtomicDeexcitation.hh"
 
 void NXPhysicsList::ConstructEM()
 {
@@ -111,11 +117,27 @@ void NXPhysicsList::ConstructEM()
             //pmanager->AddProcess(new G4eBremsstrahlung,     -1, 3, 3);      
         }
     }
+    G4cout<<"setting EM options"<<G4endl;
+    G4VAtomDeexcitation * de = new G4UAtomicDeexcitation();
+    G4LossTableManager::Instance()->SetAtomDeexcitation(de);
+    
+    //emOptions.SetDeexcitationActive(true);
+    //emOptions.SetAugerActive(true);
+    //emOptions.SetMinEnergy(0.1 * keV);
+    de->SetFluo(true); // To activate deexcitation processes and fluorescence
+    de->SetAuger(true); // To activate Auger effect if deexcitation is activated
+    de->SetPIXE(true); // To activate Particle Induced X-Ray Emission (PIXE) 
+    //ad->SetFluo(true);
+    //ad->SetAuger(true);
+    G4cout << "deexcitation: " << de->IsFluoActive() << G4endl;
+
+    
 }
 
 void NXPhysicsList::SetCuts()
 {
     G4cout<<"setting default cuts "<<G4endl;
     SetCutsWithDefault();
+    DumpCutValuesTable();
     G4cout<<"setting default cuts done"<<G4endl;
 }
