@@ -5,8 +5,6 @@
 #include "G4VPhysicsConstructor.hh"
 #include "globals.hh"
 
-class G4VPhysicsConstructor;
-
 class NXPhysicsList: public G4VUserPhysicsList
 {
     public:
@@ -29,8 +27,6 @@ class NXPhysicsList: public G4VUserPhysicsList
 protected:
         // these methods Construct physics processes and register them
         void ConstructEM();
-private:
-	G4VPhysicsConstructor* physics;
 };
 
 #endif
