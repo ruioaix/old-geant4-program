@@ -1,0 +1,74 @@
+set nocompatible "去掉讨厌的有关vi一致性模式，避免以前版本的一些bug和局限
+set nu "显示行号
+syntax on
+
+set smartindent
+set tabstop=2 "第一行设置tab键为4个空格
+set shiftwidth=2
+set expandtab
+set smarttab
+
+set autowrite "在不同的buffer转换时，自动保存当前buffer。
+
+set incsearch "在输入字符时，就显示跳到匹配点。
+set ignorecase "在用/xxx找xxx时，忽略大小写。
+set hlsearch "在查找时，所有匹配都高亮。
+set wrapscan "在查找时，到文件结尾则返回头部继续寻找。
+
+set history=100 "记录历史的行数 
+
+set so=8 "距离底部还有8行的时候，开始下滚。
+
+filetype plugin on "使用针对不同文件类型的插件所必须的。
+"filetype indent on
+
+set laststatus=2 "编辑器下面的两行
+set statusline=%4*%<\%m%<[%f\%r%h%w]\ [%{&ff},%{&fileencoding},%Y]%=\[Position=%l,%v,%p%%]
+map <F9> <ESC>Go---------------------------------------------华丽的一刀斩-----------------------------------------------<CR>
+
+"--ctags setting----------------------------------------------------------------------------------------
+set tags=tags
+set tags+=./tags
+set tags+=~/.vim/ctagall
+set tags+=~/.vim/unixtagall
+set tags+=~/public_html/drupal79/tags
+" Map <Tab> to either actually insert a <Tab> if
+" the current line is currently only whitespace, or start a omni
+" completion operation.
+function! CleverTab()
+  if strpart(getline('.'), 0, col('.')-1)=~'^\s*$'
+    return "\<Tab>"
+  else
+    return "\<C-X>\<C-n>"
+  endif
+endfunction
+inoremap <Tab> <C-R>=CleverTab() <CR>
+"inoremap <Tab> <C-x><C-o>
+
+"-- omnicppcomplete setting-----------------------------------------------------------------------------
+set completeopt=menu,longest
+"let OmniCpp_SelectFirstItem=0
+let OmniCpp_MayCompleteDot = 0 		"autocomplete with .
+let OmniCpp_MayCompleteArrow = 0 	"autocomplete with ->
+let OmniCpp_MayCompleteScope = 0   	"autocomplete with ::
+
+
+
+
+" vimwiki----------------------------------------------------------
+let g:vimwiki_hl_headers = 1
+let g:vimwiki_camel_case = 0
+"let g:vimwiki_html_header_numbering = 2
+let g:vimwiki_file_exts = 'pdf,txt,doc,rtf,xls,php,zip,rar,7z,html,gz,myscript'
+let g:vimwiki_user_htmls = '404.html'
+let g:vimwiki_list = [{'path': '~/WikiSources/',
+  \ 'path_html': '~/xrfind.github.com/', 'auto_export': 1,
+  \ 'template_path': '~/WikiSources/template/',
+  \ 'template_default': 'default', 'template_ext': '.html',}]
+"nmap <F3> ggO%toc<CR></div><CR><div id="all_right"><CR><div id="content"><ESC>Go</div><CR>%title<ESC>:5<cr>o
+"nmap <F4> :w<cr>:Vimwiki2HTML<cr>:bd<cr>
+
+
+autocmd BufNewFile * silent! 0r ~/.vim/templates/%:e.tpl
+"source .vimrc when write to the .vimrc-----------------------------------------------------------------
+autocmd! bufwritepost .vimrc source ~/.vimrc 
