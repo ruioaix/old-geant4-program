@@ -1,0 +1,14 @@
+/process/em/fluo true
+/process/em/auger true
+/process/em/pixe true
+/gps/verbose 0
+/gps/particle gamma
+/gps/number 100000
+/gps/ang/type focused
+/gps/direction 1 0 0 m
+/gps/ang/focuspoint 1 0 0 m
+/gps/ene/type Pow
+/gps/ene/min 0.1 keV
+/gps/ene/max 10 keV
+/gps/ene/alpha 0
+/run/beamOn 100

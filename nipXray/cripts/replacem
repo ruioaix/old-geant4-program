@@ -1,9 +1,0 @@
-#!/bin/bash
-cd macs
-ls 0* > aaa
-ls 1* >> aaa
-cat aaa | while read line
-do
-    find -name $line|xargs perl -pi -e 's|1000000000|100000000|g'
-done
-rm aaa
